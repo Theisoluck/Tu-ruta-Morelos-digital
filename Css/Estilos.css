@@ -13861,5 +13861,102 @@ fieldset:disabled .btn {
         display: none !important
     }
 }
+/* === ENCABEZADO === */
+.main-header {
+    background-color: #ffffff;
+    border-bottom: 4px solid #71785B;
+}
+
+.top-bar {
+    background-color: #F7F7F7;
+    padding: 1rem 2rem;
+}
+
+.top-nav .nav-link {
+    color: #333;
+    font-weight: 500;
+    margin-right: 15px;
+    transition: color 0.3s;
+}
+
+.top-nav .nav-link:hover {
+    color: #71785B;
+}
+
+.bottom-bar {
+    background-color: #71785B;
+}
+
+.bottom-bar .nav-link {
+    color: #ffffff;
+    font-weight: 500;
+    margin-right: 15px;
+}
+
+.bottom-bar .nav-link:hover {
+    text-decoration: underline;
+    color: #F7F7F7;
+}
+
+/* === HERO SECTION === */
+.hero-image img {
+    object-fit: cover;
+    height: auto;
+    max-height: 400px;
+}
+
+/* === CARDS DE MUNICIPIOS === */
+.card {
+    border: none;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card-title {
+    font-weight: bold;
+    color: #333;
+}
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.arrow-link {
+    position: absolute;
+    right: 15px;
+    bottom: 15px;
+    font-size: 1.5rem;
+    color: #71785B;
+    text-decoration: none;
+}
+
+.arrow-link:hover {
+    color: #4C5540;
+}
+
+/* === FOOTER === */
+footer {
+    background-color: #71785B;
+    color: white;
+}
+
+footer h5 {
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+footer a {
+    color: white;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
 
 /*# sourceMappingURL=bootstrap.min.css.map */

@@ -1,243 +1,214 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tu Ruta Morelos Digital</title>
-    <link rel="stylesheet" href="Css/Styles.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tu Ruta Morelos Digital</title>
+  <link rel="stylesheet" href="Css/Estilos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
 </head>
-
 <body>
-    <header class="main-header">
-        <div class="top-bar d-flex justify-content-between align-items-center px-4 py-2">
-            <div class="logo d-flex align-items-center">
-                <img src="assets/images/Capa_1.png" alt="Logo Gobierno de Morelos" height="80" />
-            </div>
-            <nav class="top-nav">
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="gobiernoDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            Gobierno
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="gobiernoDropdown">
-                            <li><a class="dropdown-item" href="#">Secretarías</a></li>
-                            <li><a class="dropdown-item" href="#">Dependencias</a></li>
-                            <li><a class="dropdown-item" href="#">Organismos Públicos</a></li>
-                        </ul>
-                    </li>
 
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="tierraDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
-                            La Tierra que nos Une
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="tierraDropdown">
-                            <li><a class="dropdown-item" href="#">Historia</a></li>
-                            <li><a class="dropdown-item" href="#">Cultura</a></li>
-                            <li><a class="dropdown-item" href="#">Turismo</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="#">Prensa</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Trámites y Servicios</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Atención Ciudadana</a></li>
-                </ul>
-            </nav>
+ <!-- ENCABEZADO PERSONALIZADO -->
+<header style="background-color: #0f2f1a;">
+  <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center">
+    <!-- Logos -->
+        <img src="../Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="60">
+       <!-- Navegación -->
+<nav class="ms-auto">
+  <ul class="nav gap-3 align-items-center justify-content-end">
+    <li class="nav-item d-flex align-items-center">
+      <!-- Flecha sólida apuntando a la izquierda -->
+      <div style="
+        width: 24px;
+        height: 24px;
+        background-color: #cd9a6c;
+        clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
+        border-radius: 4px;
+        margin-right: 8px;">
+      </div>
+      <a href="#" class="nav-link active text-uppercase" style="color: #cd9a6c;">Inicio</a>
+    </li>
+    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Centro</a></li>
+    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Sur</a></li>
+    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Oriente</a></li>
+    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Ruta de la Salud</a></li>
+    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Delegaciones</a></li>
+    <li class="nav-item">
+    </li>
+  </ul>
+</nav>
+
+
+        <!-- Ícono de búsqueda -->
+    <div>
+      <i class="bi bi-search" style="color: #cd9a6c; font-size: 1.2rem;"></i>
+    </div>
+  </div>
+   <!-- Fondo gráfico y título -->
+  <div class="text-center py-5 position-relative" style="background-color: #0f2f1a;">
+    <img src="../Activos/Imagenes/Vector.png" alt="Fondo gráfico" class="position-absolute top-0 start-0 w-100 h-110" style="opacity: 0.05; object-fit: cover; z-index: 0;">
+    
+    <div class="position-relative z-1">
+      <img src="../Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad" style="max-width: 550px;" class="mb-3">
+    </div>
+  </div>
+</header>
+      </ul>
+    </nav>
+    </div>
+
+ 
+
+  <!-- CUERPO PRINCIPAL -->
+  <main class="text-center">
+
+    
+    <!-- LOGO + TÍTULO -->
+    <section class="mt-4">
+      <img src="Activos/Imagenes/logito.png" alt="Movilidad Morelos" class="img-fluid" style="max-width: 100px;" />
+      <h2 class="mt-3">Movilidad Morelos</h2>
+    </section>
+
+    <!-- CARDS -->
+    <section class="container my-5">
+      <div class="row g-4">
+        <!-- CARD 1 -->
+        <div class="col-md-4">
+          <div class="card h-100 position-relative">
+            <img src="assets/images/Centro .png" class="card-img-top" alt="Card 1">
+            <div class="card-body">
+              <h5 class="card-title">Centro</h5>
+              <p class="card-text">
+                Cuernavaca<br>Jiutepec<br>Temixco<br>Xochitepec<br>Emiliano Zapata<br>Huitzilac<br>Tepoztlán
+              </p>
+              <a href="HTML/Centro.html" class="arrow-link">➜</a>
+            </div>
+          </div>
         </div>
 
-        <div class="bottom-bar px-4 py-2">
-            <nav class="bottom-nav">
-                <ul class="nav">
-                    <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Programas</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Convocatorias</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Noticias</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Trámites</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Transparencia</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
-                </ul>
-            </nav>
+        <!-- CARD 2 -->
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="assets/images/Sur.png" class="card-img-top" alt="Card 2">
+            <div class="card-body">
+              <h5 class="card-title">Sur</h5>
+              <p class="card-text">Jojutla, Zacatepec, Amacuzac, Tetecala, Puente de Ixtla, Tlaltizapan, Miacatlán, Coatlán del Río, Mazatepec, Tlaquiltenango, Coatetelco, Xoxocotla</p>
+            </div>
+          </div>
         </div>
-    </header>
 
-    <main class="text-center">
-        <!-- Imagen de cabecera -->
-        <section class="hero-image">
-            <img src="assets/images/Cabezera.png" alt="Cabezera Morelos" class="img-fluid w-100" />
-        </section>
-
-        <hr>
-        <!-- Imagen PNG con texto -->
-        <section class="mt-4">
-            <img src="assets/images/Cabeza.png" alt="Movilidad Morelos" class="img-fluid" style="max-width: 300px;" />
-            <h2 class="mt-3">Movilidad Morelos</h2>
-        </section>
-
-        <!-- Cards -->
-        <section class="container my-5">
-            <div class="row g-4">
-                <!-- Card 1 -->
-                <div class="col-md-4">
-                    <div class="card h-100 position-relative">
-                        <img src="assets/images/Centro .png" class="card-img-top" alt="Card 1">
-                        <div class="card-body">
-                            <h5 class="card-title">Centro</h5>
-                            <p class="card-text">
-                                Cuernavaca<br>
-                                Jiutepec<br>
-                                Temixco<br>
-                                Xochitepec<br>
-                                Emiliano Zapata<br>
-                                Huitzilac<br>
-                                Tepoztlán
-                            </p>
-                            <a href="HTML/Centro.html" class="arrow-link">
-                                ➜
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 2 -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="assets/images/Sur.png" class="card-img-top" alt="Card 2">
-                        <div class="card-body">
-                            <h5 class="card-title">Sur</h5>
-                            <p class="card-text">
-                                Jojutla
-                                Zacatepec
-                                Amacuzac
-                                Tetecala
-                                Puente de Ixtla
-                                Tetecala
-                                Tlaltizapan
-                                Miacatlan
-                                Coatlan del rio
-                                Mazatepec
-                                Tlaquiltenango
-                                Coatetelco
-                                Xoxocotla
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 3 -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="assets/images/Oriente.png" class="card-img-top" alt="Card 3">
-                        <div class="card-body">
-                            <h5 class="card-title">Oriente</h5>
-                            <p class="card-text">Cuatla
-                                Yecapixtla
-                                Axochiapan
-                                Tlayacapan
-                                Ocuituco
-                                Zacualpan
-                                Temoac
-                                Ciudad Ayala
-                                Tepalcingo
-                                Atlatlahucan
-                                Yautepec
-                                Totolapan</p>
-                        </div>
-                    </div>
-                </div>
+        <!-- CARD 3 -->
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="assets/images/Oriente.png" class="card-img-top" alt="Card 3">
+            <div class="card-body">
+              <h5 class="card-title">Oriente</h5>
+              <p class="card-text">Cuautla, Yecapixtla, Axochiapan, Tlayacapan, Ocuituco, Zacualpan, Temoac, Ciudad Ayala, Tepalcingo, Atlatlahucan, Yautepec, Totolapan</p>
             </div>
-
-            <div class="row g-4 mt-3 justify-content-center">
-                <!-- Card 4 -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="assets/images/Ruta de la Salud.png" class="card-img-top" alt="Card 4">
-                        <div class="card-body">
-                            <h5 class="card-title">Ruta de la salud</h5>
-                            <p class="card-text">Cuernavaca
-                                Juitepec
-                                Emiliano Zapata
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 5 -->
-                <div class="col-md-4">
-                    <div class="card h-100">
-                        <img src="assets/images/Delegaciones.png" class="card-img-top" alt="Card 5">
-                        <div class="card-body">
-                            <h5 class="card-title">Delegaciones </h5>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer style="background-color: #71785B; color: white;" class="pt-5 pb-4">
-        <div class="container">
-            <div class="row">
-                <!-- Imagen institucional -->
-                <div class="col-md-3 mb-4">
-                    <img src="assets/images/Capa_1.png" alt="Logo Institucional" class="img-fluid mb-3"
-                        style="max-width: 150px;">
-                    <p>Gobierno del Estado de Morelos</p>
-                </div>
-
-                <!-- Recursos -->
-                <div class="col-md-2 mb-4">
-                    <h5>Recursos</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Convocatorias</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Trámites</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Programas</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Normativas</a></li>
-                    </ul>
-                </div>
-
-                <!-- Ligas de Interés -->
-                <div class="col-md-2 mb-4">
-                    <h5>Ligas de interés</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Turismo</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Historia de Morelos</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Educación</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Eventos</a></li>
-                    </ul>
-                </div>
-
-                <!-- Transparencia -->
-                <div class="col-md-2 mb-4">
-                    <h5>Transparencia</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="text-white text-decoration-none">Portal de Obligaciones</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Rendición de Cuentas</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Presupuesto</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Contratos Públicos</a></li>
-                    </ul>
-                </div>
-
-                <!-- Contáctanos -->
-                <div class="col-md-3 mb-4">
-                    <h5>Contáctanos</h5>
-                    <ul class="list-unstyled">
-                        <li><span class="text-white">Dirección: Av. Morelos #123, Cuernavaca</span></li>
-                        <li><span class="text-white">Tel: (777) 123-4567</span></li>
-                        <li><span class="text-white">Email: contacto@morelos.gob.mx</span></li>
-                        <li><a href="#" class="text-white text-decoration-none">Formulario de contacto</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <hr class="border-top border-white">
-            <div class="text-center">
-                <p class="mb-0">© 2025 Gobierno del Estado de Morelos. Todos los derechos reservados.</p>
-            </div>
+          </div>
         </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="JavaScript/Script.js"></script>
+      </div>
+
+      <!-- FILA EXTRA -->
+      <div class="row g-4 mt-3 justify-content-center">
+        <!-- CARD 4 -->
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="assets/images/Ruta de la Salud.png" class="card-img-top" alt="Card 4">
+            <div class="card-body">
+              <h5 class="card-title">Ruta de la salud</h5>
+              <p class="card-text">Cuernavaca, Jiutepec, Emiliano Zapata</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- CARD 5 -->
+        <div class="col-md-4">
+          <div class="card h-100">
+            <img src="assets/images/Delegaciones.png" class="card-img-top" alt="Card 5">
+            <div class="card-body">
+              <h5 class="card-title">Delegaciones</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+   <!-- PIE DE PÁGINA -->
+  <footer style="background-color: #71785B; color: #fff; font-family: sans-serif;">
+  <div class="container py-5">
+    <div class="row text-center text-md-start">
+
+      <!-- Logo institucional -->
+      <div class="col-md-2 mb-4">
+        <img src="../Activos/Imagenes/LogoMovilidadBlanco.png" alt="Logo" class="img-fluid mb-2" style="max-width: 150px;">
+      </div>
+
+      <!-- Horario -->
+      <div class="col-md-2 mb-4">
+        <h6 class="fw-bold">Horario de Atención</h6>
+        <p class="mb-0">8:00 - 15:00</p>
+      </div>
+
+      <!-- Contacto -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold">Contáctanos en</h6>
+        <p class="mb-1">
+          <i class="bi bi-telephone-fill me-2"></i>(777) 329 6500
+        </p>
+        <p class="mb-1">
+          <i class="bi bi-envelope-fill me-2"></i>soportesvh@morelos.gob.mx
+        </p>
+        <p>
+          <i class="bi bi-envelope-fill me-2"></i>soporte.hacienda@morelos.gob.mx
+        </p>
+      </div>
+
+      <!-- Ubicación -->
+      <div class="col-md-3 mb-4">
+        <h6 class="fw-bold">Ubicación</h6>
+        <p class="mb-0">Corporativos Arcos Cristal,<br>"Plaza Cristal" Plan de Ayala número 825,<br>Col. Teopanzolco, Cuernavaca, Morelos.</p>
+      </div>
+
+      <!-- Contacto rápido -->
+      <div class="col-md-2 mb-4">
+        <h6 class="fw-bold">Contacto Rápido</h6>
+        <ul class="list-unstyled">
+          <li><a href="#" class="text-white text-decoration-none">Trámites</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Noticias</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Eventos</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Programas</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Convocatorias</a></li>
+          <li><a href="#" class="text-white text-decoration-none">Organigrama</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Línea final -->
+    <div class="row mt-4">
+      <div class="col-md-6 text-center text-md-start">
+        <p class="mb-0 small">Política Privacidad &nbsp;&nbsp;&nbsp; Configuración Cookies</p>
+      </div>
+      <div class="col-md-6 text-center text-md-end">
+        <!-- Redes sociales -->
+        <a href="#" class="text-white fs-4 me-3"><i class="bi bi-facebook"></i></a>
+        <a href="#" class="text-white fs-4 me-3"><i class="bi bi-instagram"></i></a>
+        <a href="#" class="text-white fs-4 me-3"><i class="bi bi-x"></i></a>
+        <a href="#" class="text-white fs-4 me-3"><i class="bi bi-linkedin"></i></a>
+        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+
+  <!-- BOOTSTRAP SCRIPT -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
+
