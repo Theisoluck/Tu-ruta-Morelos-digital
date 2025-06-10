@@ -13,7 +13,7 @@
 <body>
 
  <!-- ENCABEZADO PERSONALIZADO -->
-<header style="background-color: #0f2f1a;">
+<header style="background-color: #283C2A;">
   <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center">
     <!-- Logos -->
         <img src="../Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="60">
@@ -21,15 +21,6 @@
 <nav class="ms-auto">
   <ul class="nav gap-3 align-items-center justify-content-end">
     <li class="nav-item d-flex align-items-center">
-      <!-- Flecha sólida apuntando a la izquierda -->
-      <div style="
-        width: 24px;
-        height: 24px;
-        background-color: #cd9a6c;
-        clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
-        border-radius: 4px;
-        margin-right: 8px;">
-      </div>
       <a href="#" class="nav-link active text-uppercase" style="color: #cd9a6c;">Inicio</a>
     </li>
     <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Centro</a></li>
@@ -49,7 +40,7 @@
     </div>
   </div>
    <!-- Fondo gráfico y título -->
-  <div class="text-center py-5 position-relative" style="background-color: #0f2f1a;">
+  <div class="text-center py-5 position-relative" style="background-color: #283C2A;">
     <img src="../Activos/Imagenes/Vector.png" alt="Fondo gráfico" class="position-absolute top-0 start-0 w-100 h-110" style="opacity: 0.05; object-fit: cover; z-index: 0;">
     
     <div class="position-relative z-1">
@@ -70,71 +61,211 @@
     <!-- LOGO + TÍTULO -->
     <section class="mt-4">
       <img src="Activos/Imagenes/logito.png" alt="Movilidad Morelos" class="img-fluid" style="max-width: 100px;" />
-      <h2 class="mt-3">Movilidad Morelos</h2>
+      <h2 class="mt-3" style="color: #cd9a6c;" >Movilidad Morelos </h2> 
     </section>
 
     <!-- CARDS -->
     <section class="container my-5">
       <div class="row g-4">
         <!-- CARD 1 -->
-        <div class="col-md-4">
-          <div class="card h-100 position-relative">
-            <img src="assets/images/Centro .png" class="card-img-top" alt="Card 1">
-            <div class="card-body">
-              <h5 class="card-title">Centro</h5>
-              <p class="card-text">
-                Cuernavaca<br>Jiutepec<br>Temixco<br>Xochitepec<br>Emiliano Zapata<br>Huitzilac<br>Tepoztlán
-              </p>
-              <a href="HTML/Centro.html" class="arrow-link">➜</a>
-            </div>
-          </div>
-        </div>
+     <div class="col-md-4">
+  <div class="card h-100 border border-1 rounded-4 p-4"
+       style="border-color: #e0e0e0; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); min-height: 320px;">
+    
+    <!-- Imagen + texto -->
+<div class="d-flex align-items-center">
+      <div class="flex-shrink-0 me-4">
+        <img src="Activos/Imagenes/mapaCentro.png" alt="Mapa Centro" style="max-width: 200px;">
+      </div>
+      <div class="flex-grow-1 text-start">
+        <h5 class="fw-bold mb-2" style="color: #AC8E68;">CENTRO</h5>
+        <p class="mb-0" style="font-size: 1rem; color: #6F7857;">
+          Cuernavaca<br>
+          Jiutepec<br>
+          Temixco<br>
+          Xochitepec<br>
+          Emiliano Zapata<br>
+          Huitzilac<br>
+          Tepoztlán
+        </p>
+      </div>
+    </div>
+
+    <!-- Botón flecha -->
+    <div class="text-center mt-4">
+      <a href="HTML/Centro.html" class="btn"
+         style="background-color: #8E1E41; color: white; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
+        <i class="bi bi-arrow-right-short fs-4"></i>
+      </a>
+    </div>
+  </div>
+</div>
 
         <!-- CARD 2 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="assets/images/Sur.png" class="card-img-top" alt="Card 2">
-            <div class="card-body">
-              <h5 class="card-title">Sur</h5>
-              <p class="card-text">Jojutla, Zacatepec, Amacuzac, Tetecala, Puente de Ixtla, Tlaltizapan, Miacatlán, Coatlán del Río, Mazatepec, Tlaquiltenango, Coatetelco, Xoxocotla</p>
-            </div>
-          </div>
-        </div>
+       <div class="col-md-4">
+  <div class="card h-100 border border-1 rounded-4 p-4 text-center"
+       style="border-color: #e0e0e0; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); min-height: 340px;">
+    
+    <!-- Título -->
+    <h5 class="fw-bold mb-3" style="color: #AC8E68;">SUR</h5>
+
+    <!-- Mapa + Texto doble columna -->
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <!-- Columna izquierda -->
+      <div class="text-end pe-3" style="font-size: 0.95rem; color: #6F7857;">
+        Jojutla<br>
+        Zacatepec<br>
+        Amacuzac<br>
+        Tetecala<br>
+        Puente de Ixtla<br>
+        Tetecala
+      </div>
+
+      <!-- Imagen en el centro -->
+      <div class="px-3">
+        <img src="Activos/Imagenes/mpaSur.png" alt="Mapa Sur" style="max-width: 130px;">
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="text-start ps-3" style="font-size: 0.95rem; color: #6F7857;">
+        Tlaltizapan<br>
+        Miacatlán<br>
+        Coatlán del Río<br>
+        Mazatepec<br>
+        Tlaquiltenango<br>
+        Coatetelco<br>
+        Xoxocotla
+      </div>
+    </div>
+        <!-- Botón flecha -->
+    <div class="text-center mt-4">
+      <a href="HTML/SUR.html" class="btn"
+         style="background-color: #8E1E41; color: white; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
+        <i class="bi bi-arrow-right-short fs-4"></i>
+      </a>
+    </div>
+  </div>
+</div>
 
         <!-- CARD 3 -->
         <div class="col-md-4">
-          <div class="card h-100">
-            <img src="assets/images/Oriente.png" class="card-img-top" alt="Card 3">
-            <div class="card-body">
-              <h5 class="card-title">Oriente</h5>
-              <p class="card-text">Cuautla, Yecapixtla, Axochiapan, Tlayacapan, Ocuituco, Zacualpan, Temoac, Ciudad Ayala, Tepalcingo, Atlatlahucan, Yautepec, Totolapan</p>
-            </div>
-          </div>
-        </div>
+  <div class="card h-100 border border-1 rounded-4 p-4 text-center"
+       style="border-color: #e0e0e0; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); min-height: 340px;">
+    
+    <!-- Título -->
+    <h5 class="fw-bold mb-3" style="color: #AC8E68;">ORIENTE</h5>
+
+    <!-- Mapa + Texto doble columna -->
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <!-- Columna izquierda -->
+      <div class="text-start ps-3" style="font-size: 0.95rem; color: #3c4b2f;">
+        Cuautla<br>
+        Yecapixtla<br>
+        Auxochiapan<br>
+        Tlayacapan<br>  
+        Ocuituco<br>
+        Zacualpan
       </div>
 
-      <!-- FILA EXTRA -->
-      <div class="row g-4 mt-3 justify-content-center">
-        <!-- CARD 4 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="assets/images/Ruta de la Salud.png" class="card-img-top" alt="Card 4">
-            <div class="card-body">
-              <h5 class="card-title">Ruta de la salud</h5>
-              <p class="card-text">Cuernavaca, Jiutepec, Emiliano Zapata</p>
-            </div>
-          </div>
-        </div>
+      <!-- Imagen en el centro -->
+      <div class="px-3">
+        <img src="Activos/Imagenes/mapaOriente.png" alt="Mapa Sur" style="max-width: 130px;">
+      </div>
+
+      <!-- Columna derecha -->
+      <div class="text-start ps-3" style="font-size: 0.95rem; color: #3c4b2f;">
+        Temoac<br> 
+        Cuidad Ayala<br>
+        Tepalcingo<br>
+        Atlatlahucan<br>
+        Yautepec<br>
+        Totolapan<br>
+      </div>
+    </div>
+        <!-- Botón flecha -->
+    <div class="text-center mt-4">
+      <a href="HTML/ORIENTE.html" class="btn"
+         style="background-color: #8E1E41; color: white; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
+        <i class="bi bi-arrow-right-short fs-4"></i>
+      </a>
+    </div>
+  </div>
+</div>
+
 
         <!-- CARD 5 -->
-        <div class="col-md-4">
-          <div class="card h-100">
-            <img src="assets/images/Delegaciones.png" class="card-img-top" alt="Card 5">
-            <div class="card-body">
-              <h5 class="card-title">Delegaciones</h5>
-            </div>
-          </div>
-        </div>
+       <div class="col-md-4">
+  <div class="card h-100 border border-1 rounded-4 p-4"
+       style="border-color: #e0e0e0; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); min-height: 320px;">
+    
+    <!-- Imagen + texto -->
+<div class="d-flex align-items-center">
+      <div class="flex-shrink-0 me-4">
+        <img src="Activos/Imagenes/RutaSalud.png" alt="Mapa SALUD" style="max-width: 200px;">
+      </div>
+      <div class="flex-grow-1 text-start">
+        <h5 class="fw-bold mb-2" style="color: #AC8E68;">RUTA DE LA SALUD</h5>
+        <p class="mb-0" style="font-size: 1rem; color: #6F7857;">
+          Cuernavaca<br>
+          Jiutepec<br>
+          Emiliano Zapata<br>
+        </p>
+      </div>
+    </div>
+
+    <!-- Botón flecha -->
+    <div class="text-center mt-4">
+      <a href="HTML/RUTADELASALUD.html" class="btn"
+         style="background-color: #8E1E41; color: white; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
+        <i class="bi bi-arrow-right-short fs-4"></i>
+      </a>
+    </div>
+  </div>
+</div>
+  <!--CARD 6-->
+<div class="col-md-4">
+  <div class="card h-100 border border-1 rounded-4 p-4 text-center"
+       style="border-color: #e0e0e0; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); min-height: 340px;">
+    
+    <!-- Título -->
+    <h5 class="fw-bold mb-3" style="color: #AC8E68;">DELEGACIONES</h5>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <!-- Imagen en el centro -->
+      <div class="px-3">
+        <img src="Activos/Imagenes/mapaDelegaciones.png" alt="Mapa DELEGACIONES" style="max-width: 170px;">
+      </div>
+    </div>
+        <!-- Botón flecha -->
+    <div class="text-center mt-4">
+      <a href="HTML/DELEGACIONES.html" class="btn"
+         style="background-color: #8E1E41; color: white; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
+        <i class="bi bi-arrow-right-short fs-4"></i>
+      </a>
+    </div>
+  </div>
+</div>
+    <!--CARD 7-->
+    <div class="col-md-4">
+  <div class="card h-100 border border-1 rounded-4 p-4 text-center"
+       style="border-color: #e0e0e0; box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15); min-height: 340px;">
+    
+    <!-- Título -->
+    <h5 class="fw-bold mb-3" style="color: #AC8E68;">MAPA INTERACTIVO</h5>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+      <!-- Imagen en el centro -->
+      <div class="px-3">
+        <img src="Activos/Imagenes/MapaInteractivo 1.png" alt="Mapa DELEGACIONES" style="max-width: 170px;">
+      </div>
+    </div>
+        <!-- Botón flecha -->
+    <div class="text-center mt-4">
+      <a href="HTML/MAPAINTERACTIVO.html" class="btn"
+         style="background-color: #8E1E41; color: white; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
+        <i class="bi bi-arrow-right-short fs-4"></i>
+      </a>
+    </div>
+  </div>
+</div>
       </div>
     </section>
   </main>
