@@ -13957,6 +13957,34 @@ footer a {
 footer a:hover {
     text-decoration: underline;
 }
+.marco-mapa {
+  display: inline-block;
+  padding: 8px;
+  background-color: #cd9a6c; /* color dorado institucional */
+  border: 5px solid #cd9a6c;
+  border-radius: 4px;
+}
+.titulo-subrayado {
+  font-family: 'Quetzalli Sans', sans-serif; /* o cualquier fuente que estés usando */
+  font-weight: 800;
+  font-size: 1.5rem;
+  color: #AC8E68;
+  text-align: center;
+  position: relative;
+  display: inline-block;
+  margin: 0 auto 1rem auto;
+  padding-bottom: 8px;
+}
+
+.titulo-subrayado::after {
+  content: '';
+  display: block;
+  height: 5px;
+  width: 70%;
+  background-color: #C2996D;
+  border-radius: 10px;
+  margin: 6px auto 0 auto;
+}
 
 
 /*# sourceMappingURL=bootstrap.min.css.map */
