@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mapa Interactivo - Mi Ruta</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        #map {
+            height: 100vh;
+        }
+
+        .control-btn {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            z-index: 1000;
+            background: #8E1E41;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 8px;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button class="control-btn" onclick="getLocation()">📍 ¿Dónde estoy?</button>
+    <div id="map"></div>
+
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([18.9186, -99.2345], 13); // Cuernavaca
+
+        // Mapa base OSM
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Ubicación del usuario
+        function getLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(position => {
+                    const lat = position.coords.latitude;
+                    const lon = position.coords.longitude;
+                    L.marker([lat, lon]).addTo(map).bindPopup("Estás aquí").openPopup();
+                    map.setView([lat, lon], 15);
+
+                    // Paradas ejemplo (simuladas)
+                    const paradas = [
+                        { nombre: "Parada A", coords: [lat + 0.001, lon + 0.001] },
+                        { nombre: "Parada B", coords: [lat - 0.001, lon - 0.001] }
+                    ];
+
+                    paradas.forEach(p => {
+                        L.circle(p.coords, {
+                            color: '#cd9a6c',
+                            radius: 50
+                        }).addTo(map).bindPopup(p.nombre);
+                    });
+                });
+            } else {
+                alert("La geolocalización no es soportada por tu navegador");
+            }
+        }
+    </script>
+</body>
+
+</html>
