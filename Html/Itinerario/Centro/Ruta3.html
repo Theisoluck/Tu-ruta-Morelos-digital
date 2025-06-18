@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tu Ruta Morelos Digital</title>
+    <link rel="stylesheet" href="Css/Estilos.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+    <style>
+        #map {
+            height: 500px;
+            width: 100%;
+            border: 10px solid #cd9a6c;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- ENCABEZADO PERSONALIZADO -->
+    <header style="background-color: #283C2A;">
+        <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center">
+            <img src="../../../Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="60">
+            <nav class="ms-auto">
+                <ul class="nav gap-3 align-items-center justify-content-end mb-0">
+                    <li class="nav-item"><a href="../../../Indice.html" class="nav-link active text-uppercase"
+                            style="color: #cd9a6c;">Inicio</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Centro</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Sur</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Oriente</a></li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Ruta de la Salud</a>
+                    </li>
+                    <li class="nav-item"><a href="#" class="nav-link text-white text-uppercase">Delegaciones</a></li>
+                </ul>
+            </nav>
+            <div>
+                <i class="bi bi-search" style="color: #cd9a6c; font-size: 1.2rem;"></i>
+            </div>
+        </div>
+
+        <div class="text-center position-relative py-5" style="background-color: #283C2A; overflow: hidden;">
+            <a href="../../Sur.html">
+                <img src="../../../Activos/Imagenes/Regresar.png" alt="Regresar"
+                    style="position: absolute; top: 20px; left: 20px; width: 50px; z-index: 2; cursor: pointer;">
+            </a>
+            <img src="../../../Activos/Imagenes/Vector.png" alt="Fondo gráfico" class="position-absolute start-0 w-10"
+                style="top: 10px; height: 145%; opacity: 0.08; object-fit: cover; z-index: 0;">
+            <div class="position-relative z-1 pt-4">
+                <img src="../../../Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
+                    style="max-width: 550px;" class="mb-4">
+                <h2 class="fw-bold mb-2" style="color: #cd9a6c; font-size: 2.5rem;">RUTA 1 – SUR</h2>
+                <div style="height: 5px; width: 800px; background-color: #cd9a6c; margin: 0 auto; border-radius: 2px;">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="text-center">
+        <section class="container my-5">
+            <!-- BOTÓN DE GEOLOCALIZACIÓN -->
+            <div class="mb-3">
+                <button class="btn btn-danger" onclick="getLocation()">¿Dónde estoy?</button>
+                <button class="btn btn-warning mb-3" onclick="mostrarParadaCercana()">Mostrar parada más cercana</button>
+
+            </div>
+
+            <!-- MAPA INTERACTIVO -->
+            <div id="map" class="mx-auto mb-5"></div>
+
+            <!-- PARADAS Y LUGARES DE INTERÉS -->
+            <div class="row text-center justify-content-center">
+                <div class="col-md-5 mb-4">
+                    <h4 class="fw-bold text-uppercase"
+                        style="color: #AC8E68; position: relative; display: inline-block;">
+                        PARADAS
+                        <span style="position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+                         height: 4px; width: 120px; background-color: #c49a6c; border-radius: 2px;"></span>
+                    </h4>
+                    <ul class="list-unstyled mt-4" style="color: #6F7857; font-weight: 500;">
+                        <h5>Avenida Morelos</h5>
+                        <h5>Mercado Adolfo López Mateos</h5>
+                        <h5>Catedral</h5>
+                        <h5>Parque Revolución</h5>
+                        <h5>Plaza Cuernavaca</h5>
+                        <h5>IMSS Plan de Ayala</h5>
+                        <h5>CIVAC</h5>
+                        <h5>Walmart Jiutepec</h5>
+                    </ul>
+                </div>
+                <div class="col-md-5 mb-4">
+                    <h4 class="fw-bold text-uppercase"
+                        style="color: #AC8E68; position: relative; display: inline-block;">
+                        LUGARES DE INTERÉS
+                        <span style="position: absolute; bottom: -6px; left: 50%; transform: translateX(-50%);
+                         height: 4px; width: 160px; background-color: #c49a6c; border-radius: 2px;"></span>
+                    </h4>
+                    <ul class="list-unstyled mt-4" style="color: #6F7857; font-weight: 500;">
+                        <h5>Palacio de Cortés</h5>
+                        <h5>Jardín Borda</h5>
+                        <h5>Zócalo de Cuernavaca</h5>
+                        <h5>Museo Morelense de Arte Popular</h5>
+                        <h5>Parque Melchor Ocampo</h5>
+                        <h5>Unidad Deportiva Centenario</h5>
+                        <h5>Hospital Parres</h5>
+                        <h5>Estadio Centenario</h5>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- PIE DE PÁGINA -->
+    <footer style="background-color: #71785B; color: #fff; font-family: sans-serif;">
+        <div class="container py-5">
+            <div class="row text-center text-md-start">
+                <div class="col-md-2 mb-4">
+                    <img src="../../../Activos/Imagenes/LogoMovilidadBlanco.png" alt="Logo" class="img-fluid mb-2"
+                        style="max-width: 150px;">
+                </div>
+                <div class="col-md-1 mb-4">
+                    <h6 class="fw-bold">Horario de Atención</h6>
+                    <p class="mb-0">8:00 - 15:00</p>
+                </div>
+                <div class="col-md-4 mb-1">
+                    <h6 class="fw-bold">Contáctanos en</h6>
+                    <p class="mb-1 d-flex align-items-center">
+                        <i class="bi bi-telephone-fill me-2"></i> (777) 329 6500
+                    </p>
+                    <p class="mt-2 d-flex align-items-center"
+                        style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                        <i class="bi bi-envelope-fill me-2"></i>
+                        <span>correspondencia.movilidad@morelos.gob.mx</span>
+                    </p>
+                </div>
+                <div class="col-md-3 mb-4">
+                    <h6 class="fw-bold">Ubicación</h6>
+                    <p class="mb-0">Corporativos Arcos Cristal,<br>"Plaza Cristal" Plan de Ayala número 825,<br>Col.
+                        Teopanzolco, Cuernavaca, Morelos.</p>
+                </div>
+                <div class="col-md-2 mb-4">
+                    <h6 class="fw-bold">Contacto Rápido</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white text-decoration-none">Trámites</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Noticias</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Eventos</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Programas</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Convocatorias</a></li>
+                        <li><a href="#" class="text-white text-decoration-none">Organigrama</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row mt-4">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0 small">Política Privacidad &nbsp;&nbsp;&nbsp; Configuración Cookies</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <a href="#" class="text-white fs-4 me-3"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white fs-4 me-3"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="text-white fs-4 me-3"><i class="bi bi-x"></i></a>
+                    <a href="#" class="text-white fs-4 me-3"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+   <script>
+    const map = L.map('map');
+    let usuarioMarker = null;
+    let paradaCercanaMarker = null;
+
+    const paradas = [
+        { nombre: "Parada A", coords: [18.920, -99.234] },
+        { nombre: "Parada B", coords: [18.918, -99.230] },
+        { nombre: "Parada C", coords: [18.922, -99.237] }
+    ];
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+
+    // Mostrar ruta desde geojson
+    fetch("ruta_santa_maria.geojson")
+        .then(response => response.json())
+        .then(data => {
+            const ruta = L.geoJSON(data, {
+                style: {
+                    color: "#cd9a6c",
+                    weight: 4
+                }
+            }).addTo(map);
+            map.fitBounds(ruta.getBounds());
+        })
+        .catch(error => console.error("Error al cargar el GeoJSON:", error));
+
+    // Función para geolocalizar al usuario
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                const lat = position.coords.latitude;
+                const lon = position.coords.longitude;
+
+                if (usuarioMarker) map.removeLayer(usuarioMarker);
+                usuarioMarker = L.marker([lat, lon]).addTo(map).bindPopup("Estás aquí").openPopup();
+                map.setView([lat, lon], 15);
+            });
+        } else {
+            alert("La geolocalización no es soportada por tu navegador.");
+        }
+    }
+
+    // Función para mostrar la parada más cercana
+    function mostrarParadaCercana() {
+        if (!navigator.geolocation) {
+            alert("La geolocalización no es soportada por tu navegador.");
+            return;
+        }
+
+        navigator.geolocation.getCurrentPosition(position => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            let distanciaMin = Infinity;
+            let paradaMasCercana = null;
+
+            paradas.forEach(p => {
+                const d = Math.sqrt(Math.pow(p.coords[0] - lat, 2) + Math.pow(p.coords[1] - lon, 2));
+                if (d < distanciaMin) {
+                    distanciaMin = d;
+                    paradaMasCercana = p;
+                }
+            });
+
+            if (paradaCercanaMarker) map.removeLayer(paradaCercanaMarker);
+            paradaCercanaMarker = L.marker(paradaMasCercana.coords, { icon: L.icon({
+                iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
+                iconSize: [30, 30]
+            })})
+            .addTo(map)
+            .bindPopup(`<strong>${paradaMasCercana.nombre}</strong>`)
+            .openPopup();
+
+            map.setView(paradaMasCercana.coords, 16);
+        });
+    }
+</script>
+
+
+
+</body>
+
+</html>
