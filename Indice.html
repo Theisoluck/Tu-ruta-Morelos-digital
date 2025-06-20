@@ -15,43 +15,57 @@
 <body>
 
   <!-- ENCABEZADO PERSONALIZADO -->
-  <header style="background-color: #283C2A;">
-    <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center">
-      <!-- Logos -->
-      <img src="../Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="60">
-      <!-- Navegación -->
-      <nav class="ms-auto">
-        <ul class="nav gap-3 align-items-center justify-content-end">
-          <li class="nav-item d-flex align-items-center">
-            <a href="../../../Indice.html" class="nav-link active text-uppercase" style="color: #cd9a6c;">Inicio</a>
-          </li>
-          <li class="nav-item"><a href="Html/Centro.html" class="nav-link text-white text-uppercase">Centro</a></li>
-          <li class="nav-item"><a href="Html/Sur.html" class="nav-link text-white text-uppercase">Sur</a></li>
-          <li class="nav-item"><a href="Html/Oriente.html" class="nav-link text-white text-uppercase">Oriente</a></li>
-          <li class="nav-item"><a href="Html/RutaDeLaSalud.html" class="nav-link text-white text-uppercase">Ruta de la Salud</a></li>
-          <li class="nav-item"><a href="Html/Delegaciones.html" class="nav-link text-white text-uppercase">Delegaciones</a></li>
+  <!-- ENCABEZADO RESPONSIVO -->
+<header style="background-color: #283C2A;">
+  <nav class="navbar navbar-expand-lg navbar-dark px-3">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="../Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="50">
+      </a>
+
+      <!-- Botón hamburguesa -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
+        aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Enlaces -->
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="navbar-nav ms-auto text-uppercase align-items-lg-center gap-lg-3">
           <li class="nav-item">
+            <a href="../../../Indice.html" class="nav-link active" style="color: #cd9a6c;">Inicio</a>
+          </li>
+          <li class="nav-item"><a href="Html/Centro.html" class="nav-link text-white">Centro</a></li>
+          <li class="nav-item"><a href="Html/Sur.html" class="nav-link text-white">Sur</a></li>
+          <li class="nav-item"><a href="Html/Oriente.html" class="nav-link text-white">Oriente</a></li>
+          <li class="nav-item"><a href="Html/RutaDeLaSalud.html" class="nav-link text-white">Ruta de la Salud</a></li>
+          <li class="nav-item"><a href="Html/Delegaciones.html" class="nav-link text-white">Delegaciones</a></li>
+          <li class="nav-item d-lg-none">
+            <a href="#" class="nav-link text-white"><i class="bi bi-search"></i> Buscar</a>
           </li>
         </ul>
-      </nav>
+      </div>
 
-
-      <!-- Ícono de búsqueda -->
-      <div>
+      <!-- Ícono de búsqueda en desktop -->
+      <div class="d-none d-lg-block">
         <i class="bi bi-search" style="color: #cd9a6c; font-size: 1.2rem;"></i>
       </div>
     </div>
-    <!-- Fondo gráfico y título -->
-    <div class="text-center py-5 position-relative" style="background-color: #283C2A;">
-      <img src="../Activos/Imagenes/Vector.png" alt="Fondo gráfico" class="position-absolute top-0 start-0 w-100 h-110"
-        style="opacity: 0.05; object-fit: cover; z-index: 0;">
+  </nav>
 
-      <div class="position-relative z-1">
-        <img src="../Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad" style="max-width: 550px;"
-          class="mb-3">
-      </div>
-    </div>
-  </header>
+  <!-- Fondo gráfico y título -->
+  <div class="text-center py-5 position-relative" style="background-color: #283C2A;">
+  <!-- Imagen de fondo -->
+  <img src="../Activos/Imagenes/Vector.png" alt="Fondo gráfico"
+    class="position-absolute top-0 start-0 w-100 h-100 img-fluid" style="opacity: 0.05; object-fit: cover; z-index: 0;">
+
+  <!-- Imagen principal centrada -->
+  <div class="position-relative z-1 container">
+    <img src="../Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
+      class="img-fluid mx-auto d-block" style="max-width: 100%; height: auto;">
+  </div>
+</div>
+</header>
   </ul>
   </nav>
   </div>
@@ -60,8 +74,6 @@
 
   <!-- CUERPO PRINCIPAL -->
   <main class="text-center">
-
-
     <!-- LOGO + TÍTULO -->
     <section class="mt-4">
       <img src="Activos/Imagenes/logito.png" alt="Movilidad Morelos" class="img-fluid" style="max-width: 100px;" />
@@ -241,7 +253,7 @@
             </div>
             <!-- Botón flecha -->
             <div class="text-center mt-4">
-              <a href="Html/Zonas.html" class="btn"
+              <a href="Html/" class="btn"
                 style="background-color: #8E1E41; color: white; border-radius: 50%; width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center;">
                 <i class="bi bi-arrow-right-short fs-4"></i>
               </a>
