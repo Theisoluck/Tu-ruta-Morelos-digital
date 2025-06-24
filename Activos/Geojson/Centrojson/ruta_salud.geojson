@@ -1,0 +1,96 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Hospital General Dr. José G. Parres"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.2356,
+          18.9265
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Plaza Cuernavaca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.2352,
+          18.9239
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "CRI Plan de Ayala"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.2162,
+          18.9104
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Centro Comercial A.L.M."
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.2189,
+          18.9218
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Avenida Plan de Ayala"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.223,
+          18.9145
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Base Jiutepec (Ruta 13)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.1791,
+          18.8785
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Base A.L.M. (Ruta 19)"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.2135,
+          18.9226
+        ]
+      }
+    }
+  ]
+}
