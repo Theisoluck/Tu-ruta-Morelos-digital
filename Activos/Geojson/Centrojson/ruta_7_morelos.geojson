@@ -1,0 +1,109 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Parada 1 - IMSS Plan de Ayala"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.22,
+          18.91
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Parada 2 - Plaza Fórum Cuernavaca"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.228,
+          18.915
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Parada 3 - Av. Cuauhtémoc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.232,
+          18.917
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Parada 4 - Palacio de Cortés"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.235,
+          18.921
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Parada 5 - Mercado Adolfo López Mateos"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.2365,
+          18.923
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Parada 6 - Walmart Jiutepec"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.237,
+          18.922
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Parada 7 - Centro Jiutepec"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.242,
+          18.92
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "nombre": "Parada 8 - CIVAC"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -99.247,
+          18.918
+        ]
+      }
+    }
+  ]
+}
