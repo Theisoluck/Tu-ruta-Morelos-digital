@@ -1,446 +1,449 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sur</title>
-  <link rel="stylesheet" href="../Css/Estilos.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movilidad - Zona Sur</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding-top: 80px;
+    }
 
+    nav.navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1030;
+    }
+
+    .navbar-nav .nav-link {
+      font-weight: 500;
+      padding: 0 1rem;
+    }
+
+    .navbar-nav .nav-link:hover,
+    .navbar-nav .nav-link.active {
+      color: #C2996D !important;
+    }
+
+    .navbar-toggler-icon {
+      filter: brightness(0) invert(1);
+    }
+
+    .dropdown-menu {
+      background-color: #71785B;
+      text-align: center;
+    }
+
+    .dropdown-item {
+      color: #ffffff;
+      font-weight: 500;
+    }
+
+    .dropdown-item:hover {
+      background-color: transparent;
+      color: #C2996D;
+    }
+
+    .sub-header {
+      position: relative;
+      background-color: #283C2A;
+      background-image: url('../Activos/Imagenes/Imagen_Grecas.png');
+      background-size: cover;
+      background-position: top;
+      background-repeat: no-repeat;
+      height: 450px;
+      color: #C2996D;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 2rem 1rem;
+      overflow: hidden;
+    }
+
+    .sub-header::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-color: rgba(40, 60, 42, 0.8);
+      z-index: 1;
+    }
+
+    .overlay {
+      position: relative;
+      z-index: 2;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .logo-extra {
+      max-width: 680px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .zona-titulo {
+      color: #AC8E68;
+      font-weight: bold;
+      font-size: 4rem;
+      margin: 0.5rem 0 0.3rem;
+    }
+
+    .linea-centro {
+      position: absolute;
+      bottom: 4rem;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 90%;
+      max-width: 1000px;
+      height: 6px;
+      background-color: #C2996D;
+      z-index: 3;
+    }
+
+    .boton-regreso {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      z-index: 3;
+    }
+
+    .boton-regreso img {
+      width: 45px;
+      height: auto;
+      transition: transform 0.2s;
+    }
+
+    .boton-regreso img:hover,
+    button img:hover {
+      transform: scale(1.05);
+      cursor: pointer;
+    }
+
+    .ruta-card {
+      height: 100%;
+      max-height: 440px;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .ruta-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .ruta-card .card-img-top {
+      border-radius: 8px;
+      padding: 0.5rem;
+      background-color: #fefefe;
+    }
+
+    .ruta-card img {
+      max-height: 200px;
+      width: 100%;
+      object-fit: contain;
+    }
+
+    .ruta-label {
+      background-color: #D0B08C;
+      color: white;
+      padding: 0.75rem 1rem;
+      font-weight: bold;
+      font-size: 2.25rem;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+      min-height: 90px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .navbar-nav {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 576px) {
+      .sub-header {
+        height: 280px;
+        background-size: contain;
+        padding: 1rem;
+      }
+
+      .zona-titulo {
+        font-size: 2.2rem;
+      }
+
+      .logo-extra {
+        max-width: 85%;
+      }
+
+      .linea-centro {
+        height: 4px;
+        bottom: 1rem;
+      }
+
+      .boton-regreso img {
+        width: 32px;
+      }
+
+      .ruta-label {
+        font-size: 1.3rem;
+        padding: 0.5rem;
+        min-height: auto;
+      }
+
+      .ruta-card {
+        height: auto;
+      }
+
+      .ruta-card img {
+        max-height: 150px;
+        object-fit: cover;
+      }
+
+      .search-form {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+      }
+
+      .search-form .btn,
+      .search-form .form-control {
+        width: 100%;
+      }
+
+      .search-form .btn img {
+        height: 18px;
+      }
+    }
+  </style>
 </head>
-<body style="background-color: #f9f7f7; color: #faf9f9;">
 
-  
-  <!-- ENCABEZADO PERSONALIZADO -->
-<header style="background-color: #0f2f1a;">
-  <div class="container-fluid px-4 py-3 d-flex justify-content-between align-items-center">
-    <!-- Logos -->
-        <img src="../Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="60">
-        <!-- Navegación -->
-    <nav class="ms-auto">
-  <ul class="nav gap-3 align-items-center justify-content-end">
-    <li class="nav-item d-flex align-items-center">
-      <!-- Flecha sólida apuntando a la izquierda -->
-      <div style="
-        width: 24px;
-        height: 24px;
-        background-color: #cd9a6c;
-        clip-path: polygon(0% 50%, 100% 0%, 100% 100%);
-        border-radius: 4px;
-        margin-right: 8px;">
-      </div>
-       <!-- Navegación -->
-      <nav class="ms-auto">
-        <ul class="nav gap-3 align-items-center justify-content-end">
-          <li class="nav-item d-flex align-items-center">
-            <a href="../../../Indice.html" class="nav-link active text-uppercase" style="color: #cd9a6c;">Inicio</a>
-          </li>
-          <li class="nav-item"><a href="../Html/Centro.html" class="nav-link text-white text-uppercase">Centro</a></li>
-          <li class="nav-item"><a href="" class="nav-link text-white text-uppercase">Sur</a></li>
-          <li class="nav-item"><a href="../Html/Oriente.html" class="nav-link text-white text-uppercase">Oriente</a></li>
-          <li class="nav-item"><a href="../Html/RutaDeLaSalud.html" class="nav-link text-white text-uppercase">Ruta de la Salud</a></li>
-          <li class="nav-item"><a href="../Html/Delegaciones.html" class="nav-link text-white text-uppercase">Delegaciones</a></li>
-          
-          </li>
-        </ul>
-      </nav>
-        <!-- Ícono de búsqueda -->
-    <div>
-      <i class="bi bi-search" style="color: #cd9a6c; font-size: 1.2rem;"></i>
-    </div>
-  </div>
-      </ul>
-    </nav>
-    </div>
-
-  <!-- Fondo gráfico y título -->
-  <div class="text-center py-5 position-relative" style="background-color: #0f2f1a;">
-    <img src="../Activos/Imagenes/Vector.png" alt="Fondo gráfico" class="position-absolute top-0 start-0 w-100 h-110" style="opacity: 0.05; object-fit: cover; z-index: 0;">
-    
-    <div class="position-relative z-1">
-      <img src="../Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad" style="max-width: 550px;" class="mb-3">
-      <h1 class="fw-bold" style="color: #cd9a6c; font-size: 3.0rem;">SUR</h1>
-      <div style="height: 4px; width: 1000px; background-color: #cd9a6c; margin: 10px auto 0 auto;"></div>
-    </div>
-  </div>
-</header>
-
-<main class="container py-5">
-  <div class="row justify-content-center g-4">
-
-    <!-- CARD RUTA 1 -->
-    <div class="col-12 col-md-6">
-      <a href="../Html/Itinerario/Sur/Ruta1.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_1.png" class="card-img-top p-3 img-fluid" alt="Ruta 1">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 1</h5>
-          </div>
-        </div>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #283C2A;">
+    <div class="container-fluid px-3">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img src="../Activos/Imagenes/Logo_principal.png" alt="Logo Morelos" style="height: 60px; margin-right: 10px;">
       </a>
-    </div>
-
-    <!-- CARD RUTA 1 AHUEHUETZINGO -->
-    <div class="col-12 col-md-6">
-      <a href="ruta1_ahuehuetzingo.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA 1_AHUEHUETZINGO.png" class="card-img-top p-3 img-fluid" alt="Ruta 2">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 1 AHUEHUETZINGO</h5>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNav">
+        <ul class="navbar-nav text-end me-3">
+          <li class="nav-item"><a class="nav-link active text-warning fw-bold" aria-current="page" href="#">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="Centro.html">Centro</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="Sur.html">Sur</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="Oriente.html">Oriente</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="RutaDeLaSalud.html">Ruta de la Salud</a></li>
+          <li class="nav-item"><a class="nav-link text-white" href="Zonas.html">Zonas</a></li>
+          <div class="dropdown">
+            <button class="btn p-0 border-0 bg-transparent dropdown-toggle" type="button" id="menuOpciones" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="../Activos/Imagenes/Opc_Mas.png" alt="Opciones" style="height: 20px;">
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end text-start" aria-labelledby="menuOpciones" style="min-width: 200px;">
+              <li><a class="dropdown-item" href="#">Plan Popocatépetl</a></li>
+              <li><a class="dropdown-item" href="#">Mapa interactivo</a></li>
+            </ul>
           </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 2 -->
-    <div class="col-12 col-md-6">
-      <a href="ruta2.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_2.png" class="card-img-top p-3 img-fluid" alt="Ruta 3">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 2</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 3 -->
-    <div class="col-12 col-md-6">
-      <a href="ruta3.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_3.png" class="card-img-top p-3 img-fluid" alt="Ruta 4">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 3</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 4 independiente -->
-    <div class="col-12 col-md-6">
-      <a href="ruta4_independiente.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_4_INDEPENDIENTE.png" class="card-img-top p-3 img-fluid" alt="Ruta 1">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 4 INDEPENDIENTE</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 4 "29 de sep" -->
-    <div class="col-12 col-md-6">
-      <a href="ruta4_29sep.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_4_29 DE SEPTIEMBRE.png" class="card-img-top p-3 img-fluid" alt="Ruta 2">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 4 "29 DE SEPTIEMBRE</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 4 atlacholoaya -->
-    <div class="col-12 col-md-6">
-      <a href="ruta4_atlacholoaya.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_4_ATLACHOLOAYA.png" class="card-img-top p-3 img-fluid" alt="Ruta 3">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 4 ATLACHOLOAYA</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 5 -->
-    <div class="col-12 col-md-6">
-      <a href="ruta5.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_5.png" class="card-img-top p-3 img-fluid" alt="Ruta 4">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 5</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-     <!-- CARD RUTA 5A -->
-    <div class="col-12 col-md-6">
-      <a href="Html/Itinerario/Sur/Ruta1.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_5A.png" class="card-img-top p-3 img-fluid" alt="Ruta 1">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 5A</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 6 -->
-    <div class="col-12 col-md-6">
-      <a href="ruta1_ahuehuetzingo.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_6.png" class="card-img-top p-3 img-fluid" alt="Ruta 2">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 6</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 6A -->
-    <div class="col-12 col-md-6">
-      <a href="ruta2.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_6A.png" class="card-img-top p-3 img-fluid" alt="Ruta 3">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 6A</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 7 PEDRO AMARO-->
-    <div class="col-12 col-md-6">
-      <a href="ruta3.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_7_PEDRO_AMARO.png" class="card-img-top p-3 img-fluid" alt="Ruta 4">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 7 PEDRO AMARO</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 7 AQUILES SERDAN  -->
-    <div class="col-12 col-md-6">
-      <a href="ruta4_independiente.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_7_AQUILES_SERDÁN.png" class="card-img-top p-3 img-fluid" alt="Ruta 1">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 7 AQUILES SERDAN</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 8 -->
-    <div class="col-12 col-md-6">
-      <a href="ruta4_29sep.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_8.png" class="card-img-top p-3 img-fluid" alt="Ruta 2">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 8</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 9-->
-    <div class="col-12 col-md-6">
-      <a href="ruta4_atlacholoaya.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_9.png" class="card-img-top p-3 img-fluid" alt="Ruta 3">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 9</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 10 -->
-    <div class="col-12 col-md-6">
-      <a href="ruta5.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_10.png" class="card-img-top p-3 img-fluid" alt="Ruta 4">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 10</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-     <!-- CARD RUTA GENRAL EMILIANO ZAPATA -->
-    <div class="col-12 col-md-6">
-      <a href="Html/Itinerario/Sur/Ruta1.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_GENERAL_EMILIANO_ZAPATA.png" class="card-img-top p-3 img-fluid" alt="Ruta 1">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA GENERAL EMILIANO ZAPATA</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA GENERAL EMILIANO ZAPATA B INDEPENDIENTE-->
-    <div class="col-12 col-md-6">
-      <a href="ruta1_ahuehuetzingo.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_GENERAL_EMILIANO_ZAPATA_B_INDEPENDIENTE.png" class="card-img-top p-3 img-fluid" alt="Ruta 2">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA GENERAL EMILIANO ZAPATA B INDEPENDIENTE</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA 16 -->
-    <div class="col-12 col-md-6">
-      <a href="ruta2.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_16.png" class="card-img-top p-3 img-fluid" alt="Ruta 3">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA 16</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA C.T.M -->
-    <div class="col-12 col-md-6">
-      <a href="ruta3.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_CTM.png" class="card-img-top p-3 img-fluid" alt="Ruta 4">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA C.T.M</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA INTERESCOLAR -->
-    <div class="col-12 col-md-6">
-      <a href="ruta4_independiente.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_INTERESCOLAR.png" class="card-img-top p-3 img-fluid" alt="Ruta 1">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA INTERESCOLAR</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- CARD RUTA INDEPENDIENTE SAN MIGUEL 30 -->
-    <div class="col-12 col-md-6">
-      <a href="ruta4_29sep.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/RUTA_INDEPENDIENTE_SAN_MIGUEL_30.png" class="card-img-top p-3 img-fluid" alt="Ruta 2">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">RUTA INDEPENDIENTE SAN MIGUEL 30</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- AUTOBUSES DORADOS DEL SUR -->
-    <div class="col-12 col-md-6">
-      <a href="ruta4_atlacholoaya.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/AUTOBUSES_DORADOS_DEL_SUR.png" class="card-img-top p-3 img-fluid" alt="Ruta 3">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">AUTOBUSES DORADOS DEL SUR </h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-    <!-- AUTOBUSES CIRCUNVALACION-->
-    <div class="col-12 col-md-6">
-      <a href="ruta5.html" class="card-link" style="text-decoration: none; color: inherit;">
-        <div class="card shadow-sm text-center border-0 h-100" style="background-color: #ffffff; border-radius: 15px;">
-          <img src="../Activos/sur/PNG/AUTOBUSES_CIRCUNVALACION.png" class="card-img-top p-3 img-fluid" alt="Ruta 4">
-          <div class="card-body" style="background-color: #d5b899; border-bottom-left-radius: 15px; border-bottom-right-radius: 15px;">
-            <h5 class="card-title text-uppercase fw-bold text-white">AUTOBUSES CIRCUNVALACIÓN</h5>
-          </div>
-        </div>
-      </a>
-    </div>
-
-  </div>
-</main>
-
-  <!-- Botones de navegación -->
-  <div class="d-flex justify-content-center align-items-center gap-4 mt-5">
-    <button class="btn" style="background: none; border: none;">
-      <img src="../Activos/Imagenes/Flecha_Derecha.png" alt="Anterior" width="40">
-    </button>
-    <button class="btn" style="background: none; border: none;">
-      <img src="../Activos/Imagenes/Flecha_Izquierda.png" alt="Siguiente" width="40">
-    </button>
-  </div>
-</main>
-
-  <!-- PIE DE PÁGINA -->
-  <footer style="background-color: #71785B; color: #fff; font-family: sans-serif;">
-  <div class="container py-5">
-    <div class="row text-center text-md-start">
-
-      <!-- Logo institucional -->
-      <div class="col-md-2 mb-4">
-        <img src="../Activos/Imagenes/LogoMovilidadBlanco.png" alt="Logo" class="img-fluid mb-2" style="max-width: 150px;">
-      </div>
-
-      <!-- Horario -->
-      <div class="col-md-2 mb-4">
-        <h6 class="fw-bold">Horario de Atención</h6>
-        <p class="mb-0">8:00 - 15:00</p>
-      </div>
-
-      <!-- Contacto -->
-      <div class="col-md-3 mb-4">
-        <h6 class="fw-bold">Contáctanos en</h6>
-        <p class="mb-1">
-          <i class="bi bi-telephone-fill me-2"></i>(777) 329 6500
-        </p>
-        <p class="mb-1">
-          <i class="bi bi-envelope-fill me-2"></i>soportesvh@morelos.gob.mx
-        </p>
-        <p>
-          <i class="bi bi-envelope-fill me-2"></i>soporte.hacienda@morelos.gob.mx
-        </p>
-      </div>
-
-      <!-- Ubicación -->
-      <div class="col-md-3 mb-4">
-        <h6 class="fw-bold">Ubicación</h6>
-        <p class="mb-0">Corporativos Arcos Cristal,<br>"Plaza Cristal" Plan de Ayala número 825,<br>Col. Teopanzolco, Cuernavaca, Morelos.</p>
-      </div>
-
-      <!-- Contacto rápido -->
-      <div class="col-md-2 mb-4">
-        <h6 class="fw-bold">Contacto Rápido</h6>
-        <ul class="list-unstyled">
-          <li><a href="#" class="text-white text-decoration-none">Trámites</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Noticias</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Eventos</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Programas</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Convocatorias</a></li>
-          <li><a href="#" class="text-white text-decoration-none">Organigrama</a></li>
         </ul>
       </div>
     </div>
+  </nav>
 
-    <!-- Línea final -->
-    <div class="row mt-4">
-      <div class="col-md-6 text-center text-md-start">
-        <p class="mb-0 small">Política Privacidad &nbsp;&nbsp;&nbsp; Configuración Cookies</p>
-      </div>
-      <div class="col-md-6 text-center text-md-end">
-        <!-- Redes sociales -->
-        <a href="#" class="text-white fs-4 me-3"><i class="bi bi-facebook"></i></a>
-        <a href="#" class="text-white fs-4 me-3"><i class="bi bi-instagram"></i></a>
-        <a href="#" class="text-white fs-4 me-3"><i class="bi bi-x"></i></a>
-        <a href="#" class="text-white fs-4 me-3"><i class="bi bi-linkedin"></i></a>
-        <a href="#" class="text-white fs-4"><i class="bi bi-youtube"></i></a>
+  <div class="sub-header">
+    <div class="overlay">
+      <a href="#" class="boton-regreso">
+        <img src="../Activos/Imagenes/Flecha_Regreso.png" alt="Regresar">
+      </a>
+      <img src="../Activos/Imagenes/LOGOS_SECRETARIAS_MOVILIDAD.png" alt="Logo Secretarías" class="logo-extra">
+      <h1 class="zona-titulo">SUR</h1>
+    </div>
+    <div class="linea-centro"></div>
+  </div>
+
+  <div class="container py-4">
+    <div class="row mb-4">
+      <div class="col-12 d-flex justify-content-end">
+        <form class="d-flex align-items-center search-form" style="max-width: 400px; width: 100%;">
+          <input class="form-control me-2" type="search" placeholder="Buscar ruta..." aria-label="Buscar">
+          <button class="btn btn-outline-dark" type="submit">
+            <img src="../Activos/Imagenes/lupa.png" alt="Buscar" style="height: 20px;">
+          </button>
+        </form>
       </div>
     </div>
+    <div class="row g-4" id="rutaContainer"></div>
+    <div class="d-flex justify-content-center align-items-center flex-wrap gap-5 mt-4">
+      <button id="prevBtn" class="btn btn-light border-0 p-0">
+        <img src="../Activos/Imagenes/Flecha_Izquierda.png" alt="Flecha Izquierda" style="height: 80px;">
+      </button>
+      <button id="nextBtn" class="btn btn-light border-0 p-0">
+        <img src="../Activos/Imagenes/Flecha_Derecha.png" alt="Flecha Derecha" style="height: 80px;">
+      </button>
+    </div>
   </div>
-</footer>
+<script>
+  const rutas = [
+    "1",
+    "1_AHUEHUETZINGO",
+    "2",
+    "3",
+    "4_INDEPENDIENTE",
+    "4_29_DE_SEPTIEMBRE",
+    "4_ATLACHOLOAYA",
+    "5",
+    "5A",
+    "6",
+    "6A",
+    "7_PEDRO_AMARO",
+    "7_AQUILES_SERDAN",
+    "8",
+    "9",
+    "10",
+    "GENERAL_EMILIANO_ZAPATA",
+    "GENERAL_EMILIANO_ZAPATA_B_INDEPENDIENTE",
+    "16",
+    "CTM",
+    "INTERESCOLAR",
+    "INDEPENDIENTE_SAN_MIGUEL_30",
+    "AUTOBUSES_DORADOS_DEL_SUR",
+    "AUTOBUSES_CIRCUNVALACION"
+  ];
 
+  const nombresVisibles = {
+    "1": "RUTA 1",
+    "1_AHUEHUETZINGO": "RUTA 1 AHUEHUETZINGO",
+    "2": "RUTA 2",
+    "3": "RUTA 3",
+    "4_INDEPENDIENTE": "RUTA 4 INDEPENDIENTE",
+    "4_29_DE_SEPTIEMBRE": "RUTA 4 \"29 DE SEPTIEMBRE\"",
+    "4_ATLACHOLOAYA": "RUTA 4 ATLACHOLOAYA",
+    "5": "RUTA 5",
+    "5A": "RUTA 5A",
+    "6": "RUTA 6",
+    "6A": "RUTA 6A",
+    "7_PEDRO_AMARO": "RUTA 7 PEDRO AMARO",
+    "7_AQUILES_SERDAN": "RUTA 7 AQUILES SERDÁN",
+    "8": "RUTA 8",
+    "9": "RUTA 9",
+    "10": "RUTA 10",
+    "GENERAL_EMILIANO_ZAPATA": "RUTA GENERAL EMILIANO ZAPATA",
+    "GENERAL_EMILIANO_ZAPATA_B_INDEPENDIENTE": "RUTA GENERAL EMILIANO ZAPATA B INDEPENDIENTE",
+    "16": "RUTA 16",
+    "CTM": "RUTA C.T.M",
+    "INTERESCOLAR": "RUTA INTERESCOLAR",
+    "INDEPENDIENTE_SAN_MIGUEL_30": "RUTA INDEPENDIENTE SAN MIGUEL 30",
+    "AUTOBUSES_DORADOS_DEL_SUR": "AUTOBUSES DORADOS DEL SUR",
+    "AUTOBUSES_CIRCUNVALACION": "AUTOBUSES CIRCUNVALACIÓN"
+  };
 
-  <!-- BOOTSTRAP SCRIPT -->
+  const nombresArchivos = {
+    "1_AHUEHUETZINGO": "RUTA 1_AHUEHUETZINGO",
+    "4_29_DE_SEPTIEMBRE": "RUTA_4_29 DE SEPTIEMBRE",
+    "7_AQUILES_SERDAN": "RUTA_7_AQUILES_SERDÁN"
+  };
+
+  const porPagina = 4;
+  let paginaActual = 0;
+
+  function mostrarRutas() {
+    const container = document.getElementById("rutaContainer");
+    container.innerHTML = "";
+    const inicio = paginaActual * porPagina;
+    const fin = inicio + porPagina;
+    const rutasPagina = rutas.slice(inicio, fin);
+
+    rutasPagina.forEach(nombre => {
+      const col = document.createElement("div");
+      col.className = "col-12 col-sm-6 col-lg-6";
+      const archivoBase = nombresArchivos[nombre] || (nombre.startsWith("AUTOBUSES") ? nombre : `RUTA_${nombre}`);
+      const visible = nombresVisibles[nombre] || nombre.replace(/_/g, ' ');
+      col.innerHTML = `
+        <a href="Itinerario/Sur/${archivoBase}.html" class="text-decoration-none">
+          <div class="card ruta-card">
+            <div class="p-3">
+              <img src="../Activos/Imagenes/Sur/${archivoBase}.png" class="card-img-top" alt="${visible}">
+            </div>
+            <div class="ruta-label">${visible}</div>
+          </div>
+        </a>
+      `;
+      container.appendChild(col);
+    });
+  }
+
+  document.getElementById("prevBtn").addEventListener("click", () => {
+    if (paginaActual > 0) {
+      paginaActual--;
+      mostrarRutas();
+    }
+  });
+
+  document.getElementById("nextBtn").addEventListener("click", () => {
+    if ((paginaActual + 1) * porPagina < rutas.length) {
+      paginaActual++;
+      mostrarRutas();
+    }
+  });
+
+  mostrarRutas();
+</script>
+
+  <footer style="background-color: #71785B; color: white;" class="pt-5 pb-4 mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 mb-4">
+          <img src="../Activos/Imagenes/LogoMovilidadBlanco.png" alt="Logo Institucional" class="img-fluid mb-3" style="max-width: 150px;">
+          <p>Gobierno del Estado de Morelos</p>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Recursos</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white text-decoration-none">Inicio</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Centro</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Sur</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Oriente</a></li>
+          </ul>
+        </div>
+        <div class="col-md-2 mb-4">
+          <h5>Información</h5>
+          <ul class="list-unstyled">
+            <li><a href="#" class="text-white text-decoration-none">Ruta de la Salud</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Delegaciones</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Plan Popocatépetl</a></li>
+            <li><a href="#" class="text-white text-decoration-none">Mapa interactivo</a></li>
+          </ul>
+        </div>
+        <div class="col-md-3 mb-4">
+          <h5>Contacto</h5>
+          <p>Teléfono: 777 123 4567</p>
+          <p>Email: contacto@morelos.gob.mx</p>
+        </div>
+      </div>
+      <div class="text-center mt-4">
+        <small>&copy; 2025 Coordinación General de Movilidad y Transporte de Morelos. Todos los derechos reservados.</small>
+      </div>
+    </div>
+  </footer>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
