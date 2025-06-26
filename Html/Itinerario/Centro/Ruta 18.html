@@ -33,7 +33,7 @@
         <nav class="navbar navbar-expand-lg navbar-dark px-3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="../../../Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="50">
+                    <img src="/Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="50">
                 </a>
 
                 <!-- Botón hamburguesa -->
@@ -75,23 +75,27 @@
             style="background-color: #283C2A; overflow: hidden; padding-top: 4rem; padding-bottom: 4rem;">
 
             <!-- Botón de regreso -->
-            <img src="../../../Activos/Imagenes/Flecha_Regreso.png" alt="Regresar" onclick="window.history.back()"
+            <img src="/Activos/Imagenes/Flecha_Regreso.png" alt="Regresar" onclick="window.history.back()"
                 style="position: absolute; top: 20px; left: 20px; width: 50px; z-index: 2; cursor: pointer;">
 
             <!-- Fondo gráfico ajustado -->
-            <img src="../../../Activos/Imagenes/Vector.png" alt="Fondo gráfico"
+            <img src="/Activos/Imagenes/Vector.png" alt="Fondo gráfico"
                 class="position-absolute top-0 start-0 w-100 h-100"
                 style="object-fit: contain; opacity: 0.05; z-index: 0; pointer-events: none;">
 
             <!-- Contenido principal -->
             <div class="position-relative z-1 container px-3">
-                <img src="../../../Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
+                <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
                     class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 7 – CENTRO</h2>
+                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 18 – SUR</h2>
                 <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
                 </div>
             </div>
         </div>
+
+    </header>
+<!-- Línea divisoria amarilla debajo del encabezado -->
+<div style="height: 6px; background-color: #cd9a6c; width: 100%;"></div>
 
     </header>
 
@@ -201,26 +205,14 @@
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        fetch("../../../Activos/Geojson/Centrojson/ruta_7_morelos.geojson")
-    .then(res => res.json())
-    .then(data => {
-        const ruta = L.geoJSON(data, {
-            style: { color: "#cd9a6c", weight: 4 },
-            onEachFeature: function (feature, layer) {
-                if (feature.geometry.type === "Point" && feature.properties?.nombre) {
-                    L.marker(feature.geometry.coordinates.reverse(), {
-                        icon: L.icon({
-                            iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
-                            iconSize: [30, 30]
-                        })
-                    }).addTo(map)
-                      .bindPopup(`<strong>${feature.properties.nombre}</strong>`);
-                }
-            }
-        }).addTo(map);
-        map.fitBounds(ruta.getBounds());
-    });
-
+        fetch("../../../Activos/Geojson/Centrojson/1.RUTA 5 NUEVA SANTA MARÍA-LAGUNILLA-AMPLIACIÓN ORIENTE LOMAS DE CORTEZ.geojson")
+            .then(res => res.json())
+            .then(data => {
+                const ruta = L.geoJSON(data, {
+                    style: { color: "#cd9a6c", weight: 4 }
+                }).addTo(map);
+                map.fitBounds(ruta.getBounds());
+            });
 
         function getLocation() {
             if (navigator.geolocation) {
