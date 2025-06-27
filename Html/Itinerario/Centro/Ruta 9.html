@@ -105,6 +105,22 @@
     <!-- CONTENIDO PRINCIPAL -->
     <main class="text-center">
         <section class="container my-5">
+
+            <!-- SELECTOR DE TRAYECTO -->
+            <div class="mb-3">
+                <label for="trayecto" class="form-label fw-bold">SELECCIONA TU TRAYECTO:</label>
+                
+                <select id="trayecto" class="form-select w-auto d-inline-block" onchange="getRuta()">
+                    <option value="">-- Elegir --</option>
+                    <option value="/Activos/Geojson/Centrojson/Ruta 9/1. FLORES MAGON-CUAUHTEMOC-ACATLIPA.geojson">IMSS Plan de Ayala</option>
+                    <option value="/Activos/Geojson/Centrojson/Ruta 9/2. FLORES MAGON-SELVA-ACATLIPA.geojson">Walmart Jiutepec</option>
+                </select>
+                <div>
+                <input id="test" type="checkbox" value="/Activos/Geojson/Centrojson/Ruta 9/1. FLORES MAGON-CUAUHTEMOC-ACATLIPA.geojson" onchange="getRuta()">
+                <label id="test1">1. FLORES MAGON-CUAUHTEMOC-ACATLIPA</label>
+                </div>
+            </div>
+
             <!-- BOTÓN DE GEOLOCALIZACIÓN -->
             <div class="mb-4">
                 <button class="btn btn-danger" onclick="getLocation()">¿Dónde estoy?</button>
@@ -196,16 +212,38 @@
     <script src="https://unpkg.com/lrm-openrouteservice/dist/lrm-openrouteservice.min.js"></script>
 
     <script>
-        const map = L.map('map');
+        var map = L.map('map');
         let usuarioMarker = null;
         let paradaCercanaMarker = null;
-        let controlRuta = null;
+        let controlRuta = null    
+        
+        
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
 
-        fetch("../../../Activos/Geojson/Centrojson/1.RUTA 5 NUEVA SANTA MARÍA-LAGUNILLA-AMPLIACIÓN ORIENTE LOMAS DE CORTEZ.geojson")
+        getLocation();
+
+
+        function getRuta(){
+
+            const path = document.getElementById('trayecto').value;
+
+            map.remove();
+            map = L.map('map');
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+                }).addTo(map);
+            
+            if(path == "") {
+            
+
+            getLocation();
+
+            } else{
+            
+            fetch(path)
             .then(res => res.json())
             .then(data => {
                 const ruta = L.geoJSON(data, {
@@ -213,6 +251,14 @@
                 }).addTo(map);
                 map.fitBounds(ruta.getBounds());
             });
+            }
+            
+
+            
+
+        }
+
+        
 
         function getLocation() {
             if (navigator.geolocation) {
