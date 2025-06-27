@@ -105,108 +105,88 @@
         </div>
     </main>
 
+<script>
+    const rutas = [
+        "1", "2", "3", "4", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"
+    ];
 
-    <script>
-        const rutas = [
-            "1", "1_AHUEHUETZINGO", "2", "3", "4_INDEPENDIENTE", "4_29_DE_SEPTIEMBRE", "4_ATLACHOLOAYA",
-            "5", "5A", "6", "6A", "7_PEDRO_AMARO", "7_AQUILES_SERDAN", "8", "9", "10",
-            "GENERAL_EMILIANO_ZAPATA", "GENERAL_EMILIANO_ZAPATA_B_INDEPENDIENTE", "16", "CTM",
-            "INTERESCOLAR", "INDEPENDIENTE_SAN_MIGUEL_30", "AUTOBUSES_DORADOS_DEL_SUR", "AUTOBUSES_CIRCUNVALACION"
-        ];
+    const nombresVisibles = {
+        "1": "RUTA 1",
+        "2": "RUTA 2",
+        "3": "RUTA 3",
+        "4": "RUTA 4",
+        "6": "RUTA 6",
+        "7": "RUTA 7",
+        "8": "RUTA 8",
+        "9": "RUTA 9",
+        "10": "RUTA 10",
+        "11": "RUTA 11",
+        "12": "RUTA 12",
+        "13": "RUTA 13",
+        "14": "RUTA 14",
+        "15": "RUTA 15",
+        "16": "RUTA 16",
+        "17": "RUTA 17"
+    };
 
-        const nombresVisibles = {
-            "1": "RUTA 1",
-            "1_AHUEHUETZINGO": "RUTA 1 AHUEHUETZINGO",
-            "2": "RUTA 2",
-            "3": "RUTA 3",
-            "4_INDEPENDIENTE": "RUTA 4 INDEPENDIENTE",
-            "4_29_DE_SEPTIEMBRE": "RUTA 4 \"29 DE SEPTIEMBRE\"",
-            "4_ATLACHOLOAYA": "RUTA 4 ATLACHOLOAYA",
-            "5": "RUTA 5",
-            "5A": "RUTA 5A",
-            "6": "RUTA 6",
-            "6A": "RUTA 6A",
-            "7_PEDRO_AMARO": "RUTA 7 PEDRO AMARO",
-            "7_AQUILES_SERDAN": "RUTA 7 AQUILES SERDÁN",
-            "8": "RUTA 8",
-            "9": "RUTA 9",
-            "10": "RUTA 10",
-            "GENERAL_EMILIANO_ZAPATA": "RUTA GENERAL EMILIANO ZAPATA",
-            "GENERAL_EMILIANO_ZAPATA_B_INDEPENDIENTE": "RUTA GENERAL EMILIANO ZAPATA B INDEPENDIENTE",
-            "16": "RUTA 16",
-            "CTM": "RUTA C.T.M",
-            "INTERESCOLAR": "RUTA INTERESCOLAR",
-            "INDEPENDIENTE_SAN_MIGUEL_30": "RUTA INDEPENDIENTE SAN MIGUEL 30",
-            "AUTOBUSES_DORADOS_DEL_SUR": "AUTOBUSES DORADOS DEL SUR",
-            "AUTOBUSES_CIRCUNVALACION": "AUTOBUSES CIRCUNVALACIÓN"
-        };
+    const nombresArchivos = {}; 
 
-        const nombresArchivos = {
-            "1_AHUEHUETZINGO": "RUTA 1_AHUEHUETZINGO",
-            "4_29_DE_SEPTIEMBRE": "RUTA_4_29 DE SEPTIEMBRE",
-            "7_AQUILES_SERDAN": "RUTA_7_AQUILES_SERDÁN"
-        };
+    const porPagina = 4;
+    let paginaActual = 0;
+    let rutasFiltradas = [...rutas];
 
-        const porPagina = 4;
-        let paginaActual = 0;
-        let rutasFiltradas = [...rutas];
+    function mostrarRutas() {
+        const container = document.getElementById("rutaContainer");
+        container.innerHTML = "";
+        const inicio = paginaActual * porPagina;
+        const fin = inicio + porPagina;
+        const rutasPagina = rutasFiltradas.slice(inicio, fin);
 
-        function mostrarRutas() {
-            const container = document.getElementById("rutaContainer");
-            container.innerHTML = "";
-            const inicio = paginaActual * porPagina;
-            const fin = inicio + porPagina;
-            const rutasPagina = rutasFiltradas.slice(inicio, fin);
-
-            rutasPagina.forEach(nombre => {
-                const col = document.createElement("div");
-                col.className = "col-12 col-sm-6 col-lg-6";
-                const archivoBase = nombresArchivos[nombre] || (nombre.startsWith("AUTOBUSES") ? nombre : `RUTA_${nombre}`);
-                const visible = nombresVisibles[nombre] || nombre.replace(/_/g, ' ');
-                col.innerHTML = `
-                <a href="Itinerario/Sur/${archivoBase}.html" class="text-decoration-none">
+        rutasPagina.forEach(nombre => {
+            const col = document.createElement("div");
+            col.className = "col-12 col-sm-6 col-lg-6";
+            const archivoBase = nombresArchivos[nombre] || `RUTA_${nombre}`;
+            const visible = nombresVisibles[nombre] || nombre.replace(/_/g, ' ');
+            col.innerHTML = `
+                <a href="Itinerario/Centro/${archivoBase}.html" class="text-decoration-none">
                     <div class="card border-0 rounded-5 shadow h-100">
-                        <img src="../Activos/Imagenes/Sur/${archivoBase}.png" class="card-img-top rounded-top-5" alt="${visible}">
+                        <img src="../Activos/Imagenes/Centro/${archivoBase}.png" class="card-img-top rounded-top-5" alt="${visible}">
                         <div class="card-body text-center rounded-bottom-5" style="background-color: #cd9a6c;">
                             <h5 class="fw-bold text-white mb-0">${visible}</h5>
                         </div>
                     </div>
                 </a>
             `;
-                container.appendChild(col);
-            });
-        }
-
-        // Navegación por flechas
-        document.getElementById("prevBtn").addEventListener("click", () => {
-            if (paginaActual > 0) {
-                paginaActual--;
-                mostrarRutas();
-            }
+            container.appendChild(col);
         });
+    }
 
-        document.getElementById("nextBtn").addEventListener("click", () => {
-            if ((paginaActual + 1) * porPagina < rutasFiltradas.length) {
-                paginaActual++;
-                mostrarRutas();
-            }
-        });
-
-        // Buscador funcional
-        document.getElementById("buscadorRutas").addEventListener("input", function () {
-            const filtro = this.value.toLowerCase();
-            rutasFiltradas = rutas.filter(r => {
-                const visible = (nombresVisibles[r] || r).toLowerCase();
-                return visible.includes(filtro);
-            });
-            paginaActual = 0;
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        if (paginaActual > 0) {
+            paginaActual--;
             mostrarRutas();
+        }
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        if ((paginaActual + 1) * porPagina < rutasFiltradas.length) {
+            paginaActual++;
+            mostrarRutas();
+        }
+    });
+
+    document.getElementById("buscadorRutas").addEventListener("input", function () {
+        const filtro = this.value.toLowerCase();
+        rutasFiltradas = rutas.filter(r => {
+            const visible = (nombresVisibles[r] || r).toLowerCase();
+            return visible.includes(filtro);
         });
-
-        // Mostrar rutas al cargar
+        paginaActual = 0;
         mostrarRutas();
-    </script>
+    });
 
+    mostrarRutas();
+</script>
 
     <!-- PIE DE PÁGINA -->
     <footer style="background-color: #71785B; color: #fff; font-family: sans-serif;">
