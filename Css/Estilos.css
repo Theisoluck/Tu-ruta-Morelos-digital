@@ -182,6 +182,12 @@
     --bs-form-invalid-border-color: #ea868f
 }
 
+.card-img-top {
+    height: 180px;
+    object-fit: contain;
+}
+
+
 *,
 ::after,
 ::before {
