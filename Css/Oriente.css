@@ -1,0 +1,291 @@
+
+        /* Estilo general para todo el cuerpo de la página */
+        body {
+            font-family: Arial, sans-serif; /* Fuente */
+            background-color: #f4f4f4; /* Color de fondo gris claro */
+        }
+
+        /* Estilos para el encabezado principal */
+        .header {
+            background-color: #143116; /* Fondo verde oscuro */
+            color: white; /* Texto blanco */
+            padding: 1rem; /* Espaciado interno */
+        }
+
+        /* Título dentro del header */
+        .header h1 {
+            font-size: 1.5rem; /* Tamaño de fuente */
+        }
+
+        /* Estilo general para todos los h1 */
+        h1 {
+            font-size: 1.5rem;
+            color: #C2996D; 
+        }
+
+        /* Sección sub-header con fondo oscuro y una imagen de fondo decorativa */
+        .sub-header {
+            position: relative; /* Para posicionar elementos absolutos dentro */
+            background-color: #283C2A; /* Fondo verde oscuro */
+            background-image: url('../Activos/Imagenes/Imagen_Grecas.png'); /* Imagen de fondo */
+            background-size: cover; /* Cubrir toda el área */
+            background-position: top; /* Posición de la imagen */
+            background-repeat: no-repeat; /* No repetir la imagen */
+            height: 450px; /* Altura fija */
+            color: #C2996D; /* Texto color dorado */
+            display: flex; /* Flexbox para centrar contenido */
+            justify-content: center; /* Centrar horizontalmente */
+            align-items: center; /* Centrar verticalmente */
+            text-align: center; /* Centrar texto */
+            padding: 2rem 1rem; /* Espaciado */
+            overflow: hidden; /* Oculta contenido que sobresalga */
+        }
+
+        /* Línea dorada decorativa centrada dentro del sub-header */
+        .linea-centro {
+            position: absolute; /* Posición absoluta respecto a sub-header */
+            bottom: 4rem; /* Separación desde abajo */
+            left: 50%; /* Centrado horizontal */
+            transform: translateX(-50%); /* Ajuste para centrar */
+            width: 1000px; /* Ancho de la línea */
+            height: 6px; /* Grosor */
+            background-color: #C2996D; /* Color dorado */
+            z-index: 3; /* Para que esté encima de otros elementos */
+        }
+
+        /* Capa oscura semi-transparente sobre la imagen del sub-header */
+        .sub-header::before {
+            content: "";
+            position: absolute;
+            inset: 0; /* Ocupa todo el contenedor */
+            background-color: rgba(40, 60, 42, 0.8); /* Color con opacidad para oscurecer */
+            z-index: 1; /* Detrás del contenido principal */
+        }
+
+        /* Contenedor del contenido dentro del sub-header */
+        .overlay {
+            position: relative; /* Para que esté encima del ::before */
+            z-index: 2; /* Por encima de la capa oscura */
+            width: 100%;
+            height: 100%;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column; /* Columna */
+            align-items: center; /* Centrar horizontal */
+            justify-content: center; /* Centrar vertical */
+        }
+
+        /* Imagen logo extra dentro del sub-header */
+        .logo-extra {
+            max-width: 680px; /* Ancho máximo */
+            height: auto; /* Altura automática para mantener proporción */
+            margin-bottom: 1rem; /* Espacio abajo */
+        }
+
+        /* Título grande dentro de la zona */
+        .zona-titulo {
+            color: #AC8E68; /* Color dorado */
+            font-weight: bold; /* Negrita */
+            font-size: 4rem; /* Muy grande */
+            margin-top: 0.5rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* Estilo para las imágenes dentro de las tarjetas de ruta */
+        .ruta-card img {
+            max-height: 200px; /* Altura máxima */
+            width: 100%; /* Ancho completo */
+            object-fit: contain; /* Ajustar la imagen sin recortar */
+        }
+
+        /* Estilo general para cada tarjeta de ruta */
+        .ruta-card {
+            min-height: 300px; /* Altura mínima */
+            border: none; /* Sin borde */
+            border-radius: 12px; /* Bordes redondeados */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+            background: white; /* Fondo blanco */
+            text-align: center;
+            display: flex;
+            flex-direction: column; /* Columna para el contenido */
+            justify-content: space-between; /* Espacio entre imagen y label */
+        }
+
+        /* Etiqueta inferior con nombre de la ruta */
+        .ruta-label {
+            background-color: #D0B08C; /* Fondo dorado claro */
+            color: white; /* Texto blanco */
+            padding: 0.75rem 1rem; /* Espaciado */
+            font-weight: bold; /* Negrita */
+            font-size: 2.25rem; /* Tamaño grande */
+            width: 100%; /* Ocupa todo el ancho */
+            border-bottom-left-radius: 12px; /* Bordes redondeados abajo */
+            border-bottom-right-radius: 12px;
+            box-sizing: border-box; /* Padding dentro del ancho */
+            text-align: center; /* Centrar texto */
+        }
+
+        /* Contenedor para botones de navegación */
+        .nav-buttons {
+            text-align: center;
+            margin: 1rem 0;
+        }
+
+        /* Estilos para los botones dentro de nav-buttons */
+        .nav-buttons button {
+            background: none; /* Fondo transparente */
+            border: none; /* Sin borde */
+            font-size: 2rem; /* Tamaño de fuente */
+            color: #333; /* Color gris oscuro */
+        }
+
+        /* Estilos para enlaces del navbar */
+        .navbar-nav .nav-link {
+            font-weight: 500;
+            padding-right: 1rem;
+            padding-left: 1rem;
+        }
+
+        /* Cambios de color al pasar el mouse sobre los links del navbar */
+        .navbar-nav .nav-link:hover {
+            color: #C2996D !important; /* Color dorado */
+        }
+
+        /* Link activo resaltado */
+        .navbar-nav .nav-link.active {
+            color: #C2996D !important;
+        }
+
+        /* Icono del botón para menú responsive (hamburguesa) */
+        .navbar-toggler-icon {
+            filter: brightness(0) invert(1); /* Hace que el icono sea blanco */
+        }
+
+        /* Navbar fija en la parte superior */
+        nav.navbar {
+            position: fixed; /* Fija en pantalla */
+            top: 0; /* En la parte superior */
+            width: 100%; /* Ancho completo */
+            z-index: 1030; /* Encima de otros elementos */
+        }
+
+        /* Espacio arriba para que el contenido no quede oculto tras la navbar */
+        body {
+            padding-top: 80px; /* Altura navbar */
+        }
+
+        /* Botón de regreso en posición absoluta */
+        .boton-regreso {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            z-index: 3; /* Encima de otros elementos */
+        }
+
+        /* Imagen del botón de regreso */
+        .boton-regreso img {
+            width: 45px;
+            height: auto;
+            transition: transform 0.2s; /* Animación suave */
+        }
+
+        /* Efecto hover para agrandar imagen y mostrar cursor */
+        .boton-regreso img:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+        }
+
+        /* Fondo del menú desplegable */
+        .dropdown-menu {
+            background-color: #71785B; /* Verde grisáceo */
+        }
+
+        /* Estilos para items del dropdown */
+        .dropdown-item {
+            color: #ffffff; 
+            font-weight: 500;
+        }
+
+        /* Efecto hover en items dropdown */
+        .dropdown-item:hover {
+            background-color: transparent; /* Sin fondo */
+            color: #C2996D; /* Color dorado */
+        }
+
+        /* Efecto hover para imágenes dentro de botones */
+        button img:hover {
+            transform: scale(1.05);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+    /* Título del sub-header */
+    .zona-titulo {
+        font-size: 2.5rem;
+        text-align: center;
+    }
+
+    /* Reducción de tamaño del logo en sub-header */
+    .logo-extra {
+        max-width: 90%;
+        height: auto;
+    }
+
+    /* Línea decorativa */
+    .linea-centro {
+        width: 80%;
+        height: 4px;
+        bottom: 2rem;
+    }
+
+    /* Ajuste del padding top para evitar que el navbar oculte contenido */
+    body {
+        padding-top: 70px;
+    }
+
+    /* Tarjetas de rutas con menor altura mínima en móviles */
+    .ruta-card {
+        min-height: 250px;
+    }
+
+    /* Etiqueta de ruta más pequeña */
+    .ruta-label {
+        font-size: 1.5rem;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Ajuste botones de navegación (flechas) */
+    .d-flex.justify-content-center.align-items-center.mt-5 {
+        flex-direction: column;
+        gap: 1rem !important;
+    }
+
+    /* Footer en columna */
+    footer .row {
+        text-align: center;
+    }
+
+    footer .col-md-3,
+    footer .col-md-2,
+    footer .col-md-4 {
+        width: 100%;
+        margin-bottom: 1.5rem;
+    }
+
+    /* Menú desplegable se expande completamente en pantallas pequeñas */
+    .dropdown-menu {
+        width: 100%;
+        min-width: unset;
+    }
+
+    /* Navbar más fácil de tocar en móvil */
+    .navbar-nav .nav-link {
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+    }
+
+    /* Título general (h1) */
+    h1 {
+        font-size: 1.2rem;
+    }
+}
