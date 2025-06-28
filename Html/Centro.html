@@ -104,10 +104,24 @@
             </div>
         </div>
     </main>
-
 <script>
     const rutas = [
-        "1", "2", "3", "4", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17"
+        "1", "2", "3", "4", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
+        "RUTA_18_URBAN",
+        "RUTA_19",
+        "RUTA_20",
+        "ALIADOS DE MORELOS_URBAN",
+        "AUTOBUSES_OMSA_CHAPULTEPEC",
+        "BUENA_VISTA_DEL_MONTE_URBAN",
+        "CASPER_URBAN",
+        "CTM_URBAN",
+        "GENERACION_2000",
+        "INTERESCOLAR",
+        "INTERMUNICIPALES_URBAN",
+        "MARIANO_MATAMOROS_URBAN",
+        "OMETOCHTLI",
+        "RUTA_STA_URSULA_URBAN",
+        "TRANSPORTE_DE_PASAJEROS_SCL_MOR"
     ];
 
     const nombresVisibles = {
@@ -126,7 +140,22 @@
         "14": "RUTA 14",
         "15": "RUTA 15",
         "16": "RUTA 16",
-        "17": "RUTA 17"
+        "17": "RUTA 17",
+        "RUTA_18_URBAN": "RUTA 18 URBAN",
+        "RUTA_19": "RUTA 19",
+        "RUTA_20": "RUTA 20",
+        "ALIADOS DE MORELOS_URBAN": "ALIADOS DE MORELOS URBAN",
+        "AUTOBUSES_OMSA_CHAPULTEPEC": "AUTOBUSES OMSA CHAPULTEPEC",
+        "BUENA_VISTA_DEL_MONTE_URBAN": "BUENA VISTA DEL MONTE URBAN",
+        "CASPER_URBAN": "CASPER URBAN",
+        "CTM_URBAN": "CTM URBAN",
+        "GENERACION_2000": "GENERACIÓN 2000",
+        "INTERESCOLAR": "INTERESCOLAR",
+        "INTERMUNICIPALES_URBAN": "INTERMUNICIPALES URBAN",
+        "MARIANO_MATAMOROS_URBAN": "MARIANO MATAMOROS URBAN",
+        "OMETOCHTLI": "OMETOCHTLI",
+        "RUTA_STA_URSULA_URBAN": "RUTA STA ÚRSULA URBAN",
+        "TRANSPORTE_DE_PASAJEROS_SCL_MOR": "TRANSPORTE DE PASAJEROS SCL MOR"
     };
 
     const nombresArchivos = {}; 
@@ -145,8 +174,15 @@
         rutasPagina.forEach(nombre => {
             const col = document.createElement("div");
             col.className = "col-12 col-sm-6 col-lg-6";
-            const archivoBase = nombresArchivos[nombre] || `RUTA_${nombre}`;
+
+            // Manejo correcto del nombre del archivo
+            let archivoBase = nombresArchivos[nombre];
+            if (!archivoBase) {
+                archivoBase = /^[0-9]+$/.test(nombre) ? `RUTA_${nombre}` : nombre;
+            }
+
             const visible = nombresVisibles[nombre] || nombre.replace(/_/g, ' ');
+
             col.innerHTML = `
                 <a href="Itinerario/Centro/${archivoBase}.html" class="text-decoration-none">
                     <div class="card border-0 rounded-5 shadow h-100">
@@ -161,6 +197,7 @@
         });
     }
 
+    // Navegación por flechas
     document.getElementById("prevBtn").addEventListener("click", () => {
         if (paginaActual > 0) {
             paginaActual--;
@@ -175,6 +212,7 @@
         }
     });
 
+    // Buscador funcional
     document.getElementById("buscadorRutas").addEventListener("input", function () {
         const filtro = this.value.toLowerCase();
         rutasFiltradas = rutas.filter(r => {
@@ -185,6 +223,7 @@
         mostrarRutas();
     });
 
+    // Mostrar rutas al cargar
     mostrarRutas();
 </script>
 
