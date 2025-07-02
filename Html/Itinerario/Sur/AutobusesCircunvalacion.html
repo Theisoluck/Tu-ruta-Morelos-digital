@@ -85,7 +85,7 @@
             <div class="position-relative z-1 container px-3">
                 <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
                     class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 1 – SUR</h2>
+                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">AUTOBUSES CIRCUNVALACIÓN – SUR</h2>
                 <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
                 </div>
             </div>
@@ -114,86 +114,40 @@
         </section>
         <!-- Ruta 1 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">1. PUENTE DE IXTLA – JOJUTLA – PUENTE DE IXTLA</h2>
+            <h2 class="map-title">1. JOJUTLA-TEXCAL-OTILIO MONTAÑO-JOJUTLA</h2>
             <div id="map1" class="map-container"></div>
         </section>
 
         <!-- Ruta 2 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">2. PUENTE DE IXTLA – MICHAPA – PUENTE DE IXTLA</h2>
+            <h2 class="map-title">2. JOJUTLA-GALEANA-OTILIO MONTAÑO-JOJUTLA</h2>
             <div id="map2" class="map-container"></div>
         </section>
         <!-- Ruta 3 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">3. PUENTE DE IXTLA-CUAUCHICHINOLA-PUENTE DE IXTLA</h2>
+            <h2 class="map-title">3. JOJUTLA-CHACAMPALCO-JOJUTLA</h2>
             <div id="map3" class="map-container"></div>
         </section>
 
         <!-- Ruta 4 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">4. PUENTE DE IXTLA-SAN GABRIEL LAS PALMAS-PUENTE DE IXTLA</h2>
+            <h2 class="map-title">4. JOJUTLA-TEMIMILCINGO-JOJUTLA</h2>
             <div id="map4" class="map-container"></div>
         </section>
 
         <!-- Ruta 5 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">5. PUENTE DE IXTLA-TEACALCO-PUENTE DE IXTLA</h2>
+            <h2 class="map-title">5. JOJUTLA-GALERAS-JOJUTLA</h2>
             <div id="map5" class="map-container"></div>
         </section>
 
         <!-- Ruta 6 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">6. PUENTE DE IXTLA-COAHUIXTLA-RANCHO NUEVO-PUENTE DE IXTLA</h2>
+            <h2 class="map-title">6. JOJUTLA-TETELPA-JOJUTLA</h2>
             <div id="map6" class="map-container"></div>
         </section>
 
-        <!-- Ruta 7 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">7. PUENTE DE IXTLA-CAJONES-PUENTE DE IXTLA</h2>
-            <div id="map7" class="map-container"></div>
-        </section>
 
-        <!-- Ruta 8 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">8. PUENTE DE IXTLA-MIAHUATLAN-PUENTE DE IXTLA</h2>
-            <div id="map8" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 9 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">9. PUENTE DE IXTLA-CASAHUATLAN-PUENTE DE IXTLA</h2>
-            <div id="map9" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 10 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">10. PUENTE DE IXTLA-PARAISO ESCONDIDO-PUENTE DE IXTLA</h2>
-            <div id="map10" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 11 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">11. TEHUIXTLA-JOJUTLA-TEHUIXTLA</h2>
-            <div id="map11" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 12 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">12. PUENTE DE IXTLA-EL COCO-PUENTE DE IXTLA</h2>
-            <div id="map12" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 13 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">13. PUENTE DE IXTLA-EL ESTUDIANTE-PUENTE DE IXTLA</h2>
-            <div id="map13" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 14 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">14. AHUEHUETZINGO-PUENTE DE IXTLA-AHUEHUETZINGO</h2>
-            <div id="map14" class="map-container"></div>
-        </section>
     </main>
 
     <!-- PIE DE PÁGINA -->
@@ -252,21 +206,12 @@
     <script>
                
         const rutas = [
-            { id: 1, nombre: "1.PUENTE DE IXTLA-JOJUTLA-PUENTE DE IXTLA", color: "#f81e1e", carpeta: "Ruta 1"},
-            { id: 2, nombre: "2. PUENTE DE IXTLA-MICHAPA-PUENTE DE IXTLA", color: "#f8ac1e", carpeta: "Ruta 1"},
-            { id: 3, nombre: "3. PUENTE DE IXTLA-CUAUCHICHINOLA-PUENTE DE IXTLA", color: "#00ea60", carpeta: "Ruta 1" },
-            { id: 4, nombre: "4. PUENTE DE IXTLA-SAN GABRIEL LAS PALMAS-PUENTE DE IXTLA", color: "#013880", carpeta: "Ruta 1" },
-            { id: 5, nombre: "5. PUENTE DE IXTLA-TEACALCO-PUENTE DE IXTLA", color: "#ae46d5", carpeta: "Ruta 1" },
-            { id: 6, nombre: "6. PUENTE DE IXTLA-COAHUIXTLA-RANCHO NUEVO-PUENTE DE IXTLA", color: "#ff8c00", carpeta: "Ruta 1" },
-            { id: 7, nombre: "7. PUENTE DE IXTLA-CAJONES-PUENTE DE IXTLA", color: "#1cbbb4", carpeta: "Ruta 1" },
-            { id: 8, nombre: "8. PUENTE DE IXTLA-MIAHUATLAN-PUENTE DE IXTLA", color: "#bc5090", carpeta: "Ruta 1" },
-            { id: 9, nombre: "9. PUENTE DE IXTLA-CASAHUATLAN-PUENTE DE IXTLA", color: "#ffa600", carpeta: "Ruta 1" },
-            { id: 10, nombre: "10. PUENTE DE IXTLA-PARAISO ESCONDIDO-PUENTE DE IXTLA", color: "#336699", carpeta: "Ruta 1" },
-            { id: 11, nombre: "11. TEHUIXTLA-JOJUTLA-TEHUIXTLA", color: "#00b894", carpeta: "Ruta 1" },
-            { id: 12, nombre: "12. PUENTE DE IXTLA-EL COCO-PUENTE DE IXTLA", color: "#f94144", carpeta: "Ruta 1" },
-            { id: 13, nombre: "13. PUENTE DE IXTLA-EL ESTUDIANTE-PUENTE DE IXTLA", color: "#f3722c", carpeta: "Ruta 1" },
-            { id: 14, nombre: "1. AHUEHUETZINGO-PUENTE DE IXTLA-AHUEHUETZINGO", color: "#03722c", carpeta: "Ruta 1 AHUEHUETZINGO"},
-
+            { id: 1, nombre: "1. JOJUTLA-TEXCAL-OTILIO MONTAÑO-JOJUTLA", color: "#f81e1e"},
+            { id: 2, nombre: "2. JOJUTLA-GALEANA-OTILIO MONTAÑO-JOJUTLA", color: "#f8ac1e"},
+            { id: 3, nombre: "3.JOJUTLA-CHACAMPALCO-JOJUTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. JOJUTLA-TEMIMILCINGO-JOJUTLA", color: "#013880" },
+            { id: 5, nombre: "5. JOJUTLA-GALERAS-JOJUTLA", color: "#ae46d5" },
+            { id: 6, nombre: "6. JOJUTLA-TETELPA-JOJUTLA", color: "#ff8c00" }
         ];
 
         rutas.forEach(ruta => {
@@ -275,7 +220,7 @@
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-            fetch(`../../../Activos/Geojson/Surjson/${ruta.carpeta}/${ruta.nombre}.geojson`)
+            fetch(`../../../Activos/Geojson/Surjson/AUTOBUSES CIRCUNVALACION/${ruta.nombre}.geojson`)
                 .then(res => res.json())
                 .then(data => {
                     const layer = L.geoJSON(data, {
