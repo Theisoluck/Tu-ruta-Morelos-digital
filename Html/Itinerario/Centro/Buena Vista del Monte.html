@@ -85,7 +85,7 @@
             <div class="position-relative z-1 container px-3">
                 <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
                     class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 12 – CENTRO</h2>
+                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">BUENA VISTA DEL MONTE – CENTRO</h2>
                 <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
                 </div>
             </div>
@@ -112,27 +112,12 @@
                 </select>
             </div>
         </section>
-        <!-- 1. ALTA PALMIRA-EJIDO-TEPUENTE-INDEPENDENCIA -->
+        <!-- BUENA VISTA DEL MONTE - HACIENDA TETELA - BUENA VISTA DEL MONTE -->
         <section class="text-center mb-5">
-            <h2 class="map-title">1. ALTA PALMIRA-EJIDO-TEPUENTE-INDEPENDENCIA</h2>
+            <h2 class="map-title">BUENA VISTA DEL MONTE - HACIENDA TETELA - BUENA VISTA DEL MONTE</h2>
             <div id="map1" class="map-container"></div>
         </section>
 
-        <!-- 2. INDEPENDENCIA-TEPUENTE-AEROPUERTO-UNIDAD MORELOS -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">2. INDEPENDENCIA-TEPUENTE-AEROPUERTO-UNIDAD MORELOS</h2>
-            <div id="map2" class="map-container"></div>
-        </section>
-        <!-- 3. UNIDAD MORELOS-AEROPUERTO-LA CRUZ DE LA MISION -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">3. UNIDAD MORELOS-AEROPUERTO-LA CRUZ DE LA MISION</h2>
-            <div id="map3" class="map-container"></div>
-        </section>
-        <!-- 4. LA CRUZ DE LA MISION-EJIDO-ALTA PALMIRA -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">4. LA CRUZ DE LA MISION-EJIDO-ALTA PALMIRA</h2>
-            <div id="map4" class="map-container"></div>
-        </section>
         
 
         
@@ -195,10 +180,7 @@
     <script>
                
         const rutas = [
-            { id: 1, nombre: "1. ALTA PALMIRA-EJIDO-TEPUENTE-INDEPENDENCIA", color: "#f81e1e"},
-            { id: 2, nombre: "2. INDEPENDENCIA-TEPUENTE-AEROPUERTO-UNIDAD MORELOS", color: "#f8ac1e"},
-            { id: 3, nombre: "3. UNIDAD MORELOS-AEROPUERTO-LA CRUZ DE LA MISION", color: "#00ea60" },
-            { id: 4, nombre: "4. LA CRUZ DE LA MISION-EJIDO-ALTA PALMIRA", color: "#013880" }
+            { id: 1, nombre: "BUENA VISTA DEL MONTE - HACIENDA TETELA - BUENA VISTA DEL MONTE", color: "#f81e1e"}
             
             
         ];
@@ -209,7 +191,7 @@
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-            fetch(`../../../Activos/Geojson/Centrojson/Ruta 12/${ruta.nombre}.geojson`)
+            fetch(`../../../Activos/Geojson/Centrojson/Buena_Vista_del_monte/${ruta.nombre}.geojson`)
                 .then(res => res.json())
                 .then(data => {
                     const layer = L.geoJSON(data, {

@@ -85,7 +85,7 @@
             <div class="position-relative z-1 container px-3">
                 <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
                     class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 12 – CENTRO</h2>
+                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 5 – SUR</h2>
                 <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
                 </div>
             </div>
@@ -112,30 +112,64 @@
                 </select>
             </div>
         </section>
-        <!-- 1. ALTA PALMIRA-EJIDO-TEPUENTE-INDEPENDENCIA -->
+        <!-- Ruta 1 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">1. ALTA PALMIRA-EJIDO-TEPUENTE-INDEPENDENCIA</h2>
+            <h2 class="map-title">1. SAN PABLO HIDALGO-JOJUTLA-SAN PABLO HIDALGO</h2>
             <div id="map1" class="map-container"></div>
         </section>
 
-        <!-- 2. INDEPENDENCIA-TEPUENTE-AEROPUERTO-UNIDAD MORELOS -->
+        <!-- Ruta 2 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">2. INDEPENDENCIA-TEPUENTE-AEROPUERTO-UNIDAD MORELOS</h2>
+            <h2 class="map-title">2. JOJUTLA-PALO PRIETO-JOJUTLA</h2>
             <div id="map2" class="map-container"></div>
         </section>
-        <!-- 3. UNIDAD MORELOS-AEROPUERTO-LA CRUZ DE LA MISION -->
+        <!-- Ruta 3 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">3. UNIDAD MORELOS-AEROPUERTO-LA CRUZ DE LA MISION</h2>
+            <h2 class="map-title">3. JOJUTLA-PANTEÓN-JOJUTLA</h2>
             <div id="map3" class="map-container"></div>
         </section>
-        <!-- 4. LA CRUZ DE LA MISION-EJIDO-ALTA PALMIRA -->
+
+        <!-- Ruta 4 -->
         <section class="text-center mb-5">
-            <h2 class="map-title">4. LA CRUZ DE LA MISION-EJIDO-ALTA PALMIRA</h2>
+            <h2 class="map-title">4. JOJUTLA-TEMIMILCINGO-JOJUTLA</h2>
             <div id="map4" class="map-container"></div>
         </section>
-        
 
-        
+        <!-- Ruta 5 -->
+        <section class="text-center mb-5">
+            <h2 class="map-title">5. JOJUTLA-TICUMAN-JOJUTLA</h2>
+            <div id="map5" class="map-container"></div>
+        </section>
+
+        <!-- Ruta 6 -->
+        <section class="text-center mb-5">
+            <h2 class="map-title">6. JOJUTLA-BALNEARIO SANTA ISABEL-JOJUTLA</h2>
+            <div id="map6" class="map-container"></div>
+        </section>
+
+
+        <section class="text-center mb-5" >
+            <div class="mx-auto" style="height: 5px; width: 100%; background-color: #cd9a6c; border-radius: 2px;">
+            <br><h2 class="map-title">RUTA 5A</h2> 
+        </section><br>
+
+        <!-- Ruta 7 -->
+        <section class="text-center mb-5">
+            <h2 class="map-title">7. JOJUTLA-BALNEARIO LAS ESTACAS-JOJUTLA</h2>
+            <div id="map7" class="map-container"></div>
+        </section>
+
+        <!-- Ruta 8 -->
+        <section class="text-center mb-5">
+            <h2 class="map-title">8. JOJUTLA-HUATECALCO-JOJUTLA</h2>
+            <div id="map8" class="map-container"></div>
+        </section>
+
+        <!-- Ruta 9 -->
+        <section class="text-center mb-5">
+            <h2 class="map-title">9. JOJUTLA-SAN RAFAEL ZARAGOZA-JOJUTLA</h2>
+            <div id="map9" class="map-container"></div>
+        </section>
 
     </main>
 
@@ -195,12 +229,15 @@
     <script>
                
         const rutas = [
-            { id: 1, nombre: "1. ALTA PALMIRA-EJIDO-TEPUENTE-INDEPENDENCIA", color: "#f81e1e"},
-            { id: 2, nombre: "2. INDEPENDENCIA-TEPUENTE-AEROPUERTO-UNIDAD MORELOS", color: "#f8ac1e"},
-            { id: 3, nombre: "3. UNIDAD MORELOS-AEROPUERTO-LA CRUZ DE LA MISION", color: "#00ea60" },
-            { id: 4, nombre: "4. LA CRUZ DE LA MISION-EJIDO-ALTA PALMIRA", color: "#013880" }
-            
-            
+            { id: 1, nombre: "1. SAN PABLO HIDALGO-JOJUTLA-SAN PABLO HIDALGO", color: "#f81e1e"},
+            { id: 2, nombre: "2. JOJUTLA-PALO PRIETO-JOJUTLA", color: "#f8ac1e"},
+            { id: 3, nombre: "3. JOJUTLA-PANTEàN-JOJUTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. JOJUTLA-TEMIMILCINGO-JOJUTLA ", color: "#013880" },
+            { id: 5, nombre: "5. JOJUTLA-TICUMAN-JOJUTLA", color: "#ae46d5" },
+            { id: 6, nombre: "6. JOJUTLA-BALNEARIO SANTA ISABEL-JOJUTLA", color: "#ff8c00" },
+            { id: 7, nombre: "1. JOJUTLA-BALNEARIO LAS ESTACAS-JOJUTLA", color: "#1cbbb4" },
+            { id: 8, nombre: "2. JOJUTLA-HUATECALCO-JOJUTLA", color: "#bc5090" },
+            { id: 9, nombre: "3. JOJUTLA-SAN RAFAEL ZARAGOZA-JOJUTLA", color: "#ffa600" }
         ];
 
         rutas.forEach(ruta => {
@@ -209,7 +246,7 @@
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-            fetch(`../../../Activos/Geojson/Centrojson/Ruta 12/${ruta.nombre}.geojson`)
+            fetch(`../../../Activos/Geojson/Surjson/Ruta 5/${ruta.nombre}.geojson`)
                 .then(res => res.json())
                 .then(data => {
                     const layer = L.geoJSON(data, {

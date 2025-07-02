@@ -112,13 +112,13 @@
                 </select>
             </div>
         </section>
-        <!-- Primer mapa -->
+        <!-- Ruta 1 -->
         <section class="text-center mb-5">
             <h2 class="map-title">1. PUENTE DE IXTLA – JOJUTLA – PUENTE DE IXTLA</h2>
             <div id="map1" class="map-container"></div>
         </section>
 
-        <!-- Segundo mapa -->
+        <!-- Ruta 2 -->
         <section class="text-center mb-5">
             <h2 class="map-title">2. PUENTE DE IXTLA – MICHAPA – PUENTE DE IXTLA</h2>
             <div id="map2" class="map-container"></div>
@@ -189,6 +189,11 @@
             <div id="map13" class="map-container"></div>
         </section>
 
+        <!-- Ruta 14 -->
+        <section class="text-center mb-5">
+            <h2 class="map-title">14. AHUEHUETZINGO-PUENTE DE IXTLA-AHUEHUETZINGO</h2>
+            <div id="map14" class="map-container"></div>
+        </section>
     </main>
 
     <!-- PIE DE PÁGINA -->
@@ -247,19 +252,21 @@
     <script>
                
         const rutas = [
-            { id: 1, nombre: "1.PUENTE DE IXTLA-JOJUTLA-PUENTE DE IXTLA", color: "#f81e1e"},
-            { id: 2, nombre: "2. PUENTE DE IXTLA-MICHAPA-PUENTE DE IXTLA", color: "#f8ac1e"},
-            { id: 3, nombre: "3. PUENTE DE IXTLA-CUAUCHICHINOLA-PUENTE DE IXTLA", color: "#00ea60" },
-            { id: 4, nombre: "4. PUENTE DE IXTLA-SAN GABRIEL LAS PALMAS-PUENTE DE IXTLA", color: "#013880" },
-            { id: 5, nombre: "5. PUENTE DE IXTLA-TEACALCO-PUENTE DE IXTLA", color: "#ae46d5" },
-            { id: 6, nombre: "6. PUENTE DE IXTLA-COAHUIXTLA-RANCHO NUEVO-PUENTE DE IXTLA", color: "#ff8c00" },
-            { id: 7, nombre: "7. PUENTE DE IXTLA-CAJONES-PUENTE DE IXTLA", color: "#1cbbb4" },
-            { id: 8, nombre: "8. PUENTE DE IXTLA-MIAHUATLAN-PUENTE DE IXTLA", color: "#bc5090" },
-            { id: 9, nombre: "9. PUENTE DE IXTLA-CASAHUATLAN-PUENTE DE IXTLA", color: "#ffa600" },
-            { id: 10, nombre: "10. PUENTE DE IXTLA-PARAISO ESCONDIDO-PUENTE DE IXTLA", color: "#336699" },
-            { id: 11, nombre: "11. TEHUIXTLA-JOJUTLA-TEHUIXTLA", color: "#00b894" },
-            { id: 12, nombre: "12. PUENTE DE IXTLA-EL COCO-PUENTE DE IXTLA", color: "#f94144" },
-            { id: 13, nombre: "13. PUENTE DE IXTLA-EL ESTUDIANTE-PUENTE DE IXTLA", color: "#f3722c" }
+            { id: 1, nombre: "1.PUENTE DE IXTLA-JOJUTLA-PUENTE DE IXTLA", color: "#f81e1e", carpeta: "Ruta 1"},
+            { id: 2, nombre: "2. PUENTE DE IXTLA-MICHAPA-PUENTE DE IXTLA", color: "#f8ac1e", carpeta: "Ruta 1"},
+            { id: 3, nombre: "3. PUENTE DE IXTLA-CUAUCHICHINOLA-PUENTE DE IXTLA", color: "#00ea60", carpeta: "Ruta 1" },
+            { id: 4, nombre: "4. PUENTE DE IXTLA-SAN GABRIEL LAS PALMAS-PUENTE DE IXTLA", color: "#013880", carpeta: "Ruta 1" },
+            { id: 5, nombre: "5. PUENTE DE IXTLA-TEACALCO-PUENTE DE IXTLA", color: "#ae46d5", carpeta: "Ruta 1" },
+            { id: 6, nombre: "6. PUENTE DE IXTLA-COAHUIXTLA-RANCHO NUEVO-PUENTE DE IXTLA", color: "#ff8c00", carpeta: "Ruta 1" },
+            { id: 7, nombre: "7. PUENTE DE IXTLA-CAJONES-PUENTE DE IXTLA", color: "#1cbbb4", carpeta: "Ruta 1" },
+            { id: 8, nombre: "8. PUENTE DE IXTLA-MIAHUATLAN-PUENTE DE IXTLA", color: "#bc5090", carpeta: "Ruta 1" },
+            { id: 9, nombre: "9. PUENTE DE IXTLA-CASAHUATLAN-PUENTE DE IXTLA", color: "#ffa600", carpeta: "Ruta 1" },
+            { id: 10, nombre: "10. PUENTE DE IXTLA-PARAISO ESCONDIDO-PUENTE DE IXTLA", color: "#336699", carpeta: "Ruta 1" },
+            { id: 11, nombre: "11. TEHUIXTLA-JOJUTLA-TEHUIXTLA", color: "#00b894", carpeta: "Ruta 1" },
+            { id: 12, nombre: "12. PUENTE DE IXTLA-EL COCO-PUENTE DE IXTLA", color: "#f94144", carpeta: "Ruta 1" },
+            { id: 13, nombre: "13. PUENTE DE IXTLA-EL ESTUDIANTE-PUENTE DE IXTLA", color: "#f3722c", carpeta: "Ruta 1" },
+            { id: 14, nombre: "1. AHUEHUETZINGO-PUENTE DE IXTLA-AHUEHUETZINGO", color: "#03722c", carpeta: "Ruta 1 AHUEHUETZINGO"},
+
         ];
 
         rutas.forEach(ruta => {
@@ -268,7 +275,7 @@
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-            fetch(`../../../Activos/Geojson/Surjson/Ruta 1/${ruta.nombre}.geojson`)
+            fetch(`../../../Activos/Geojson/Surjson/${ruta.carpeta}/${ruta.nombre}.geojson`)
                 .then(res => res.json())
                 .then(data => {
                     const layer = L.geoJSON(data, {
