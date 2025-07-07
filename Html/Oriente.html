@@ -1,75 +1,119 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head> 
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tu Ruta Morelos Digital</title>
+    <title>Zona Oriente</title>
     <link rel="stylesheet" href="../Css/Estilos.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
 </head>
+
 
 <body>
     <!-- ENCABEZADO RESPONSIVO -->
     <header style="background-color: #283C2A;">
         <nav class="navbar navbar-expand-lg navbar-dark px-3">
             <div class="container-fluid">
-                <a class="navbar-brand" href="#">
-                    <img src="../Activos/Imagenes/Logo_principal.png" alt="Morelos" height="50">
-                </a>
 
-                <!-- Botón hamburguesa -->
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu"
-                    aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
+                <!-- Logo y botón hamburguesa compactos -->
+                <a class="navbar-brand mb-0" href="#">
+                    <img src="../Activos/Imagenes/Logo_principal.png" alt="Morelos" class="img-fluid"
+                        style="max-height: 44px;">
+                </a>
+                <button class="navbar-toggler p-1 border-0 bg-transparent" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <i class="bi bi-list fs-1" style="color: #C29A6D;"></i>
                 </button>
 
-                <!-- Enlaces -->
-                <div class="collapse navbar-collapse" id="navbarMenu">
-                    <ul class="navbar-nav ms-auto text-uppercase align-items-lg-center gap-lg-3">
-                        <li class="nav-item">
-                            <a href="../../../Indice.html" class="nav-link active" style="color: #cd9a6c;">Inicio</a>
-                        </li>
-                        <li class="nav-item"><a href="Html/Centro.html" class="nav-link text-white">Centro</a></li>
-                        <li class="nav-item"><a href="Html/Sur.html" class="nav-link text-white">Sur</a></li>
-                        <li class="nav-item"><a href="Html/Oriente.html" class="nav-link text-white">Oriente</a></li>
-                        <li class="nav-item"><a href="Html/RutaDeLaSalud.html" class="nav-link text-white">Ruta de la
+
+                <!-- Menú colapsable -->
+                <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarMenu">
+                    <ul class="navbar-nav w-100 justify-content-evenly text-uppercase align-items-lg-center">
+                        <li class="nav-item"><a href="../Indice.html" class="nav-link  fw-bold"
+                                style="color: #C29A6D;">Inicio</a></li>
+                        <li class="nav-item"><a href="../Html/Centro.html" class="nav-link text-white">Centro</a></li>
+                        <li class="nav-item"><a href="../Html/Sur.html" class="nav-link text-white">Sur</a></li>
+                        <li class="nav-item"><a href="../Html/Oriente.html" class="nav-link text-white">Oriente</a></li>
+                        <li class="nav-item"><a href="../Html/RutaDeLaSalud.html" class="nav-link text-white">Ruta de la
                                 Salud</a></li>
                         <li class="nav-item"><a href="Html/Delegaciones.html" class="nav-link text-white">Zonas</a></li>
-                        <li class="nav-item"><a href="Html/Delegaciones.html" class="nav-link text-white">Plan
+                        <li class="nav-item"><a href="../Html/PlanPopocatepetl.html" class="nav-link text-white">Plan
                                 Popocatépetl</a></li>
-                        <li class="nav-item"><a href="Html/Delegaciones.html" class="nav-link text-white">Mapa
+                        <li class="nav-item"><a href="../Html/MapaInteractivo.html" class="nav-link text-white">Mapa
                                 interactivo</a></li>
+
+                        <!-- Ícono búsqueda (solo móvil) -->
                         <li class="nav-item d-lg-none">
-                            <a href="#" class="nav-link text-white"><i class="bi bi-search"></i> Buscar</a>
+                            <a href="#" class="nav-link text-white" data-bs-toggle="collapse"
+                                data-bs-target="#searchForm">
+                                <i class="bi bi-search"></i> Buscar
+                            </a>
                         </li>
                     </ul>
-                </div>
-                <!-- Ícono de búsqueda en desktop -->
-                <div class="d-none d-lg-block">
-                    <i class="bi bi-search" style="color: #cd9a6c; font-size: 1.2rem;"></i>
+
+                    <!-- Ícono búsqueda escritorio -->
+                    <button class="btn d-none d-lg-block" id="toggleSearch" type="button">
+                        <i class="bi bi-search text-warning fs-5"></i>
+                    </button>
+
+                    <!-- Formulario búsqueda móvil -->
+                    <form id="searchForm" class="collapse w-100 mt-3 d-lg-none" role="search"
+                        style="background-color: #C29A6D;"
+                        onsubmit="event.preventDefault(); window.location.href='https://www.morelos.gob.mx/search?query=' + encodeURIComponent(document.getElementById('searchInput').value);">
+                        <div class="input-group">
+                            <input type="search" class="form-control rounded-start px-3"
+                                style="border: 3px solid white; box-shadow: none;"
+                                placeholder="Buscar en morelos.gob.mx" aria-label="Buscar" id="searchInput" required>
+                            <button class="btn  rounded-end" type="submit" style="background-color: #C29A6D;">
+                                <i class="bi bi-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </nav>
+
+        <!-- Formulario búsqueda escritorio (desplegable) -->
+        <form id="desktopSearchForm" class="collapse  py-3 px-3" role="search" style="background-color: #C29A6D; "
+            onsubmit="event.preventDefault(); window.location.href='https://www.morelos.gob.mx/search?query=' + encodeURIComponent(document.getElementById('desktopSearchInput').value);">
+            <div class="container">
+                <div class="input-group">
+                    <input type="search" class="form-control" placeholder="Buscar en morelos.gob.mx" aria-label="Buscar"
+                        id="desktopSearchInput" required>
+                    <button class="btn btn-warning" type="submit"><i class="bi bi-arrow-right"></i></button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Script para botón de búsqueda en escritorio -->
+        <script>
+            document.getElementById('toggleSearch').addEventListener('click', function () {
+                document.getElementById('desktopSearchForm').classList.toggle('show');
+            });
+        </script>
+
         <!-- Fondo gráfico y título -->
         <div class="text-center py-5 position-relative" style="background-color: #283C2A;">
-            <!-- Imagen de fondo ajustada para que no se corte -->
             <img src="../Activos/Imagenes/Vector.png" alt="Fondo gráfico"
-                class="position-absolute start-0 w-100 img-fluid"
-                style="top: 10; height: auto; opacity: 0.05; z-index: 0;">
-            <!-- Imagen principal centrada -->
+                class="position-absolute start-0 w-100 img-fluid opacity-25" style="top: 10px; z-index: 0;">
             <div class="position-relative z-1 container text-center">
                 <img src="../Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
-                    class="img-fluid mx-auto d-block" style="max-width: 100%; height: auto;">
-                <h2 class="fw-bold mt-3 mb-2" style="color: #cd9a6c;">ORIENTE</h2>
-                <!-- Línea completamente horizontal, pegada al texto -->
-                <div style="height: 4px; background-color: #cd9a6c; width: 100%; max-width: 100%;"></div>
+                    class="img-fluid mx-auto d-block w-75 w-md-50 w-lg-25">
+                <h2 class="fw-bold mt-3 mb-2" style="color: #C29A6D;">ORIENTE</h2>
+
+                <div class="mx-auto w-100" style="border-bottom: 4px solid #C29A6D;"></div>
+
             </div>
         </div>
     </header>
+
+
+
+
+
     <!-- Línea divisoria amarilla debajo del encabezado -->
     <div style="height: 6px; background-color: #cd9a6c; width: 100%;"></div>
     </ul>
@@ -105,103 +149,80 @@
         </div>
     </main>
 
-
     <script>
-        const rutas = [
-            "INTERESCOLAR", "1", "1B", "2", "2A", "2B", "3",
-            "4_AÑO_DE_JUAREZ", "4_STA_INES", "4B_ESTRELLA", "4B_TECNOLOGICO", "5", "6", "6A", "6B", "6C",
-            "6D", "7", "8", "9","9B","10_DE_ABRIL","10_VENADOS","11","11A","11B","12","13","14","14B","15","15B","16","17","18","19","20",
-            "21_AMAYUCA", "21_AMACUITLAPILCO", "21_CHALCATZINGO", "21_IXTLILCO_EL_GRANDE","21_LAS_AMARILLAS_DE_JONACATEPEC","21_TECAJEC"
-            ,"21_TELIXTAC","21B","22","22A","23","24","25","26","28","29","31","33","34","HUEXCA_LIMONES"
-        ];
+    const rutas = [
+        "INTERESCOLAR", "1", "1B", "2", "2A", "2B", "3",
+        "4_ANO_DE_JUAREZ", "4_STA_INES", "4B_ESTRELLA", "4B_TECNOLOGICO",
+        "5", "6", "6A", "6B", "6C", "6D", "7", "8", "9", "9B",
+        "10_DE_ABRIL", "10_VENADOS", "11", "11A", "11B", "12", "13", "13B", "14", "14B", "15", "15B",
+        "16", "17", "18", "19", "20",
+        "21_AMACUITLAPILCO", "21_AMAYUCA", "21_CHALCATZINGO", "21_IXTLILCO_EL_GRANDE",
+        "21_LAS_AMARILLAS_DE_JONACATEPEC", "21_TECAJEC", "21_TELIXTAC", "21B",
+        "22", "22A", "23", "24", "25", "26", "28", "29",
+        "31", "33", "34", "HUEXCA_LIMONES"
+    ];
 
-        const nombresVisibles = {
-       "INTERESCOLAR": "RUTA INTERESCOLAR",
-        "1":"RUTA 1",
-         "1B":"RUTA 1B", 
-         "2":"RUTA 2", 
-         "2A":"RUTA 2A",
-          "2B":"RUTA 2B",
-           "3":"RUTA 3",
-            "4_AÑO_DE_JUAREZ":"RUTA 4 AÑO DE JUAREZ ",
-            "4_STA_INES":"RUTA 4 STA INES",
-            "4B_ESTRELLA":"RUTA 4B ESTRELLA",
-            "4B_TECNOLOGICO":"RUTA 4B TECNOLOGICO",
-            "5":"RUTA 5",
-            "6":"RUTA 6",
-            "6A":"RUTA 6A",
-            "6B":"RUTA 6B",
-            "6C":"RUTA 6C",
-            "6D":"RUTA 6D",
-            "7":"RUTA 7",
-            "8":"RUTA 8",
-            "9":"RUTA 9",
-            "9B":"RUTA 9B",
-            "10_DE_ABRIL":"RUTA 10 DE ABRIL",
-            "10_VENADOS":"RUTA 10 VENADOS",
-            "11":"RUTA 11",
-            "11A":"RUTA 11A",
-            "11B":"RUTA 11B",
-            "12":"RUTA 12",
-            "13":"RUTA 13",
-            "14":"RUTA 14",
-            "14B":"RUTA 14B",
-            "15":"RUTA 15",
-            "15B":"RUTA 15B",
-            "16":"RUTA 16",
-            "17": "RUTA 17",
-            "18": "RUTA 18",
-            "19": "RUTA 19",
-            "20": "RUTA20",
-            "21_AMAYUCA":"RUTA 21 AMAYUCA",
-            "21_AMACUITLAPILCO":"RUTA 21 AMACUITLALPICO",
-             "21_CHALCATZINGO":"RUTA 21 CHACATZINGO",
-             "21_IXTLILCO_EL_GRANDE":"RUTA 21 IXTLILCO EL GRANDE",
-            "21_LAS_AMARILLAS_DE_JONACATEPEC":"RUTA 21 LAS AMARILLAS DE JONACATEPEC",
-            "21_TECAJEC":"RUTA 21 TECAJEC",
-            "21_TELIXTAC":"RUTA 21 TELIXTAC",
-            "21B":"RUTA 21B",
-            "22":"RUTA 22",
-            "22A":"RUTA 22A",
-            "23":"RUTA 23",
-            "24":"RUTA 24",
-            "26":"RUTA 26",
-            "28":"RUTA 28",
-            "29":"RUTA 29",
-            "31":"RUTA 31",
-            "33":"RUTA 33",
-            "34":"RUTA 34",
-            "HUEXCA_LIMONES":"RUTA HUEXCA LIMONES"
-        };
+    const nombresVisibles = {
+        "INTERESCOLAR": "INTERESCOLAR",
+        "1": "RUTA 1", "1B": "RUTA 1B", "2": "RUTA 2", "2A": "RUTA 2A", "2B": "RUTA 2B", "3": "RUTA 3",
+        "4_ANO_DE_JUAREZ": "RUTA 4 AÑO DE JUAREZ",
+        "4_STA_INES": "RUTA 4 SANTA INES",
+        "4B_ESTRELLA": "RUTA 4B ESTRELLA",
+        "4B_TECNOLOGICO": "RUTA 4B TECNOLOGICO",
+        "5": "RUTA 5", "6": "RUTA 6", "6A": "RUTA 6A", "6B": "RUTA 6B", "6C": "RUTA 6C", "6D": "RUTA 6D",
+        "7": "RUTA 7", "8": "RUTA 8", "9": "RUTA 9", "9B": "RUTA 9B",
+        "10_DE_ABRIL": "RUTA 10 DE ABRIL", "10_VENADOS": "RUTA 10 VENADOS",
+        "11": "RUTA 11", "11A": "RUTA 11A", "11B": "RUTA 11B", "12": "RUTA 12",
+        "13": "RUTA 13", "13B": "RUTA 13B", "14": "RUTA 14", "14B": "RUTA 14B",
+        "15": "RUTA 15", "15B": "RUTA 15B", "16": "RUTA 16", "17": "RUTA 17",
+        "18": "RUTA 18", "19": "RUTA 19", "20": "RUTA 20",
+        "21_AMACUITLAPILCO": "RUTA 21 AMACUITLAPILCO",
+        "21_AMAYUCA": "RUTA 21 AMAYUCA",
+        "21_CHALCATZINGO": "RUTA 21 CHALCATZINGO",
+        "21_IXTLILCO_EL_GRANDE": "RUTA 21 IXTLILCO EL GRANDE",
+        "21_LAS_AMARILLAS_DE_JONACATEPEC": "RUTA 21 \"LAS AMARILLAS DE JONACATEPEC\"",
+        "21_TECAJEC": "RUTA 21 TECAJEC",
+        "21_TELIXTAC": "RUTA 21 TELIXTAC",
+        "21B": "RUTA 21B",
+        "22": "RUTA 22", "22A": "RUTA 22A", "23": "RUTA 23", "24": "RUTA 24", "25": "RUTA 25",
+        "26": "RUTA 26", "28": "RUTA 28", "29": "RUTA 29",
+        "31": "RUTA 31", "33": "RUTA 33", "34": "RUTA 34",
+        "HUEXCA_LIMONES": "RUTA HUEXCA LIMONES"
+    };
 
+    const nombresArchivos = {
+        "INTERESCOLAR": "INTERESCOLAR_URVAN",
+        "4_ANO_DE_JUAREZ": "RUTA_4_ANO_DE_JUAREZ",
+        "HUEXCA_LIMONES": "RUTA_HUEXCA_LIMONES",
+        "4B_ESTRELLA": "RUTA_4B_ESTRELLA",
+        "4B_TECNOLOGICO": "RUTA_4B_TECNOLOGICO",
+        "4_STA_INES": "RUTA_4_STA_INES"
+    };
 
-        const nombresArchivos = {
-            "INTERESCOLAR": "INTERESCOLAR_URVAN",
-            "4_AÑO_DE_JUAREZ": "RUTA_4_AÑO_DE_JUAREZ",
-            "HUEXCA_LIMONES": "RUTA_HUEXCA_LIMONES",
-            "4B_ESTRELLA": "RUTA_4B_ESTRELLA",
-            "4_AÑO_DE_JUAREZ": "RUTA_4_AÑO_DE_JUAREZ",
-            "HUEXCA_LIMONES": "RUTA_HUEXCA_LIMONES"
-        };
+    const porPagina = 4;
+    let paginaActual = 0;
+    let rutasFiltradas = [...rutas];
 
-        const porPagina = 4;
-        let paginaActual = 0;
-        let rutasFiltradas = [...rutas];
+    function mostrarRutas() {
+        const container = document.getElementById("rutaContainer");
+        container.innerHTML = "";
+        const inicio = paginaActual * porPagina;
+        const fin = inicio + porPagina;
+        const rutasPagina = rutasFiltradas.slice(inicio, fin);
 
-        function mostrarRutas() {
-            const container = document.getElementById("rutaContainer");
-            container.innerHTML = "";
-            const inicio = paginaActual * porPagina;
-            const fin = inicio + porPagina;
-            const rutasPagina = rutasFiltradas.slice(inicio, fin);
+        rutasPagina.forEach(nombre => {
+            const col = document.createElement("div");
+            col.className = "col-12 col-sm-6 col-lg-6";
 
-            rutasPagina.forEach(nombre => {
-                const col = document.createElement("div");
-                col.className = "col-12 col-sm-6 col-lg-6";
-                const archivoBase = nombresArchivos[nombre] || (nombre.startsWith("AUTOBUSES") ? nombre : `RUTA_${nombre}`);
-                const visible = nombresVisibles[nombre] || nombre.replace(/_/g, ' ');
-                col.innerHTML = `
-                <a href="Itinerario/Sur/${archivoBase}.html" class="text-decoration-none">
+            let archivoBase = nombresArchivos[nombre];
+            if (!archivoBase) {
+                archivoBase = /^[0-9]+$/.test(nombre) ? `RUTA_${nombre}` : `RUTA_${nombre}`;
+            }
+
+            const visible = nombresVisibles[nombre] || nombre.replace(/_/g, ' ');
+
+            col.innerHTML = `
+                <a href="Itinerario/Oriente/${archivoBase}.html" class="text-decoration-none">
                     <div class="card border-0 rounded-5 shadow h-100">
                         <img src="../Activos/Imagenes/Oriente/${archivoBase}.png" class="card-img-top rounded-top-5" alt="${visible}">
                         <div class="card-body text-center rounded-bottom-5" style="background-color: #cd9a6c;">
@@ -210,106 +231,179 @@
                     </div>
                 </a>
             `;
-                container.appendChild(col);
-            });
-        }
-
-        // Navegación por flechas
-        document.getElementById("prevBtn").addEventListener("click", () => {
-            if (paginaActual > 0) {
-                paginaActual--;
-                mostrarRutas();
-            }
+            container.appendChild(col);
         });
+    }
 
-        document.getElementById("nextBtn").addEventListener("click", () => {
-            if ((paginaActual + 1) * porPagina < rutasFiltradas.length) {
-                paginaActual++;
-                mostrarRutas();
-            }
-        });
-
-        // Buscador funcional
-        document.getElementById("buscadorRutas").addEventListener("input", function () {
-            const filtro = this.value.toLowerCase();
-            rutasFiltradas = rutas.filter(r => {
-                const visible = (nombresVisibles[r] || r).toLowerCase();
-                return visible.includes(filtro);
-            });
-            paginaActual = 0;
+    document.getElementById("prevBtn").addEventListener("click", () => {
+        if (paginaActual > 0) {
+            paginaActual--;
             mostrarRutas();
+        }
+    });
+
+    document.getElementById("nextBtn").addEventListener("click", () => {
+        if ((paginaActual + 1) * porPagina < rutasFiltradas.length) {
+            paginaActual++;
+            mostrarRutas();
+        }
+    });
+
+    document.getElementById("buscadorRutas").addEventListener("input", function () {
+        const filtro = this.value.toLowerCase();
+        rutasFiltradas = rutas.filter(r => {
+            const visible = (nombresVisibles[r] || r).toLowerCase();
+            return visible.includes(filtro);
         });
-
-        // Mostrar rutas al cargar
+        paginaActual = 0;
         mostrarRutas();
-    </script>
+    });
+
+    mostrarRutas();
+</script>
 
 
-    <!-- PIE DE PÁGINA -->
-    <footer style="background-color: #71785B; color: #fff; font-family: sans-serif;">
-        <div class="container py-5">
-            <div class="row text-center text-md-start">
+    <footer class="dt-footer text-white py-4" style="background-color: #71785B;">
 
-                <!-- Logo institucional -->
-                <div class="col-md-2 mb-4">
-                    <img src="../Activos/Imagenes/LogoMovilidadBlanco.png" alt="Logo" class="img-fluid mb-2"
-                        style="max-width: 150px;">
-                </div>
+        <div class="container dt-footer-container">
+            <!-- Logo -->
+            <div class="dt-footer-logo mb-3">
+                <img src="../Activos/Imagenes/LogoMovilidadBlanco.png" alt="Logo" class="img-fluid"
+                    style="max-width: 150px;">
+            </div>
 
-                <!-- Horario -->
-                <div class="col-md-2 mb-4">
-                    <h6 class="fw-bold">Horario de Atención</h6>
-                    <p class="mb-0">8:00 - 15:00</p>
-                </div>
+            <!-- Vista acordeón para pantallas menores a lg -->
+            <div class="d-lg-none">
+                <div class="accordion" id="footerAccordion">
+                    <!-- Horario -->
+                    <div class="accordion-item  text-white border-0" style="background-color: #71785B;">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed  text-white" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#mobHorario"
+                                style="background-color: #71785B;">
+                                Horario de Atención
+                            </button>
+                        </h2>
+                        <div id="mobHorario" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+                            <div class="accordion-body">8:00 - 15:00</div>
+                        </div>
+                    </div>
 
-                <!-- Contacto -->
-                <div class="col-md-2 mb-4">
-                    <h6 class="fw-bold">Contáctanos en</h6>
-                    <p class="mb-1">
-                        <i class="bi bi-telephone-fill me-2"></i>(777) 329 6500
-                    </p>
-                </div>
+                    <!-- Contacto -->
+                    <div class="accordion-item  text-white border-0" style="background-color: #71785B;">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed  text-white" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#mobContacto"
+                                style="background-color: #71785B;">
+                                Contáctanos en
+                            </button>
+                        </h2>
+                        <div id="mobContacto" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+                            <div class="accordion-body">
+                                <i class="bi bi-telephone-fill me-2"></i>777 329 65 00<br>
+                                <i class="bi bi-envelope-fill me-2"></i>correspondencia.movilidad@morelos.gob.mx
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- Ubicación -->
-                <div class="col-md-3 mb-3">
-                    <h6 class="fw-bold">Ubicación</h6>
-                    <p class="mb-0">Corporativos Arcos Cristal,<br>"Plaza Cristal" Plan de Ayala número 825,<br>Col.
-                        Teopanzolco,
-                        Cuernavaca, Morelos.</p>
-                </div>
+                    <!-- Ubicación -->
+                    <div class="accordion-item  text-white border-0" style="background-color: #71785B;">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed  text-white" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#mobUbicacion"
+                                style="background-color: #71785B;">
+                                Ubicación
+                            </button>
+                        </h2>
+                        <div id="mobUbicacion" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+                            <div class="accordion-body">
+                                Corporativos Arcos Cristal, 'Plaza Cristal' Plan de Ayala número 825, Col. Teopanzolco,
+                                Cuernavaca,
+                                Morelos.
+                            </div>
+                        </div>
+                    </div>
 
-                <!-- Contacto rápido -->
-                <div class="col-md-2 mb-4">
-                    <h6 class="fw-bold">Contacto Rápido</h6>
-                    <ul class="list-unstyled">
-                        <li><a href="https://www.morelos.gob.mx/tramites-y-servicios"
-                                class="text-white text-decoration-none">Trámites</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Noticias</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Eventos</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Programas</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Convocatorias</a></li>
-                        <li><a href="#" class="text-white text-decoration-none">Organigrama</a></li>
-                    </ul>
+                    <!-- Contacto rápido -->
+                    <div class="accordion-item  text-white border-0">
+                        <h2 class="accordion-header">
+                            <button class="accordion-button collapsed  text-white" type="button"
+                                data-bs-toggle="collapse" data-bs-target="#mobRapido"
+                                style="background-color: #71785B;">
+                                Contacto Rápido
+                            </button>
+                        </h2>
+                        <div id="mobRapido" class="accordion-collapse collapse" data-bs-parent="#footerAccordion"
+                            style="background-color: #71785B;">
+                            <div class="accordion-body">
+                                Trámites<br>
+                                Atención Ciudadana<br>
+                                Gestión de Transporte<br>
+                                Renovación de Licencia
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Línea final -->
-            <div class="row mt-4">
-                <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0 small">Política Privacidad &nbsp;&nbsp;&nbsp; Configuración Cookies</p>
+            <!-- Vista expandida escritorio (≥lg) -->
+            <div class="row d-none d-lg-flex gx-3 mt-4">
+                <div class="col-lg-2">
+                    <h6 class="fw-bold">Horario de Atención</h6>
+                    <p>8:00 - 15:00</p>
                 </div>
-                <div class="col-md-6 text-center text-md-end">
-                    <!-- Redes sociales -->
-                    <a href="#" class="text-white fs-4 me-3"><i class="bi bi-facebook"></i></a>
-                    <a href="#" class="text-white fs-4 me-3"><i class="bi bi-x"></i></a>
+
+                <div class="col-lg-3">
+                    <h6 class="fw-bold">Contáctanos en</h6>
+                    <p class="mb-1">
+                        <i class="bi bi-telephone-fill me-2"></i> 777 329 65 00
+                    </p>
+                    <div class="d-flex align-items-start">
+                        <i class="bi bi-envelope-fill me-2 mt-1"></i>
+                        <a href="mailto:correspondencia.movilidad@morelos.gob.mx"
+                            class="text-white text-break text-decoration-none">
+                            correspondencia.movilidad<br>
+                            @morelos.gob.mx
+                        </a>
+                    </div>
+
+                </div>
+                <div class="col-lg-4">
+                    <h6 class="fw-bold">Ubicación</h6>
+                    <p class="text-break">
+                        Corporativos Arcos Cristal, "Plaza Cristal" Plan de Ayala número 825,<br>
+                        Col. Teopanzolco, Cuernavaca, Morelos.
+                    </p>
+                </div>
+                <div class="col-lg-2">
+                    <h6 class="fw-bold">Contacto Rápido</h6>
+                    <p class="mb-0">Trámites</p>
+                    <p class="mb-0">Atención Ciudadana</p>
+                    <p class="mb-0">Gestión de Transporte</p>
+                    <p class="mb-0">Renovación de Licencia</p>
+                </div>
+            </div>
+
+
+
+
+            <!-- Línea inferior -->
+            <div class="dt-footer-bottom d-flex justify-content-between align-items-center mt-4 flex-wrap">
+                <div class="dt-footer-links mb-2 mb-md-0 d-flex flex-wrap gap-3">
+                    <a href="#" class="text-white text-decoration-none">Política Privacidad</a>
+                    <a href="#" class="text-white text-decoration-none">Configuración cookies</a>
+                </div>
+                <div class="dt-footer-social d-flex gap-3">
+                    <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
                 </div>
             </div>
         </div>
     </footer>
 
 
-    <!-- BOOTSTRAP SCRIPT -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
