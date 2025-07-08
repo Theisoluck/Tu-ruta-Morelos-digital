@@ -12,6 +12,8 @@
 
 
 <body>
+    
+    
     <!-- ENCABEZADO RESPONSIVO -->
     <header style="background-color: #283C2A;">
         <nav class="navbar navbar-expand-lg navbar-dark px-3">
@@ -32,17 +34,17 @@
                 <!-- Menú colapsable -->
                 <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarMenu">
                     <ul class="navbar-nav w-100 justify-content-evenly text-uppercase align-items-lg-center">
-                        <li class="nav-item"><a href="../../../Indice.html" class="nav-link  fw-bold"
+                        <li class="nav-item"><a href="../Indice.html" class="nav-link  fw-bold"
                                 style="color: #C29A6D;">Inicio</a></li>
-                        <li class="nav-item"><a href="./Centro.html" class="nav-link text-white">Centro</a></li>
-                        <li class="nav-item"><a href="./Sur.html" class="nav-link text-white">Sur</a></li>
-                        <li class="nav-item"><a href="./Oriente.html" class="nav-link text-white">Oriente</a></li>
-                        <li class="nav-item"><a href="./RutaDeLaSalud.html" class="nav-link text-white">Ruta de la
+                        <li class="nav-item"><a href="" class="nav-link text-white">Centro</a></li>
+                        <li class="nav-item"><a href="../Html/Sur.html" class="nav-link text-white">Sur</a></li>
+                        <li class="nav-item"><a href="../Html/Oriente.html" class="nav-link text-white">Oriente</a></li>
+                        <li class="nav-item"><a href="../Html/RutaDeLaSalud.html" class="nav-link text-white">Ruta de la
                                 Salud</a></li>
-                        <li class="nav-item"><a href="./Zonas.html" class="nav-link text-white">Zonas</a></li>
-                        <li class="nav-item"><a href="./PlanPopocatepetl.html" class="nav-link text-white">Plan
+                        <li class="nav-item"><a href="Html/Zonas.html" class="nav-link text-white">Zonas</a></li>
+                        <li class="nav-item"><a href="../Html/PlanPopocatepetl.html" class="nav-link text-white">Plan
                                 Popocatépetl</a></li>
-                        <li class="nav-item"><a href="./MapaInteractivo.html" class="nav-link text-white">Mapa
+                        <li class="nav-item"><a href="../Html/MapaInteractivo.html" class="nav-link text-white">Mapa
                                 interactivo</a></li>
 
                         <!-- Ícono búsqueda (solo móvil) -->
@@ -97,6 +99,8 @@
 
         <!-- Fondo gráfico y título -->
         <div class="text-center py-5 position-relative" style="background-color: #283C2A;">
+            <img src="/Activos/Imagenes/Flecha_Regreso.png" alt="Regresar" onclick="window.history.back()"
+                style="position: absolute; top: 20px; left: 20px; width: 50px; z-index: 2; cursor: pointer;">
             <img src="../Activos/Imagenes/Vector.png" alt="Fondo gráfico"
                 class="position-absolute start-0 w-100 img-fluid opacity-25" style="top: 10px; z-index: 0;">
             <div class="position-relative z-1 container text-center">
@@ -109,8 +113,6 @@
             </div>
         </div>
     </header>
-
-
 
 
 
@@ -150,7 +152,7 @@
     </main>
     <script>
         const rutas = [
-            "1", "2", "3", "4", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
+            "1", "2", "3", "4", "RUTA_5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
             "RUTA_18_URBAN",
             "RUTA_19",
             "RUTA_20",
@@ -174,6 +176,7 @@
             "3": "RUTA 3",
             "4": "RUTA 4",
             "6": "RUTA 6",
+            "RUTA_5": "RUTA 5",
             "7": "RUTA 7",
             "8": "RUTA 8",
             "9": "RUTA 9",
