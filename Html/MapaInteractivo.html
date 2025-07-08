@@ -4,50 +4,225 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tu Ruta Morelos Digital</title>
+    <title>Tu Ruta Morelos Digital </title>
 
-    <!-- Estilos personalizados -->
+    <!-- CSS propios 
     <link rel="stylesheet" href="Css/Estilos.css" />
+-->
+    <!-- Bootstrap + Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet" />
 
-    <!-- Bootstrap y Bootstrap Icons -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Leaflet CSS -->
+    <!-- Leaflet -->
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
 
     <style>
+        /* ‑‑‑ MAPA ‑‑‑ */
         #map {
-            height: 500px;
-            width: 100%;
-            border: 10px solid #cd9a6c;
-            border-radius: 10px;
+            height: 600px;
+            width: 85vw;
+            max-width: 1100px;
+            margin: 0 auto;
+            border: 8px solid #cd9a6c;
+            border-radius: 16px;
+            box-sizing: border-box;
         }
 
-        .map-container {
-            height: 500px;
-            width: 100%;
-            border: 10px solid #cd9a6c;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
 
-        .map-title {
-            color: #cd9a6c;
-            font-size: 1.8rem;
+        /* ‑‑‑ BOTONES LATERALES ‑‑‑ */
+        .boton-menu-custom {
+            background-color: #ffffff;
+            color: #283C2A;
+            font-size: 1.5rem;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
             font-weight: bold;
-            margin-bottom: 1rem;
+            text-decoration: none;
+            transition: transform 0.2s ease;
+        }
+
+        .boton-menu-custom:hover {
+            transform: scale(1.03);
+            background-color: #f2f2f2;
+            color: #283C2A;
+            text-decoration: none;
+        }
+
+        .iconito {
+            width: 32px;
+            height: auto;
+        }
+
+        /* ‑‑‑ MENÚ LATERAL CON NIVELES ‑‑‑ */
+        #menuLateral {
+            width: 350px;
+            background-color: rgba(40, 60, 42, 0.9);
+            padding: 1.5rem 1rem;
+            border-right: 2px solid #C2996D;
+            width: 350px;
+            height: 100%;
+
+            position: absolute;
+            overflow-y: auto;
+            color: white;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+            top: 0;
+            left: 0;
+            z-index: 1000;
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        /* Cuando el menú está abierto */
+        #menuLateral.abierto {
+            transform: translateX(0);
+        }
+
+        .nivel-1 {
+            background-color: #cd9a6c;
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 1rem;
+            border-radius: 6px;
+            margin-bottom: 0.3rem;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nivel-1 i {
+            margin-right: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .nivel-2 {
+            background-color: #f3e6d3;
+            color: #283C2A;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            margin: 0.2rem 0;
+            cursor: pointer;
+            user-select: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .nivel-2 i {
+            margin-right: 0.5rem;
+            font-size: 1rem;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+
+        /* Gira el icono cuando está abierto */
+        .collapse.show+.nivel-2 i,
+        .nivel-2[aria-expanded="true"] i {
+            transform: rotate(90deg);
+        }
+
+        .nivel-3-container {
+            background-color: #fff;
+            border-left: 4px solid #cd9a6c;
+            padding: 0.5rem 1rem;
+            margin-bottom: 0.8rem;
+            color: #283C2A;
+        }
+
+        /* Scroll si el menú es muy alto */
+        #menuLateral::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        #menuLateral::-webkit-scrollbar-thumb {
+            background-color: #cd9a6c;
+            border-radius: 3px;
+        }
+
+        #menuLateral::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        /* Checkbox tamaño y espacio */
+        .form-check-input {
+            transform: scale(1.2);
+            margin-right: 0.5rem;
+        }
+
+        /* Contenedor principal para que el contenido no quede debajo del menú fijo */
+        #zonaMapa {
+            /* margin-left: 360px;  ⬅ QUITADO */
+            padding: 3rem 1rem;
+            position: relative;
+            background: #fdfdfd;
+            min-height: 600px;
+            display: flex;
+            /* centra mapa */
+            justify-content: center;
+            /* horizontal */
+        }
+
+        /* Botón menú hamburguesa */
+        #botonMenu {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
+            z-index: 1100;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            /* ⬅ SIN espacio entre ícono y texto */
+        }
+
+        #botonMenu img {
+            width: 50px;
+            height: auto;
+        }
+
+        #botonMenu span {
+            color: #cd9a6c;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0 0.8rem;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            margin-left: 0;
+        }
+
+
+        /* Responsive: en pantallas pequeñas, el menú ocupa toda la pantalla */
+        @media (max-width: 768px) {
+            #menuLateral {
+                width: 100%;
+                height: 100vh;
+            }
+
+            #zonaMapa {
+                margin-left: 0;
+                padding-top: 70px;
+            }
+
+            #botonMenu {
+                top: 5px;
+                left: 5px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <!-- ENCABEZADO -->
+    <!--  ENCABEZADO  -->
     <header style="background-color: #283C2A;">
         <nav class="navbar navbar-expand-lg navbar-dark px-3">
             <div class="container-fluid">
                 <a class="navbar-brand" href="#">
-                    <img src="/Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="50">
+                    <img src="/Activos/Imagenes/LogoInstitucionalBlanco.png" alt="Morelos" height="50" />
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
                     <span class="navbar-toggler-icon"></span>
@@ -56,75 +231,373 @@
                     <ul class="navbar-nav ms-auto text-uppercase align-items-lg-center gap-lg-3">
                         <li class="nav-item"><a href="../Indice.html" class="nav-link active"
                                 style="color: #cd9a6c;">Inicio</a></li>
+                        <li class="nav-item">
+                            <a href="../../../Indice.html" class="nav-link active" style="color:#cd9a6c;">Inicio</a>
+                        </li>
                         <li class="nav-item"><a href="./Centro.html" class="nav-link text-white">Centro</a></li>
                         <li class="nav-item"><a href="./Sur.html" class="nav-link text-white">Sur</a></li>
                         <li class="nav-item"><a href="./Oriente.html" class="nav-link text-white">Oriente</a></li>
-                        <li class="nav-item"><a href="./RutaDeLaSalud.html" class="nav-link text-white">Ruta de la
-                                Salud</a></li>
+                        <li class="nav-item">
+                            <a href="./RutaDeLaSalud.html" class="nav-link text-white">Ruta de la Salud</a>
+                        </li>
                         <li class="nav-item"><a href="./Zonas.html" class="nav-link text-white">Zonas</a></li>
-                        <li class="nav-item"><a href="./PlanPopocatepetl.html" class="nav-link text-white">Plan
-                                Popocatépetl</a></li>
-                        <li class="nav-item"><a href="./MapaInteractivo.html" class="nav-link text-white">Mapa
-                                interactivo</a></li>
-                        <li class="nav-item d-lg-none"><a href="#" class="nav-link text-white"><i
-                                    class="bi bi-search"></i> Buscar</a></li>
+                        <li class="nav-item">
+                            <a href="./PlanPopocatepetl.html" class="nav-link text-white">Plan Popocatépetl</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="./MapaInteractivo.html" class="nav-link text-white">Mapa interactivo</a>
+                        </li>
+                        <li class="nav-item d-lg-none">
+                            <a href="#" class="nav-link text-white"><i class="bi bi-search"></i> Buscar</a>
+                        </li>
                     </ul>
                 </div>
                 <div class="d-none d-lg-block">
-                    <i class="bi bi-search" style="color: #cd9a6c; font-size: 1.2rem;"></i>
+                    <i class="bi bi-search" style="color:#cd9a6c; font-size:1.2rem;"></i>
                 </div>
             </div>
         </nav>
 
-        <div class="text-center position-relative"
-            style="background-color: #283C2A; overflow: hidden; padding-top: 4rem; padding-bottom: 4rem;">
+        <div class="text-center position-relative" style="background-color:#283C2A; overflow:hidden; padding:4rem 0;">
             <img src="/Activos/Imagenes/Flecha_Regreso.png" alt="Regresar" onclick="window.history.back()"
-                style="position: absolute; top: 20px; left: 20px; width: 50px; z-index: 2; cursor: pointer;">
-            <img src="/Activos/Imagenes/Vector.png" alt="Fondo gráfico"
-                class="position-absolute top-0 start-0 w-100 h-100"
-                style="object-fit: contain; opacity: 0.05; z-index: 0; pointer-events: none;">
+                style="position:absolute; top:20px; left:20px; width:50px; cursor:pointer; z-index:2;" />
+            <img src="/Activos/Imagenes/Vector.png" alt="Fondo" class="position-absolute top-0 start-0 w-100 h-100"
+                style="object-fit:contain; opacity:.05; z-index:0;" />
             <div class="position-relative z-1 container px-3">
                 <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
-                    class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 1 – SUR</h2>
-                <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
-                </div>
+                    class="img-fluid mx-auto d-block mb-4" style="max-width:90%;" />
+                <h2 class="fw-bold mb-2" style="color:#cd9a6c; font-size:2.2rem;">RUTA 1 – SUR</h2>
+                <div class="mx-auto" style="height:5px; width:80%; background-color:#cd9a6c;"></div>
             </div>
         </div>
     </header>
 
-    <div style="height: 6px; background-color: #cd9a6c; width: 100%;"></div>
+    <div style="height:6px; background-color:#cd9a6c;"></div>
 
 
-    <div class="container-fluid my-4">
-        <div class="row">
-            <!-- Menú lateral -->
-            <div class="col-md-3 mb-3">
-                <h5 class="fw-bold">Capas de rutas</h5>
-                <form id="capasForm" class="d-grid gap-2">
-                    <!-- Las casillas se generan dinámicamente desde JS -->
-                </form>
+
+    <!--  Zona de mapa + menú  -->
+    <div id="zonaMapa">
+        <button id="botonMenu">
+            <img id="iconoMenu" src="../Activos/Imagenes/menu1.png" alt="Menú" />
+            <span>Abrir menú</span>
+        </button>
+        <!--  MENÚ LATERAL CON 3 NIVELES  -->
+        <div id="menuLateral" aria-label="Menú lateral rutas">
+            <div class="list-group">
+                <!-- ZONA CENTRO  -->
+                <a class="list-group-item nivel-1 mt-5" data-bs-toggle="collapse" href="#zonaCentro" role="button"
+                    aria-expanded="false" aria-controls="zonaCentro">
+                    <i class="bi bi-truck-front-fill"></i> CENTRO
+                </a>
+                <div class="collapse" id="zonaCentro">
+                    <!-- Ruta 1 en zona Centro -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta1C" role="button"
+                        aria-controls="ruta1C">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 1
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta1C">
+                        <div id="ruta1CCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 2 en zona Centro -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta2C" role="button"
+                        aria-controls="ruta2C">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 2
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta2C">
+                        <div id="ruta2CCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 3 en zona Centro -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta3C" role="button"
+                        aria-controls="ruta3C">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 3
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta3C">
+                        <div id="ruta3CCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 4 en zona Centro -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta4C" role="button"
+                        aria-controls="ruta4C">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 4
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta4C">
+                        <div id="ruta4CCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
+
+
+
+
+                </div>
+
+                <!-- Zona SUR -->
+                <a class="list-group-item nivel-1 mt-3" data-bs-toggle="collapse" href="#zonaSur" role="button"
+                    aria-expanded="false" aria-controls="zonaSur">
+                    <i class="bi bi-truck-front-fill"></i> SUR
+                </a>
+                <div class="collapse" id="zonaSur">
+
+                    <!-- Ruta Autobuses Circunvalación en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutaCircunvalacionS"
+                        role="button" aria-controls="rutaCircunvalacionS">
+                        <i class="bi bi-caret-right-fill"></i> Autobuses Circunvalación
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutaCircunvalacionS">
+                        <div id="rutaCircunvalacionSCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta Autobuses Dorados del Sur en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutaDoradosS" role="button"
+                        aria-controls="rutaDoradosS">
+                        <i class="bi bi-caret-right-fill"></i> Autobuses Dorados del Sur
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutaDoradosS">
+                        <div id="rutaDoradosSCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
+
+                    <!-- Ruta 1 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta1S" role="button"
+                        aria-expanded="false" aria-controls="ruta1S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 1
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta1S">
+                        <div id="ruta1SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes de Ruta 1 Sur cargados dinámicamente -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 2 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta2S" role="button"
+                        aria-expanded="false" aria-controls="ruta2S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 2
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta2S">
+                        <div id="ruta2SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes de Ruta 2 Sur -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 3 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta3S" role="button"
+                        aria-expanded="false" aria-controls="ruta3S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 3
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta3S">
+                        <div id="ruta3SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes de Ruta 3 Sur -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 4 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta4S" role="button"
+                        aria-controls="ruta4S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 4
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta4S">
+                        <div id="ruta4SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Aquí aparecerán los checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 5 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta5S" role="button"
+                        aria-controls="ruta5S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 5
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta5S">
+                        <div id="ruta5SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
+                    <!-- Ruta 6 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta6S" role="button"
+                        aria-controls="ruta6S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 6
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta6S">
+                        <div id="ruta6SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
+                    <!-- Ruta 7 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta7S" role="button"
+                        aria-controls="ruta7S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 7
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta7S">
+                        <div id="ruta7SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 8 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta8S" role="button"
+                        aria-controls="ruta8S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 8
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta8S">
+                        <div id="ruta8SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 9 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta9S" role="button"
+                        aria-controls="ruta9S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 9
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta9S">
+                        <div id="ruta9SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 10 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta10S" role="button"
+                        aria-controls="ruta10S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 10
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta10S">
+                        <div id="ruta10SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
+                    <!-- Ruta 16 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta16S" role="button"
+                        aria-controls="ruta16S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 16
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta16S">
+                        <div id="ruta16SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
+                    <!-- Ruta C.T.M en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutaCTMS" role="button"
+                        aria-controls="rutaCTMS">
+                        <i class="bi bi-caret-right-fill"></i> Ruta C.T.M
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutaCTMS">
+                        <div id="rutaCTMSCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
+
+                    <!-- Ruta GENERAL EMILIANO ZAPATA en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutaGEZS" role="button"
+                        aria-controls="rutaGEZS">
+                        <i class="bi bi-caret-right-fill"></i> Ruta GENERAL EMILIANO ZAPATA
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutaGEZS">
+                        <div id="rutaGEZSCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta INTERESCOLAR en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutaInterescolarS" role="button"
+                        aria-controls="rutaInterescolarS">
+                        <i class="bi bi-caret-right-fill"></i> Ruta INTERESCOLAR
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutaInterescolarS">
+                        <div id="rutaInterescolarSCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
+                    <!-- Ruta SAN MIGUEL 30 en zona Sur -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutaSanMiguel30S" role="button"
+                        aria-controls="rutaSanMiguel30S">
+                        <i class="bi bi-caret-right-fill"></i> Ruta SAN MIGUEL 30
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutaSanMiguel30S">
+                        <div id="rutaSanMiguel30SCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
+
+
+
+
+
+
+                </div>
+
+                <!-- ZONA ORIENTE -->
+                <a class="list-group-item nivel-1 mt-3" data-bs-toggle="collapse" href="#ruta2" role="button"
+                    aria-expanded="false" aria-controls="ruta2">
+                    <i class="bi bi-truck-front-fill"></i> ORIENTE
+                </a>
+                <div class="collapse" id="ruta2">
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#subruta2a" role="button"
+                        aria-expanded="false" aria-controls="subruta2a">
+                        <i class="bi bi-caret-right-fill"></i> Subruta 2A
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="subruta2a">
+                        <div class="nivel-3-container d-grid gap-2">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="ejemplo2a1" data-ruta-id="201" />
+                                <label class="form-check-label" for="ejemplo2a1">Ejemplo checkbox 2A - 1</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="ejemplo2a2" data-ruta-id="202" />
+                                <label class="form-check-label" for="ejemplo2a2">Ejemplo checkbox 2A - 2</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
-            <!-- Mapa -->
-            <div class="col-md-9">
-                <div id="map" style="height: 600px; width: 100%; border: 4px solid #cd9a6c; border-radius: 8px;"></div>
-            </div>
+        </div>
+
+        <!--  MAPA (col‑12)  -->
+        <div class="col-12 mt-4">
+            <div id="map"></div>
         </div>
     </div>
 
-
-    <!-- PIE DE PÁGINA -->
-    <footer style="background-color: #71785B; color: #fff; font-family: sans-serif;">
+    <!--  FOOTER  -->
+    <footer style="background:#71785B; color:#fff;">
         <div class="container py-5">
             <div class="row text-center text-md-start">
                 <div class="col-md-2 mb-4">
                     <img src="../../../Activos/Imagenes/LogoMovilidadBlanco.png" alt="Logo" class="img-fluid mb-2"
-                        style="max-width: 150px;">
+                        style="max-width:150px;" />
                 </div>
                 <div class="col-md-2 mb-4">
                     <h6 class="fw-bold">Horario de Atención</h6>
-                    <p class="mb-0">8:00 - 15:00</p>
+                    <p class="mb-0">8:00 – 15:00</p>
                 </div>
                 <div class="col-md-2 mb-4">
                     <h6 class="fw-bold">Contáctanos en</h6>
@@ -132,14 +605,16 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <h6 class="fw-bold">Ubicación</h6>
-                    <p class="mb-0">Corporativos Arcos Cristal,<br>"Plaza Cristal" Plan de Ayala número 825,<br>Col.
-                        Teopanzolco, Cuernavaca, Morelos.</p>
+                    <p class="mb-0">Corporativos Arcos Cristal,<br />“Plaza Cristal” Plan de Ayala 825,<br />Col.
+                        Teopanzolco,
+                        Cuernavaca.</p>
                 </div>
                 <div class="col-md-2 mb-4">
                     <h6 class="fw-bold">Contacto Rápido</h6>
                     <ul class="list-unstyled">
                         <li><a href="https://www.morelos.gob.mx/tramites-y-servicios"
-                                class="text-white text-decoration-none">Trámites</a></li>
+                                class="text-white text-decoration-none">Trámites</a>
+                        </li>
                         <li><a href="#" class="text-white text-decoration-none">Noticias</a></li>
                         <li><a href="#" class="text-white text-decoration-none">Eventos</a></li>
                         <li><a href="#" class="text-white text-decoration-none">Programas</a></li>
@@ -150,7 +625,7 @@
             </div>
             <div class="row mt-4">
                 <div class="col-md-6 text-center text-md-start">
-                    <p class="mb-0 small">Política Privacidad &nbsp;&nbsp;&nbsp; Configuración Cookies</p>
+                    <p class="mb-0 small">Política de privacidad   ·   Configuración de cookies</p>
                 </div>
                 <div class="col-md-6 text-center text-md-end">
                     <a href="#" class="text-white fs-4 me-3"><i class="bi bi-facebook"></i></a>
@@ -160,171 +635,1243 @@
         </div>
     </footer>
 
-    <!-- SCRIPTS -->
+    <!--  SCRIPTS  -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
     <script src="https://unpkg.com/lrm-openrouteservice/dist/lrm-openrouteservice.min.js"></script>
 
+    <script>
+        // Botón hamburguesa - abrir/cerrar menú lateral
+        const botonMenu = document.getElementById('botonMenu');
+        const iconoMenu = document.getElementById('iconoMenu');
+        const menuLateral = document.getElementById('menuLateral');
+        let menuAbierto = false;
 
-  <script>
-  const map = L.map('map').setView([18.621, -99.251], 12);
-  let capas = {};
+        botonMenu.addEventListener('click', () => {
+            menuAbierto = !menuAbierto;
+            if (menuAbierto) {
+                menuLateral.classList.add('abierto');
+                iconoMenu.src = '../Activos/Imagenes/menu2.png';
+                botonMenu.querySelector('span').textContent = 'Cerrar menú';
+            } else {
+                menuLateral.classList.remove('abierto');
+                iconoMenu.src = '../Activos/Imagenes/menu1.png';
+                botonMenu.querySelector('span').textContent = 'Abrir menú';
+            }
+        });
+    </script>
 
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
-
-  const rutas = [
-    { id: 1, nombre: "1.PUENTE DE IXTLA-JOJUTLA-PUENTE DE IXTLA", color: "#f81e1e" },
-    { id: 2, nombre: "2. PUENTE DE IXTLA-MICHAPA-PUENTE DE IXTLA", color: "#f8ac1e" },
-    { id: 3, nombre: "3. PUENTE DE IXTLA-CUAUCHICHINOLA-PUENTE DE IXTLA", color: "#00ea60" },
-    { id: 4, nombre: "4. PUENTE DE IXTLA-SAN GABRIEL LAS PALMAS-PUENTE DE IXTLA", color: "#013880" },
-    { id: 5, nombre: "5. PUENTE DE IXTLA-TEACALCO-PUENTE DE IXTLA", color: "#ae46d5" },
-    { id: 6, nombre: "6. PUENTE DE IXTLA-COAHUIXTLA-RANCHO NUEVO-PUENTE DE IXTLA", color: "#ff8c00" },
-    { id: 7, nombre: "7. PUENTE DE IXTLA-CAJONES-PUENTE DE IXTLA", color: "#1cbbb4" },
-    { id: 8, nombre: "8. PUENTE DE IXTLA-MIAHUATLAN-PUENTE DE IXTLA", color: "#bc5090" },
-    { id: 9, nombre: "9. PUENTE DE IXTLA-CASAHUATLAN-PUENTE DE IXTLA", color: "#ffa600" },
-    { id: 10, nombre: "10. PUENTE DE IXTLA-PARAISO ESCONDIDO-PUENTE DE IXTLA", color: "#336699" },
-    { id: 11, nombre: "11. TEHUIXTLA-JOJUTLA-TEHUIXTLA", color: "#00b894" },
-    { id: 12, nombre: "12. PUENTE DE IXTLA-EL COCO-PUENTE DE IXTLA", color: "#f94144" },
-    { id: 13, nombre: "13. PUENTE DE IXTLA-EL ESTUDIANTE-PUENTE DE IXTLA", color: "#f3722c" }
-  ];
-
-  const rutaBase = "../../../Activos/Geojson/Surjson/Ruta 1/";
-  const form = document.getElementById("capasForm");
-
-  rutas.forEach(ruta => {
-    const id = `ruta${ruta.id}`;
-
-    const checkbox = document.createElement("input");
-    checkbox.type = "checkbox";
-    checkbox.id = id;
-    checkbox.classList.add("form-check-input", "me-2");
-
-    const label = document.createElement("label");
-    label.classList.add("form-check-label");
-    label.htmlFor = id;
-    label.textContent = ruta.nombre;
-
-    const div = document.createElement("div");
-    div.classList.add("form-check");
-    div.appendChild(checkbox);
-    div.appendChild(label);
-    form.appendChild(div);
-
-    checkbox.addEventListener("change", function () {
-      if (this.checked) {
-        const archivo = `${ruta.nombre}.geojson`;
-        const url = `${rutaBase}${archivo}`;
-
-        fetch(url)
-          .then(res => res.json())
-          .then(data => {
-            capas[ruta.id] = L.geoJSON(data, {
-              style: { color: ruta.color, weight: 4 }
-            }).addTo(map);
-          })
-          .catch(err => alert(`Error al cargar ${archivo}: ${err}`));
-      } else {
-        if (capas[ruta.id]) {
-          map.removeLayer(capas[ruta.id]);
-          delete capas[ruta.id];
-        }
-      }
-    });
-  });
-</script>
-
+    <!--  MAPA + CAPAS DINÁMICAS -->
 
     <script>
-        let usuarioMarker = null;
-        let paradaCercanaMarker = null;
-        let controlRuta = null;
+        const map = L.map('map').setView([18.6813, -99.1013], 10);
 
-        // Simulación de paradas (ajústalas según tu zona real)
-        const paradas = [
-            { nombre: "Parada A", coords: [18.920, -99.234] },
-            { nombre: "Parada B", coords: [18.918, -99.230] },
-            { nombre: "Parada C", coords: [18.922, -99.237] }
+        map.zoomControl.setPosition('topright');
+        let capas = {};
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; OpenStreetMap contributors'
+        }).addTo(map);
+
+    </script>
+
+    <script>
+        /* Rutas Zona CENTRO – Ruta 1 */
+        const rutasC1 = [
+            { id: 1, nombre: "1.-UNIVERSIDAD-GUACAMAYAS-UNIVERSIDAD", etiqueta: "1. UNIVERSIDAD-GUACAMAYAS-UNIVERSIDAD", color: "#f81e1e" },
+            { id: 2, nombre: "2.- JERUSALEN-UNIVERSIDAD-ACATLIPA", etiqueta: "2. JERUSALEN-UNIVERSIDAD-ACATLIPA", color: "#f8ac1e" },
+            { id: 3, nombre: "3.- JERUSALEN - UNIVERSIDAD - GUACAMAYAS", etiqueta: "3. JERUSALEN - UNIVERSIDAD - GUACAMAYAS", color: "#00ea60" }
         ];
 
-        function getLocation() {
-            if (!navigator.geolocation) return alert("Tu navegador no soporta geolocalización.");
+        const contenedorC1 = document.getElementById("ruta1CCheckboxes");
+        const capasC1 = {};
 
-            navigator.geolocation.getCurrentPosition(pos => {
-                const lat = pos.coords.latitude;
-                const lon = pos.coords.longitude;
+        rutasC1.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta1C_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
 
-                if (usuarioMarker) map1.removeLayer(usuarioMarker);
-                usuarioMarker = L.marker([lat, lon]).addTo(map1).bindPopup("Estás aquí").openPopup();
-                map1.setView([lat, lon], 15);
-            }, () => alert("No se pudo obtener la ubicación."));
-        }
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
 
-        function mostrarParadaCercana() {
-            if (!navigator.geolocation) return alert("Tu navegador no soporta geolocalización.");
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorC1.appendChild(fila);
 
-            navigator.geolocation.getCurrentPosition(pos => {
-                const lat = pos.coords.latitude;
-                const lon = pos.coords.longitude;
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Centrojson/Ruta 1/${archivo}`;
 
-                let minDist = Infinity;
-                let cercana = null;
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasC1[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasC1[ruta.id]) {
+                    map.removeLayer(capasC1[ruta.id]);
+                    delete capasC1[ruta.id];
+                }
+            });
+        });
 
-                paradas.forEach(p => {
-                    const dist = Math.hypot(p.coords[0] - lat, p.coords[1] - lon);
-                    if (dist < minDist) {
-                        minDist = dist;
-                        cercana = p;
-                    }
-                });
+        /* Rutas Zona CENTRO – Ruta 2 */
+        const rutasC2 = [
+            { id: 1, nombre: "1.- COL. HERNANDEZ NAVARRO-RANCHO CORTES X DOMINGO DIEZ", etiqueta: "1. COL. HERNANDEZ NAVARRO-RANCHO CORTES X DOMINGO DIEZ", color: "#f81e1e" },
+            { id: 2, nombre: "2. COL. HERNANDEZ NAVARRO-RANCHO CORTES X AV. EMILIANO ZAPATA", etiqueta: "2. COL. HERNANDEZ NAVARRO-RANCHO CORTES X AV. EMILIANO ZAPATA", color: "#f8ac1e" },
+            { id: 3, nombre: "3. COL. HERNANDEZ NAVARRO-CHIPITLAN", etiqueta: "3. COL. HERNANDEZ NAVARRO-CHIPITLAN", color: "#00ea60" }
+        ];
 
-                if (paradaCercanaMarker) map1.removeLayer(paradaCercanaMarker);
+        const contenedorC2 = document.getElementById("ruta2CCheckboxes");
+        const capasC2 = {};
 
-                paradaCercanaMarker = L.marker(cercana.coords, {
-                    icon: L.icon({
-                        iconUrl: 'https://cdn-icons-png.flaticon.com/512/684/684908.png',
-                        iconSize: [30, 30]
-                    })
-                }).addTo(map1).bindPopup(`<strong>${cercana.nombre}</strong>`).openPopup();
+        rutasC2.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta2C_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
 
-                map1.setView(cercana.coords, 16);
-            }, () => alert("No se pudo obtener la ubicación."));
-        }
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
 
-        function trazarRutaDesdeUbicacion() {
-            const destino = document.getElementById("destino").value;
-            if (!destino) return alert("Selecciona un destino.");
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorC2.appendChild(fila);
 
-            if (!navigator.geolocation) {
-                alert("Tu navegador no soporta geolocalización.");
-                return;
-            }
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Centrojson/Ruta 2/${archivo}`;
 
-            navigator.geolocation.getCurrentPosition(pos => {
-                const origen = L.latLng(pos.coords.latitude, pos.coords.longitude);
-                const destinoCoords = destino.split(',').map(Number);
-                const destinoLatLng = L.latLng(destinoCoords);
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasC2[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasC2[ruta.id]) {
+                    map.removeLayer(capasC2[ruta.id]);
+                    delete capasC2[ruta.id];
+                }
+            });
+        });
 
-                if (controlRuta) map1.removeControl(controlRuta);
 
-                controlRuta = L.Routing.control({
-                    waypoints: [origen, destinoLatLng],
-                    routeWhileDragging: false,
-                    show: false,
-                    createMarker: () => null,
-                    lineOptions: {
-                        styles: [{ color: '#cd9a6c', weight: 5 }]
-                    },
-                    router: new L.Routing.openrouteservice('5b3ce3597851110001cf6248c039c4d172644cd28b0a60f99f8e92c4')
-                }).addTo(map1);
-            }, () => alert("No se pudo obtener tu ubicación."));
-        }
+        /* Rutas Zona CENTRO – Ruta 3 */
+        const rutasC3 = [
+            { id: 1, nombre: "1. SANTA MARIA-ALPUYECA-SANTA MARIA (1)", etiqueta: "1. SANTA MARIA-ALPUYECA-SANTA MARIA (1)", color: "#f81e1e" },
+            { id: 2, nombre: "2.-SANTA MARIA - RANCHO CORTES - MINA 5", etiqueta: "2. SANTA MARIA - RANCHO CORTES - MINA 5", color: "#f8ac1e" },
+            { id: 3, nombre: "3.- TETELA DEL MONTE - MINA 5 TETELA DEL MONTE", etiqueta: "3. TETELA DEL MONTE - MINA 5 TETELA DEL MONTE", color: "#00ea60" },
+            { id: 4, nombre: "4.- SANTA MARIA - BUENA VISTA - CALERA", etiqueta: "4. SANTA MARIA - BUENA VISTA - CALERA", color: "#013880" },
+            { id: 5, nombre: "5.- SANTA MARIA - BUENA VISTA - FRANCISCO VILLA", etiqueta: "5. SANTA MARIA - BUENA VISTA - FRANCISCO VILLA", color: "#ae46d5" }
+        ];
+
+        const contenedorC3 = document.getElementById("ruta3CCheckboxes");
+        const capasC3 = {};
+
+        rutasC3.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta3C_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorC3.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Centrojson/Ruta 3/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasC3[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasC3[ruta.id]) {
+                    map.removeLayer(capasC3[ruta.id]);
+                    delete capasC3[ruta.id];
+                }
+            });
+        });
+
+        /* Rutas Zona CENTRO – Ruta 4 */
+        const rutasC4 = [
+            { id: 1, nombre: "1. BARONA-CHULAVISTA-BARONA", etiqueta: "1. BARONA-CHULAVISTA-BARONA", color: "#f81e1e" },
+            { id: 2, nombre: "2.- BARONA-CUAUCHILES-BARONA", etiqueta: "2. BARONA-CUAUCHILES-BARONA", color: "#f8ac1e" },
+            { id: 3, nombre: "3. BARONA-PALMAS-BARONA", etiqueta: "3. BARONA-PALMAS-BARONA", color: "#00ea60" },
+            { id: 4, nombre: "4. BARONA-EL SALTO", etiqueta: "4. BARONA-EL SALTO", color: "#013880" }
+        ];
+
+        const contenedorC4 = document.getElementById("ruta4CCheckboxes");
+        const capasC4 = {};
+
+        rutasC4.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta4C_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorC4.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Centrojson/Ruta 4/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasC4[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasC4[ruta.id]) {
+                    map.removeLayer(capasC4[ruta.id]);
+                    delete capasC4[ruta.id];
+                }
+            });
+        });
+
+
+
     </script>
 
 
 
+
+
+    <script>
+        /* Rutas Zona SUR - Ruta 1 */
+        const rutasS1 = [
+            { id: 1, nombre: "1.PUENTE DE IXTLA-JOJUTLA-PUENTE DE IXTLA", etiqueta: "1.PUENTE DE IXTLA-JOJUTLA-PUENTE DE IXTLA", color: "#f81e1e" },
+            { id: 2, nombre: "2. PUENTE DE IXTLA-MICHAPA-PUENTE DE IXTLA", etiqueta: "2. PUENTE DE IXTLA-MICHAPA-PUENTE DE IXTLA", color: "#f8ac1e" },
+            { id: 3, nombre: "3. PUENTE DE IXTLA-CUAUCHICHINOLA-PUENTE DE IXTLA", etiqueta: "3. PUENTE DE IXTLA-CUAUCHICHINOLA-PUENTE DE IXTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. PUENTE DE IXTLA-SAN GABRIEL LAS PALMAS-PUENTE DE IXTLA", etiqueta: "4. PUENTE DE IXTLA-SAN GABRIEL LAS PALMAS-PUENTE DE IXTLA", color: "#013880" },
+            { id: 5, nombre: "5. PUENTE DE IXTLA-TEACALCO-PUENTE DE IXTLA", etiqueta: "5. PUENTE DE IXTLA-TEACALCO-PUENTE DE IXTLA", color: "#ae46d5" },
+            { id: 6, nombre: "6. PUENTE DE IXTLA-COAHUIXTLA-RANCHO NUEVO-PUENTE DE IXTLA", etiqueta: "6. PUENTE DE IXTLA-COAHUIXTLA-RANCHO NUEVO-PUENTE DE IXTLA", color: "#ff8c00" },
+            { id: 7, nombre: "7. PUENTE DE IXTLA-CAJONES-PUENTE DE IXTLA", etiqueta: "7. PUENTE DE IXTLA-CAJONES-PUENTE DE IXTLA", color: "#1cbbb4" },
+            { id: 8, nombre: "8. PUENTE DE IXTLA-MIAHUATLAN-PUENTE DE IXTLA", etiqueta: "8. PUENTE DE IXTLA-MIAHUATLAN-PUENTE DE IXTLA", color: "#bc5090" },
+            { id: 9, nombre: "9. PUENTE DE IXTLA-CASAHUATLAN-PUENTE DE IXTLA", etiqueta: "9. PUENTE DE IXTLA-CASAHUATLAN-PUENTE DE IXTLA", color: "#ffa600" },
+            { id: 10, nombre: "10. PUENTE DE IXTLA-PARAISO ESCONDIDO-PUENTE DE IXTLA", etiqueta: "10. PUENTE DE IXTLA-PARAISO ESCONDIDO-PUENTE DE IXTLA", color: "#336699" },
+            { id: 11, nombre: "11. TEHUIXTLA-JOJUTLA-TEHUIXTLA", etiqueta: "11. TEHUIXTLA-JOJUTLA-TEHUIXTLA", color: "#00b894" },
+            { id: 12, nombre: "12. PUENTE DE IXTLA-EL COCO-PUENTE DE IXTLA", etiqueta: "12. PUENTE DE IXTLA-EL COCO-PUENTE DE IXTLA", color: "#f94144" },
+            { id: 13, nombre: "13. PUENTE DE IXTLA-EL ESTUDIANTE-PUENTE DE IXTLA", etiqueta: "13. PUENTE DE IXTLA-EL ESTUDIANTE-PUENTE DE IXTLA", color: "#f3722c" }
+        ];
+
+
+        const rutaBaseS1 = "../../../Activos/Geojson/Surjson/Ruta 1/";
+        const contenedorS1 = document.getElementById("ruta1SCheckboxes");
+        const capasS1 = {};
+
+        rutasS1.forEach(ruta => {
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = `ruta1S_${ruta.id}`;
+            checkbox.classList.add("form-check-input", "me-2");
+
+            const label = document.createElement("label");
+            label.classList.add("form-check-label");
+            label.htmlFor = checkbox.id;
+            label.textContent = ruta.etiqueta;
+
+            const div = document.createElement("div");
+            div.classList.add("form-check");
+            div.appendChild(checkbox);
+            div.appendChild(label);
+            contenedorS1.appendChild(div);
+
+            checkbox.addEventListener("change", function () {
+                if (this.checked) {
+                    const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                    const url = rutaBaseS1 + archivo;
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error('No se pudo cargar el archivo.');
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS1[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else {
+                    if (capasS1[ruta.id]) {
+                        map.removeLayer(capasS1[ruta.id]);
+                        delete capasS1[ruta.id];
+                    }
+                }
+            });
+        });
+
+        /* Rutas Zona SUR - Ruta 2 */
+        const rutasS2 = [
+            { id: 1, nombre: "1. JOJUTLA-TETLPA-JOJUTLA", etiqueta: "1. JOJUTLA-TETLPA-JOJUTLA", color: "#f81e1e" },
+            { id: 2, nombre: "2. ZACATEPEC-TETELPA-ZACATEPEC", etiqueta: "2. ZACATEPEC-TETELPA-ZACATEPEC", color: "#f8ac1e" },
+            { id: 3, nombre: "3. JOJUTLA-POZA HONDA-JOJUTLA", etiqueta: "3. JOJUTLA-POZA HONDA-JOJUTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. JOJUTLA-OTILIO MONTA¥O-JOJUTLA", etiqueta: "4. JOJUTLA-OTILIO MONTAÑO-JOJUTLA", color: "#013880" },
+            { id: 5, nombre: "5. JOJUTLA-TARJEA-JOJUTLA", etiqueta: "5. JOJUTLA-TARJEA-JOJUTLA", color: "#ae46d5" },
+            { id: 6, nombre: "6. ZACATEPEC-LOMAS DE LA MUERTE-ZACATEPEC", etiqueta: "6. ZACATEPEC-LOMAS DE LA MUERTE-ZACATEPEC", color: "#ff8c00" },
+            { id: 7, nombre: "7. JOJUTLA-COL. BENITO JUAREZ-JOJUTLA", etiqueta: "7. JOJUTLA-COL. BENITO JUAREZ-JOJUTLA", color: "#1cbbb4" }
+        ];
+
+
+        const rutaBaseS2 = "../../../Activos/Geojson/Surjson/Ruta 2/";
+        const contenedorS2 = document.getElementById("ruta2SCheckboxes");
+        const capasS2 = {};
+
+        rutasS2.forEach(ruta => {
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = `ruta2S_${ruta.id}`;
+            checkbox.classList.add("form-check-input", "me-2");
+
+            const label = document.createElement("label");
+            label.classList.add("form-check-label");
+            label.htmlFor = checkbox.id;
+            label.textContent = ruta.etiqueta;
+
+            const div = document.createElement("div");
+            div.classList.add("form-check");
+            div.appendChild(checkbox);
+            div.appendChild(label);
+            contenedorS2.appendChild(div);
+
+            checkbox.addEventListener("change", function () {
+                if (this.checked) {
+                    const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                    const url = rutaBaseS2 + archivo;
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error('No se pudo cargar el archivo.');
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS2[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else {
+                    if (capasS2[ruta.id]) {
+                        map.removeLayer(capasS2[ruta.id]);
+                        delete capasS2[ruta.id];
+                    }
+                }
+            });
+        });
+
+        /* Rutas Zona SUR - Ruta 3 */
+        const rutasS3 = [
+            { id: 1, nombre: "1. JOJUTLA-ALAMEDA-TLATENCHI-JOJUTLA", etiqueta: "1. JOJUTLA-ALAMEDA-TLATENCHI-JOJUTLA", color: "#f81e1e" },
+            { id: 2, nombre: "2. JOJUTLA-TLATENCHI-CRUCERO PROA-JOJUTLA", etiqueta: "2. JOJUTLA-TLATENCHI-CRUCERO PROA-JOJUTLA", color: "#f8ac1e" },
+            { id: 3, nombre: "3. JOJUTLA-TLATENCHI-JOJUTLA", etiqueta: "3. JOJUTLA-TLATENCHI-JOJUTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. JOJUTLA-U.HAB LAS CA¥AS-JOJUTLA", etiqueta: "4. JOJUTLA-U.HAB LAS CAÑAS-JOJUTLA", color: "#013880" },
+            { id: 5, nombre: "5. JOJUTLA-SANTA MARIA-JOJUTLA", etiqueta: "5. JOJUTLA-SANTA MARIA-JOJUTLA", color: "#ae46d5" },
+            { id: 6, nombre: "6. JOJUTLA-COL. VICENTE GUERRERO-CRUCERO PROA-JOJUTLA", etiqueta: "6. JOJUTLA-COL. VICENTE GUERRERO-CRUCERO PROA-JOJUTLA", color: "#ff8c00" },
+            { id: 7, nombre: "7. JOJUTLA-NICOLAS BRAVO-JOJUTLA", etiqueta: "7. JOJUTLA-NICOLAS BRAVO-JOJUTLA", color: "#1cbbb4" },
+            { id: 8, nombre: "8. JOJUTLA-RASTRO", etiqueta: "8. JOJUTLA-RASTRO", color: "#bc5090" }
+        ];
+
+        const rutaBaseS3 = "../../../Activos/Geojson/Surjson/Ruta 3/";
+        const contenedorS3 = document.getElementById("ruta3SCheckboxes");
+        const capasS3 = {};
+
+        rutasS3.forEach(ruta => {
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = `ruta3S_${ruta.id}`;
+            checkbox.classList.add("form-check-input", "me-2");
+
+            const label = document.createElement("label");
+            label.classList.add("form-check-label");
+            label.htmlFor = checkbox.id;
+            label.textContent = ruta.etiqueta;
+
+            const div = document.createElement("div");
+            div.classList.add("form-check");
+            div.appendChild(checkbox);
+            div.appendChild(label);
+            contenedorS3.appendChild(div);
+
+            checkbox.addEventListener("change", function () {
+                if (this.checked) {
+                    const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                    const url = rutaBaseS3 + archivo;
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error('No se pudo cargar el archivo.');
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS3[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else {
+                    if (capasS3[ruta.id]) {
+                        map.removeLayer(capasS3[ruta.id]);
+                        delete capasS3[ruta.id];
+                    }
+                }
+            });
+        });
+
+
+        /* Rutas Zona SUR – Ruta 4 */
+        const rutasS4 = [
+            { id: 1, nombre: "1. COLONIA LA CRUZ (XOCHITEPEC)-CERESO-JOJUTLA", etiqueta: "1. COLONIA LA CRUZ (XOCHITEPEC)-CERESO-JOJUTLA", carpeta: "Ruta 4 _29 DE SEPTIEMBRE_", color: "#f81e1e" },
+            { id: 2, nombre: "2. SANTA ROSA TREINTA-JOJUTLA", etiqueta: "2. SANTA ROSA TREINTA-JOJUTLA", carpeta: "Ruta 4 _29 DE SEPTIEMBRE_", color: "#f8ac1e" },
+            { id: 3, nombre: "3.BACHILLERES-JOJUTLA", etiqueta: "3.BACHILLERES-JOJUTLA", carpeta: "Ruta 4 _29 DE SEPTIEMBRE_", color: "#00ea60" },
+            { id: 4, nombre: "1. COL. LA CRUZ-JOJUTLA-COL. LA CRUZ", etiqueta: "1. COL. LA CRUZ-JOJUTLA-COL. LA CRUZ", carpeta: "Ruta 4 INDEPENDIENTE", color: "#013880" },
+            { id: 5, nombre: "2. SANTA ROSA 30-JOJUTLA-SANTA ROSA 30", etiqueta: "2. SANTA ROSA 30-JOJUTLA-SANTA ROSA 30", carpeta: "Ruta 4 INDEPENDIENTE", color: "#ae46d5" },
+            { id: 6, nombre: "3. JOJUTLA-BACHILLERES-JOJUTLA", etiqueta: "3. JOJUTLA-BACHILLERES-JOJUTLA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#ff8c00" },
+            { id: 7, nombre: "4. JOJUTLA-SAN MIGUEL 30-JOJUTLA", etiqueta: "4. JOJUTLA-SAN MIGUEL 30-JOJUTLA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#1cbbb4" },
+            { id: 8, nombre: "5. JOJUTLA-TEMIMILCINGO-JOJUTLA", etiqueta: "5. JOJUTLA-TEMIMILCINGO-JOJUTLA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#bc5090" },
+            { id: 9, nombre: "6. JOJUTLA-GALEANA CENTRO-SAN MIGUEL-JOJUTLA", etiqueta: "6. JOJUTLA-GALEANA CENTRO-SAN MIGUEL-JOJUTLA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#ffa600" },
+            { id: 10, nombre: "7. ATLACHOLOAYA-LA CRUZ-ATLACHOLOAYA", etiqueta: "7. ATLACHOLOAYA-LA CRUZ-ATLACHOLOAYA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#336699" }
+        ];
+
+
+        const contenedorS4 = document.getElementById("ruta4SCheckboxes");
+        const capasS4 = {};  // para llevar registro de las capas activas
+
+        rutasS4.forEach(ruta => {
+            /* --- 1. Crear checkbox y label --- */
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta4S_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const lab = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, lab);
+            contenedorS4.appendChild(fila);
+
+            /* --- 2. Cargar / quitar capa --- */
+            cb.addEventListener("change", () => {
+                if (cb.checked) {
+                    const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                    const url = `../../../Activos/Geojson/Surjson/${ruta.carpeta}/${archivo}`;
+
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS4[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasS4[ruta.id]) {
+                    map.removeLayer(capasS4[ruta.id]);
+                    delete capasS4[ruta.id];
+                }
+            });
+        });
+
+
+        /* Rutas Zona SUR – Ruta 5 */
+        const rutasS5 = [
+            { id: 1, nombre: "1. SAN PABLO HIDALGO-JOJUTLA-SAN PABLO HIDALGO", etiqueta: "1. SAN PABLO HIDALGO-JOJUTLA-SAN PABLO HIDALGO", color: "#f81e1e" },
+            { id: 2, nombre: "2. JOJUTLA-PALO PRIETO-JOJUTLA", etiqueta: "2. JOJUTLA-PALO PRIETO-JOJUTLA", color: "#f8ac1e" },
+            { id: 3, nombre: "3. JOJUTLA-PANTEàN-JOJUTLA", etiqueta: "3. JOJUTLA-PANTEÓN-JOJUTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. JOJUTLA-TEMIMILCINGO-JOJUTLA ", etiqueta: "4. JOJUTLA-TEMIMILCINGO-JOJUTLA ", color: "#013880" },
+            { id: 5, nombre: "5. JOJUTLA-TICUMAN-JOJUTLA", etiqueta: "5. JOJUTLA-TICUMAN-JOJUTLA", color: "#ae46d5" },
+            { id: 6, nombre: "6. JOJUTLA-BALNEARIO SANTA ISABEL-JOJUTLA", etiqueta: "6. JOJUTLA-BALNEARIO SANTA ISABEL-JOJUTLA", color: "#ff8c00" },
+            { id: 7, nombre: "1. JOJUTLA-BALNEARIO LAS ESTACAS-JOJUTLA", etiqueta: "1. JOJUTLA-BALNEARIO LAS ESTACAS-JOJUTLA", color: "#1cbbb4" },
+            { id: 8, nombre: "2. JOJUTLA-HUATECALCO-JOJUTLA", etiqueta: "2. JOJUTLA-HUATECALCO-JOJUTLA", color: "#bc5090" },
+            { id: 9, nombre: "3. JOJUTLA-SAN RAFAEL ZARAGOZA-JOJUTLA", etiqueta: "3. JOJUTLA-SAN RAFAEL ZARAGOZA-JOJUTLA", color: "#ffa600" }
+        ];
+
+
+        const contenedorS5 = document.getElementById("ruta5SCheckboxes");
+        const capasS5 = {}; // almacenamiento de capas
+
+        rutasS5.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta5S_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorS5.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                if (cb.checked) {
+                    const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                    const url = `../../../Activos/Geojson/Surjson/Ruta 5/${archivo}`;
+
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS5[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasS5[ruta.id]) {
+                    map.removeLayer(capasS5[ruta.id]);
+                    delete capasS5[ruta.id];
+                }
+            });
+        });
+
+
+        /* Rutas Zona SUR – Ruta 6 */
+        const rutasS6 = [
+            { id: 1, nombre: "1.- ALPUYECA-JOJUTLA-ALPUYECA", etiqueta: "1.- ALPUYECA-JOJUTLA-ALPUYECA", color: "#f81e1e" },
+            { id: 2, nombre: "2. JOJUTLA-PUENTE DE IXTLA-JOJUTLA (1)", etiqueta: "2. JOJUTLA-PUENTE DE IXTLA-JOJUTLA (1)", color: "#f8ac1e" },
+            { id: 3, nombre: "3.CIRCUITO ALPUYECA", etiqueta: "3.CIRCUITO ALPUYECA", color: "#00ea60" },
+            { id: 4, nombre: "4. ALPUYECA-XOCHITEPEC-ALPUYECA", etiqueta: "4. ALPUYECA-XOCHITEPEC-ALPUYECA", color: "#013880" }
+        ];
+
+        const contenedorS6 = document.getElementById("ruta6SCheckboxes");
+        const capasS6 = {};
+
+        rutasS6.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta6S_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorS6.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                if (cb.checked) {
+                    const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                    const url = `../../../Activos/Geojson/Surjson/Ruta 6A/${archivo}`;
+
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS6[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasS6[ruta.id]) {
+                    map.removeLayer(capasS6[ruta.id]);
+                    delete capasS6[ruta.id];
+                }
+            });
+        });
+
+
+        /* Rutas Zona SUR – Ruta 7 */
+        const rutasS7 = [
+            { id: 1, nombre: "1. JOJUTLA-AMPLIACION LAZARO CARDENAS-JOJUTLA", etiqueta: "1. JOJUTLA-AMPLIACION LAZARO CARDENAS-JOJUTLA", carpeta: "Ruta 7 AQUILES SERDAN", color: "#f81e1e" },
+            { id: 2, nombre: "2. JOJUTLA-HIGUERON-JOJUTLA", etiqueta: "2. JOJUTLA-HIGUERON-JOJUTLA", carpeta: "Ruta 7 AQUILES SERDAN", color: "#f8ac1e" },
+            { id: 3, nombre: "3. JOJUTLA-ALTA VISTA POR ARRIBA-JOJUTLA", etiqueta: "3. JOJUTLA-ALTA VISTA POR ARRIBA-JOJUTLA", carpeta: "Ruta 7 AQUILES SERDAN", color: "#00ea60" },
+            { id: 4, nombre: "5. JOJUTLA-COL. RICARDO SOTO-JOJUTLA", etiqueta: "5. JOJUTLA-COL. RICARDO SOTO-JOJUTLA", carpeta: "Ruta 7 AQUILES SERDAN", color: "#013880" },
+            { id: 5, nombre: "6. JOJUTLA-HIGUERON-CENTRO", etiqueta: "6. JOJUTLA-HIGUERON-CENTRO", carpeta: "Ruta 7 AQUILES SERDAN", color: "#ae46d5" },
+            { id: 6, nombre: "7. JOJUTLA-XICATLACOTLA-JOJUTLA", etiqueta: "7. JOJUTLA-XICATLACOTLA-JOJUTLA", carpeta: "Ruta 7 AQUILES SERDAN", color: "#ff8c00" },
+            { id: 7, nombre: "1. JOJUTLA-PEDRO AMARO-JOJUTLA", etiqueta: "1. JOJUTLA-PEDRO AMARO-JOJUTLA", carpeta: "Ruta 7 PEDRO AMARO", color: "#1cbbb4" },
+            { id: 8, nombre: "2. JOJUTLA-BOCANEGRA(PEDRO AMARO)-JOJUTLA", etiqueta: "2. JOJUTLA-BOCANEGRA(PEDRO AMARO)-JOJUTLA", carpeta: "Ruta 7 PEDRO AMARO", color: "#bc5090" },
+            { id: 9, nombre: "3. JOJUTLA-PEDRO AMARO (PARTE ALTA)-JOJUTLA", etiqueta: "3. JOJUTLA-PEDRO AMARO (PARTE ALTA)-JOJUTLA", carpeta: "Ruta 7 PEDRO AMARO", color: "#ffa600" },
+            { id: 10, nombre: "4. JOJUTLA- PANTEàN PEDRO AMARO-JOJUTLA", etiqueta: "4. JOJUTLA-PANTEàN PEDRO AMARO-JOJUTLA", carpeta: "Ruta 7 PEDRO AMARO", color: "#336699" },
+            { id: 11, nombre: "5. JOJUTLA-COL. INDEPENDENCIA-JOJUTLA", etiqueta: "5. JOJUTLA-COL. INDEPENDENCIA-JOJUTLA", carpeta: "Ruta 7 PEDRO AMARO", color: "#1cbbb4" },
+            { id: 12, nombre: "6. JOJUTLA-LAZARO CARDENAS-JOJUTLA", etiqueta: "6. JOJUTLA-LAZARO CARDENAS-JOJUTLA", carpeta: "Ruta 7 PEDRO AMARO", color: "#bc5090" },
+            { id: 13, nombre: "7. JOJUTLA-PALO GRANDE-JOJUTLA", etiqueta: "7. JOJUTLA-PALO GRANDE-JOJUTLA", carpeta: "Ruta 7 PEDRO AMARO", color: "#ffa600" },
+            { id: 14, nombre: "8. JOJUTLA-COL. AMPLIACIàN LAZARO CARDENAS-JOJUTLA", etiqueta: "8. JOJUTLA-COL. AMPLIACIàN LAZARO CARDENAS-JOJUTLA", carpeta: "Ruta 7 PEDRO AMARO", color: "#336699" }
+        ];
+
+        const contenedorS7 = document.getElementById("ruta7SCheckboxes");
+        const capasS7 = {};
+
+        rutasS7.forEach(ruta => {
+            /* Crear checkbox y label */
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta7S_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorS7.appendChild(fila);
+
+            /* Cargar / quitar capa */
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS7[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasS7[ruta.id]) {
+                    map.removeLayer(capasS7[ruta.id]);
+                    delete capasS7[ruta.id];
+                }
+            });
+        });
+
+
+
+
+        /* Rutas Zona SUR – Ruta 8 */
+        const rutasS8 = [
+            { id: 1, nombre: "1. JOJUTLA-TILZAPOTLA-JOJUTLA (1)", etiqueta: "1. JOJUTLA-TILZAPOTLA-JOJUTLA", carpeta: "Ruta 8", color: "#f81e1e" },
+            { id: 2, nombre: "2. JOJUTLA-JICARERO-JOJUTLA (1)", etiqueta: "2. JOJUTLA-JICARERO-JOJUTLA", carpeta: "Ruta 8", color: "#f8ac1e" },
+            { id: 3, nombre: "4. TILZPOTLA-COAXITLAN-TILZPOTLA (1)", etiqueta: "4. TILZPOTLA-COAXITLAN-TILZPOTLA", carpeta: "Ruta 8", color: "#00ea60" },
+            { id: 4, nombre: "5. JOJUTLA-LA TIGRA-JOJUTLA (1)", etiqueta: "5. JOJUTLA-LA TIGRA-JOJUTLA", carpeta: "Ruta 8", color: "#013880" },
+            { id: 5, nombre: "5. TILZAPOTLA-EL SALTO (1)", etiqueta: "5. TILZAPOTLA-EL SALTO", carpeta: "Ruta 8", color: "#ae46d5" },
+            { id: 6, nombre: "9. JOJUTLA-RIO SECO-JOJUTLA (1)", etiqueta: "9. JOJUTLA-RIO SECO-JOJUTLA", carpeta: "Ruta 8", color: "#ff8c00" }
+        ];
+
+        const contenedorS8 = document.getElementById("ruta8SCheckboxes");
+        const capasS8 = {};
+
+        rutasS8.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta8S_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorS8.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS8[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasS8[ruta.id]) {
+                    map.removeLayer(capasS8[ruta.id]);
+                    delete capasS8[ruta.id];
+                }
+            });
+        });
+
+
+        /* Rutas Zona SUR – Ruta 9 */
+        const rutasS9 = [
+            { id: 1, nombre: "1. JOJUTLA- QUILAMULA", etiqueta: "1. JOJUTLA- QUILAMULA", color: "#f81e1e" },
+            { id: 2, nombre: "2. JOJUTLA-SAN JOSÉ DE PALA-JOJUTLA", etiqueta: "2. JOJUTLA-SAN JOSÉ DE PALA-JOJUTLA", color: "#f8ac1e" },
+            { id: 3, nombre: "3. JOJUTLA-LA ERA-LOS ELOTES-JOJUTLA", etiqueta: "3. JOJUTLA-LA ERA-LOS ELOTES-JOJUTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. JOJUTLA-AJUCHITLAN-JOJUTLA", etiqueta: "4. JOJUTLA-AJUCHITLAN-JOJUTLA", color: "#013880" },
+            { id: 5, nombre: "5. JOJUTLA-VALLE DE VAZQUEZ-JOJUTLA", etiqueta: "5. JOJUTLA-VALLE DE VAZQUEZ-JOJUTLA", color: "#ae46d5" },
+            { id: 6, nombre: "6. JOJUTLA-CHACAMPALCO (CERRITO)-JOJUTLA", etiqueta: "6. JOJUTLA-CHACAMPALCO (CERRITO)-JOJUTLA", color: "#ff8c00" },
+            { id: 7, nombre: "7. JOJUTLA-CHACAMPALCO (CANAL)-JOJUTLA", etiqueta: "7. JOJUTLA-CHACAMPALCO (CANAL)-JOJUTLA", color: "#1cbbb4" },
+            { id: 8, nombre: "8. JOJUTLA-MIGUEL HIDALGO-JOJUTLA", etiqueta: "8. JOJUTLA-MIGUEL HIDALGO-JOJUTLA", color: "#bc5090" },
+            { id: 9, nombre: "9. JOJUTLA-LOS PRESIDENTES-JOJUTLA", etiqueta: "9. JOJUTLA-LOS PRESIDENTES-JOJUTLA", color: "#ffa600" },
+            { id: 10, nombre: "10. JOJUTLA-GABRIEL TEPEPA-JOJUTLA", etiqueta: "10. JOJUTLA-GABRIEL TEPEPA-JOJUTLA", color: "#336699" },
+            { id: 11, nombre: "11. JOJUTLA-GABRIEL TEPEPA (EL ARCO)-JOJUTLA", etiqueta: "11. JOJUTLA-GABRIEL TEPEPA (EL ARCO)-JOJUTLA", color: "#00b894" },
+            { id: 12, nombre: "12. JOJUTLA-CELERINO MANZANAREZ-JOJUTLA", etiqueta: "12. JOJUTLA-CELERINO MANZANAREZ-JOJUTLA", color: "#f94144" },
+            { id: 13, nombre: "13. JOJUTLA-3 DE MAYO-JOJUTLA", etiqueta: "13. JOJUTLA-3 DE MAYO-JOJUTLA", color: "#f3722c" },
+            { id: 14, nombre: "14. JOJUTLA-BALNEARIO EL ROLLO-JOJUTLA", etiqueta: "14. JOJUTLA-BALNEARIO EL ROLLO-JOJUTLA", color: "#f81e1e" },
+            { id: 15, nombre: "15. JOJUTLA-CHIMALACATLAN-JOJUTLA", etiqueta: "15. JOJUTLA-CHIMALACATLAN-JOJUTLA", color: "#f8ac1e" },
+            { id: 16, nombre: "16. JOJUTLA-SANTIOPA-JOJUTLA", etiqueta: "16. JOJUTLA-SANTIOPA-JOJUTLA", color: "#00ea60" },
+            { id: 17, nombre: "17. JOJUTLA-HUAXTLA-JOJUTLA", etiqueta: "17. JOJUTLA-HUAXTLA-JOJUTLA", color: "#013880" },
+            { id: 18, nombre: "18. JOJUTLA-LAS BOVEDAS-JOJUTLA", etiqueta: "18. JOJUTLA-LAS BOVEDAS-JOJUTLA", color: "#ae46d5" },
+            { id: 19, nombre: "19. JOJUTLA-COL. EMILIANO ZAPATA-JOJUTLA", etiqueta: "19. JOJUTLA-COL. EMILIANO ZAPATA-JOJUTLA", color: "#ff8c00" }
+        ];
+
+        const contenedorS9 = document.getElementById("ruta9SCheckboxes");
+        const capasS9 = {};
+
+        rutasS9.forEach(ruta => {
+            /* Crear checkbox + etiqueta */
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta9S_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorS9.appendChild(fila);
+
+            /* Cargar / quitar capa */
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/Ruta 9/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS9[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasS9[ruta.id]) {
+                    map.removeLayer(capasS9[ruta.id]);
+                    delete capasS9[ruta.id];
+                }
+            });
+        });
+
+
+        /* Rutas Zona SUR – Ruta 10 */
+        const rutasS10 = [
+            { id: 1, nombre: "1. JOJUTLA-TEQUESQUITENGO-JOJUTLA (1)", etiqueta: "1. JOJUTLA-TEQUESQUITENGO-JOJUTLA", color: "#f81e1e" },
+            { id: 2, nombre: "1. JOJUTLA-YAUTEPEC-JOJUTLA", etiqueta: "1. JOJUTLA-YAUTEPEC-JOJUTLA", color: "#f8ac1e" },
+            { id: 3, nombre: "2. U.H. JOSE MARIA MORELOS-ZACATEPEC-U.H. JOSE MARIA MORELOS (1)", etiqueta: "2. U.H. JOSE MARIA MORELOS-ZACATEPEC-U.H. JOSE MARIA MORELOS (1)", color: "#00ea60" },
+            { id: 4, nombre: "3. JOJUTLA-U.H. JOSE MARIA MORELOS-JOJUTLA (1)", etiqueta: "3. JOJUTLA-U.H. JOSE MARIA MORELOS-JOJUTLA (1)", color: "#013880" }
+        ];
+
+        const contenedorS10 = document.getElementById("ruta10SCheckboxes");
+        const capasS10 = {};
+
+        rutasS10.forEach(ruta => {
+            /* Crear checkbox + label */
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta10S_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorS10.appendChild(fila);
+
+            /* Cargar / quitar capa */
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/Ruta 10/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS10[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasS10[ruta.id]) {
+                    map.removeLayer(capasS10[ruta.id]);
+                    delete capasS10[ruta.id];
+                }
+            });
+        });
+
+
+        /* Rutas Zona SUR – Ruta 16 */
+        const rutasS16 = [
+            { id: 1, nombre: "1. JOJUTLA-TEXCAL-ZACATEPEC-OTILIO MONTAÑO-JOJUTLA", etiqueta: "1. JOJUTLA-TEXCAL-ZACATEPEC-OTILIO MONTAÑO-JOJUTLA", color: "#f81e1e" },
+            { id: 2, nombre: "2. JOJUTLA-GALEANA-OTILIO MONTAÑO-JOJUTLA (1)", etiqueta: "2. JOJUTLA-GALEANA-OTILIO MONTAÑO-JOJUTLA", color: "#f8ac1e" },
+            { id: 3, nombre: "3. JOJUTLA-CHACAMPALCO-JOJUTLA", etiqueta: "3. JOJUTLA-CHACAMPALCO-JOJUTLA", color: "#00ea60" }
+        ];
+
+        const contenedorS16 = document.getElementById("ruta16SCheckboxes");
+        const capasS16 = {};
+
+        rutasS16.forEach(ruta => {
+            /* Crear checkbox y label */
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `ruta16S_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorS16.appendChild(fila);
+
+            /* Cargar o quitar capa */
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/Ruta 16/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasS16[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasS16[ruta.id]) {
+                    map.removeLayer(capasS16[ruta.id]);
+                    delete capasS16[ruta.id];
+                }
+            });
+        });
+
+
+        /* Rutas Zona SUR – Ruta C.T.M */
+        const rutasCTM = [
+            { id: 1, nombre: "1. JOJUTLA-TEQUESQUITENGO-JOJUTLA", etiqueta: "1. JOJUTLA-TEQUESQUITENGO-JOJUTLA", color: "#f81e1e" },
+            { id: 2, nombre: "2. U.H. JOSE MARIA MORELOS-ZACATEPEC-U.H. JOSE MARIA MORELOS", etiqueta: "2. U.H. JOSE MARIA MORELOS-ZACATEPEC-U.H. JOSE MARIA MORELOS", color: "#f8ac1e" },
+            { id: 3, nombre: "3. JOJUTLA-U.H. JOSE MARIA MORELOS-JOJUTLA", etiqueta: "3. JOJUTLA-U.H. JOSE MARIA MORELOS-JOJUTLA", color: "#00ea60" }
+        ];
+
+        const contenedorCTM = document.getElementById("rutaCTMSCheckboxes");
+        const capasCTM = {};
+
+        rutasCTM.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `rutaCTMS_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorCTM.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/Ruta C.T.M/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasCTM[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasCTM[ruta.id]) {
+                    map.removeLayer(capasCTM[ruta.id]);
+                    delete capasCTM[ruta.id];
+                }
+            });
+        });
+
+
+        /* Rutas Zona SUR – Ruta GENERAL EMILIANO ZAPATA */
+        const rutasGEZ = [
+            {
+                id: 1,
+                nombre: "1. JOJUTLA-YAUTEPEC-JOJUTLA (2)",
+                etiqueta: "1. JOJUTLA-YAUTEPEC-JOJUTLA (2)",
+                color: "#f81e1e"
+            }
+        ];
+
+        const contenedorGEZ = document.getElementById("rutaGEZSCheckboxes");
+        const capasGEZ = {};
+
+        rutasGEZ.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `rutaGEZS_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorGEZ.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/Ruta GENERAL EMILIANO ZAPATA/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasGEZ[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasGEZ[ruta.id]) {
+                    map.removeLayer(capasGEZ[ruta.id]);
+                    delete capasGEZ[ruta.id];
+                }
+            });
+        });
+
+        /* Rutas Zona SUR – Ruta INTERESCOLAR */
+        const rutasInterescolar = [
+            { id: 1, nombre: "1. JOJUTLA-CERRITO (TLATIZAPAN)-JOJUTLA", etiqueta: "1. JOJUTLA-CERRITO (TLATIZAPAN)-JOJUTLA", color: "#f81e1e" },
+            { id: 2, nombre: "2. SAN MIGUEL 30-JOJUTLA-SAN MIGUEL 30", etiqueta: "2. SAN MIGUEL 30-JOJUTLA-SAN MIGUEL 30", color: "#f8ac1e" },
+            { id: 3, nombre: "3. JOJUTLA-TICUMAN-JOJUTLA", etiqueta: "3. JOJUTLA-TICUMAN-JOJUTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. PUENTE DE IXTLA-JOJUTLA-PUENTE DE IXTLA", etiqueta: "4. PUENTE DE IXTLA-JOJUTLA-PUENTE DE IXTLA", color: "#013880" }
+        ];
+
+        const contenedorInterescolar = document.getElementById("rutaInterescolarSCheckboxes");
+        const capasInterescolar = {};
+
+        rutasInterescolar.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `rutaInterescolarS_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorInterescolar.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/Ruta INTERESCOLAR/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasInterescolar[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasInterescolar[ruta.id]) {
+                    map.removeLayer(capasInterescolar[ruta.id]);
+                    delete capasInterescolar[ruta.id];
+                }
+            });
+        });
+
+        /* Rutas Zona SUR – Ruta SAN MIGUEL 30 */
+        const rutasSanMiguel30 = [
+            {
+                id: 1,
+                nombre: "1. SAN MIGUEL-JOJUTLA",
+                etiqueta: "1. SAN MIGUEL-JOJUTLA",
+                color: "#f81e1e"
+            }
+        ];
+
+        const contenedorSanMiguel30 = document.getElementById("rutaSanMiguel30SCheckboxes");
+        const capasSanMiguel30 = {};
+
+        rutasSanMiguel30.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `rutaSanMiguel30S_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorSanMiguel30.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/Ruta INDEPENDIENTE SAN MIGUEL 30/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasSanMiguel30[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasSanMiguel30[ruta.id]) {
+                    map.removeLayer(capasSanMiguel30[ruta.id]);
+                    delete capasSanMiguel30[ruta.id];
+                }
+            });
+        });
+
+        /* Rutas Zona SUR – Autobuses Circunvalación */
+        const rutasCircunvalacion = [
+            { id: 1, nombre: "1. JOJUTLA-TEXCAL-OTILIO MONTAÑO-JOJUTLA", etiqueta: "1. JOJUTLA-TEXCAL-OTILIO MONTAÑO-JOJUTLA", color: "#f81e1e" },
+            { id: 2, nombre: "2. JOJUTLA-GALEANA-OTILIO MONTAÑO-JOJUTLA", etiqueta: "2. JOJUTLA-GALEANA-OTILIO MONTAÑO-JOJUTLA", color: "#f8ac1e" },
+            { id: 3, nombre: "3.JOJUTLA-CHACAMPALCO-JOJUTLA", etiqueta: "3. JOJUTLA-CHACAMPALCO-JOJUTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. JOJUTLA-TEMIMILCINGO-JOJUTLA", etiqueta: "4. JOJUTLA-TEMIMILCINGO-JOJUTLA", color: "#013880" },
+            { id: 5, nombre: "5. JOJUTLA-GALERAS-JOJUTLA", etiqueta: "5. JOJUTLA-GALERAS-JOJUTLA", color: "#ae46d5" },
+            { id: 6, nombre: "6. JOJUTLA-TETELPA-JOJUTLA", etiqueta: "6. JOJUTLA-TETELPA-JOJUTLA", color: "#ff8c00" }
+        ];
+
+        const contenedorCirc = document.getElementById("rutaCircunvalacionSCheckboxes");
+        const capasCirc = {};
+
+        rutasCircunvalacion.forEach(ruta => {
+            /* Crear checkbox y label */
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `rutaCircunvalacionS_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorCirc.appendChild(fila);
+
+            /* Cargar / quitar capa */
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/AUTOBUSES CIRCUNVALACION/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasCirc[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasCirc[ruta.id]) {
+                    map.removeLayer(capasCirc[ruta.id]);
+                    delete capasCirc[ruta.id];
+                }
+            });
+        });
+
+        /* Rutas Zona SUR – Autobuses Dorados del Sur */
+        const rutasDorados = [
+            { id: 1, nombre: "1. JOJUTLA-CHIMALACATLAN-JOJUTLA", etiqueta: "1. JOJUTLA-CHIMALACATLAN-JOJUTLA", color: "#f81e1e" },
+            { id: 2, nombre: "2. JOJUTLA-PUENTE DE IXTLA-JOJUTLA", etiqueta: "2. JOJUTLA-PUENTE DE IXTLA-JOJUTLA", color: "#f8ac1e" },
+            { id: 3, nombre: "3. JOJUTLA-TILZAPOTLA-JOJUTLA", etiqueta: "3. JOJUTLA-TILZAPOTLA-JOJUTLA", color: "#00ea60" },
+            { id: 4, nombre: "4. JOJUTLA-CHSICO-VICENTE ARANDA-JOJUTLA", etiqueta: "4. JOJUTLA-CHSICO-VICENTE ARANDA-JOJUTLA", color: "#013880" },
+            { id: 5, nombre: "5. JOJUTLA-HUIXASTLA-JOJUTLA", etiqueta: "5. JOJUTLA-HUIXASTLA-JOJUTLA", color: "#ae46d5" },
+            { id: 6, nombre: "6. JOJUTLA-EL ASTILLERO-LORENZO VAZQUEZ", etiqueta: "6. JOJUTLA-EL ASTILLERO-LORENZO VAZQUEZ", color: "#ff8c00" },
+            { id: 7, nombre: "7.JOJUTLA-TEOCALCINGO-JOJUTLA", etiqueta: "7. JOJUTLA-TEOCALCINGO-JOJUTLA", color: "#1cbbb4" }
+        ];
+
+        const contenedorDorados = document.getElementById("rutaDoradosSCheckboxes");
+        const capasDorados = {};
+
+        rutasDorados.forEach(ruta => {
+            const cb = Object.assign(document.createElement("input"), {
+                type: "checkbox",
+                id: `rutaDoradosS_${ruta.id}`,
+                className: "form-check-input me-2"
+            });
+
+            const label = Object.assign(document.createElement("label"), {
+                className: "form-check-label",
+                htmlFor: cb.id,
+                textContent: ruta.etiqueta
+            });
+
+            const fila = document.createElement("div");
+            fila.classList.add("form-check");
+            fila.append(cb, label);
+            contenedorDorados.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Surjson/AUTOBUSES DORADOS DEL SUR/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasDorados[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasDorados[ruta.id]) {
+                    map.removeLayer(capasDorados[ruta.id]);
+                    delete capasDorados[ruta.id];
+                }
+            });
+        });
+
+
+    </script>
 </body>
 
 </html>
