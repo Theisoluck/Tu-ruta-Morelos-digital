@@ -113,10 +113,15 @@
                 </select>
             </div>
         </section>
+        
         <!-- Ruta 1 -->
         <section class="text-center mb-5">
             <h2 class="map-title">1. COLONIA LA CRUZ (XOCHITEPEC)-CERESO-JOJUTLA</h2>
             <div id="map1" class="map-container"></div>
+        </section>
+
+        <section class="text-center mb-5" >
+            <div class="mx-auto" style="height: 5px; width: 100%; background-color: #cd9a6c; border-radius: 2px; ">
         </section>
 
         <!-- Ruta 2 -->
@@ -124,59 +129,16 @@
             <h2 class="map-title">2. SANTA ROSA TREINTA-JOJUTLA</h2>
             <div id="map2" class="map-container"></div>
         </section>
+
+        <section class="text-center mb-5" >
+            <div class="mx-auto" style="height: 5px; width: 100%; background-color: #cd9a6c; border-radius: 2px; ">
+        </section>
+
         <!-- Ruta 3 -->
         <section class="text-center mb-5">
             <h2 class="map-title">3.BACHILLERES-JOJUTLA</h2>
             <div id="map3" class="map-container"></div>
         </section>
-
-        <section class="text-center mb-5" >
-            <div class="mx-auto" style="height: 5px; width: 100%; background-color: #cd9a6c; border-radius: 2px;">
-            <br><h2 class="map-title">RUTA 4 INDEPENDIENTE</h2> 
-        </section><br>
-
-        <!-- Ruta 4 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">4. COL. LA CRUZ-JOJUTLA-COL. LA CRUZ</h2>
-            <div id="map4" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 5 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">5. SANTA ROSA 30-JOJUTLA-SANTA ROSA 30</h2>
-            <div id="map5" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 6 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">6. JOJUTLA-BACHILLERES-JOJUTLA</h2>
-            <div id="map6" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 7 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">7. JOJUTLA-SAN MIGUEL 30-JOJUTLA</h2>
-            <div id="map7" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 8 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">8. JOJUTLA-TEMIMILCINGO-JOJUTLA</h2>
-            <div id="map8" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 9 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">9. JOJUTLA-GALEANA CENTRO-SAN MIGUEL-JOJUTLA</h2>
-            <div id="map9" class="map-container"></div>
-        </section>
-
-        <!-- Ruta 10 -->
-        <section class="text-center mb-5">
-            <h2 class="map-title">10. ATLACHOLOAYA-LA CRUZ-ATLACHOLOAYA</h2>
-            <div id="map10" class="map-container"></div>
-        </section>
-
 
     </main>
 
@@ -238,14 +200,7 @@
         const rutas = [
             { id: 1, nombre: "1. COLONIA LA CRUZ (XOCHITEPEC)-CERESO-JOJUTLA", carpeta: "Ruta 4 _29 DE SEPTIEMBRE_", color: "#f81e1e" },
             { id: 2, nombre: "2. SANTA ROSA TREINTA-JOJUTLA", carpeta: "Ruta 4 _29 DE SEPTIEMBRE_", color: "#f8ac1e" },
-            { id: 3, nombre: "3.BACHILLERES-JOJUTLA", carpeta: "Ruta 4 _29 DE SEPTIEMBRE_", color: "#00ea60" },
-            { id: 4, nombre: "1. COL. LA CRUZ-JOJUTLA-COL. LA CRUZ", carpeta: "Ruta 4 INDEPENDIENTE", color: "#013880" },
-            { id: 5, nombre: "2. SANTA ROSA 30-JOJUTLA-SANTA ROSA 30", carpeta: "Ruta 4 INDEPENDIENTE", color: "#ae46d5" },
-            { id: 6, nombre: "3. JOJUTLA-BACHILLERES-JOJUTLA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#ff8c00" },
-            { id: 7, nombre: "4. JOJUTLA-SAN MIGUEL 30-JOJUTLA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#1cbbb4" },
-            { id: 8, nombre: "5. JOJUTLA-TEMIMILCINGO-JOJUTLA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#bc5090" },
-            { id: 9, nombre: "6. JOJUTLA-GALEANA CENTRO-SAN MIGUEL-JOJUTLA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#ffa600" },
-            { id: 10, nombre: "7. ATLACHOLOAYA-LA CRUZ-ATLACHOLOAYA", carpeta: "Ruta 4 INDEPENDIENTE", color: "#336699" }
+            { id: 3, nombre: "3.BACHILLERES-JOJUTLA", carpeta: "Ruta 4 _29 DE SEPTIEMBRE_", color: "#00ea60"}
         ];
 
         rutas.forEach(ruta => {
