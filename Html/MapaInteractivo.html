@@ -668,11 +668,44 @@
         const map = L.map('map').setView([18.6813, -99.1013], 10);
 
         map.zoomControl.setPosition('topright');
+        var zoomControl = map.zoomControl;
+        var zoomControlElement = zoomControl._container;
+
         let capas = {};
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
             attribution: '&copy; OpenStreetMap contributors'
         }).addTo(map);
+
+
+        botonMenu.addEventListener('click', () => {
+            if (window.innerWidth <= 768 ) {
+                if(menuAbierto){
+                    hide();
+                } else {
+                    paint();
+                }
+            }
+        });
+
+        window.addEventListener('resize', function() {
+            if (window.innerWidth <= 768 ) {
+                if(menuAbierto){
+                    hide();
+                }            
+            } else if(window.innerWidth > 768 && menuAbierto){               
+                paint();
+            }
+        });
+
+        function hide () {
+            zoomControlElement.style.display = 'none';
+        }
+
+        function paint () {
+            zoomControlElement.style.display = 'block';
+        }
+
 
     </script>
 
