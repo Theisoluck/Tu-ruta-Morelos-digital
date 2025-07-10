@@ -85,7 +85,7 @@
             <div class="position-relative z-1 container px-3">
                 <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
                     class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 6– ORIENTE</h2>
+                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 6B– ORIENTE</h2>
                 <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
                 </div>
             </div>
@@ -112,17 +112,37 @@
                 </select>
             </div>
         </section>
-        <!-- Ruta 1 -->
+<!-- Ruta 1 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">1. BASE FRESNAL COL. FRANCISCO I . MADERO A BASE COL. CUAHTEMOC X PLAZA ATRIOS</h2>
+  <h2 class="map-title">1. CIRCUNVALACIÓN – TETELCINGO</h2>
   <div id="map1" class="map-container"></div>
 </section>
 
 <!-- Ruta 2 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">2. BASE FRESNAL COL. FRANCISCO I . MADERO A BASE WALMART COL. TIERRA LARGA X PORTONES</h2>
+  <h2 class="map-title">2. CIRCUNVALACIÓN – UNIDAD HABITACIONAL INFONAVIT</h2>
   <div id="map2" class="map-container"></div>
 </section>
+
+<!-- Ruta 3 -->
+<section class="text-center mb-5">
+  <h2 class="map-title">3. CIRCUNVALACIÓN – TIERRA LARGA</h2>
+  <div id="map3" class="map-container"></div>
+</section>
+
+<!-- Ruta 4 -->
+<section class="text-center mb-5">
+  <h2 class="map-title">4. CIRCUNVALACIÓN – TIERRA LARGA Y 12 DE OCTUBRE</h2>
+  <div id="map4" class="map-container"></div>
+</section>
+
+<!-- Ruta 5 -->
+<section class="text-center mb-5">
+  <h2 class="map-title">5. CIRCUNVALACIÓN – 12 DE OCTUBRE Y TIERRA LARGA</h2>
+  <div id="map5" class="map-container"></div>
+</section>
+
+
     </main>
 
     <!-- PIE DE PÁGINA -->
@@ -179,11 +199,15 @@
 
 
     <script>
-               
-        const rutas = [
-    { id: 1, nombre: "RUTA 6 1.-BASE FRESNAL COL. FRANCISCO I . MADERO A BASE COL. CUAHTEMOC X PLAZA ATRIOS", color: "#f81e1e", carpeta: "Ruta6" },
-    { id: 2, nombre: "RUTA 6 2.-BASE FRESNAL COL. FRANCISCO I . MADERO A BASE WALMART COL. TIERRA LARGA X PORTONES", color: "#f8ac1e", carpeta: "Ruta6" },
+            
+  const rutas = [
+  { id: 1, nombre: "RUTA_CIRCUNVALACION_1_TETELCINGO", color: "#a29bfe", carpeta: "Ruta6B" },
+  { id: 2, nombre: "RUTA_CIRCUNVALACION_2_INFONAVIT", color: "#e17055", carpeta: "Ruta6B" },
+  { id: 3, nombre: "RUTA_CIRCUNVALACION_3_TIERRA_LARGA", color: "#55efc4", carpeta: "Ruta6B" },
+  { id: 4, nombre: "RUTA_CIRCUNVALACION_4_TIERRA_LARGA_12_OCTUBRE", color: "#ffeaa7", carpeta: "Ruta6B" },
+  { id: 5, nombre: "RUTA_CIRCUNVALACION_5_12_OCTUBRE_TIERRA_LARGA", color: "#636e72", carpeta: "Ruta6B" }
 ];
+
 
 
         rutas.forEach(ruta => {

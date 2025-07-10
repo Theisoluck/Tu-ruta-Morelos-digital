@@ -85,7 +85,7 @@
             <div class="position-relative z-1 container px-3">
                 <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
                     class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 6– ORIENTE</h2>
+                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 11A– ORIENTE</h2>
                 <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
                 </div>
             </div>
@@ -112,17 +112,24 @@
                 </select>
             </div>
         </section>
-        <!-- Ruta 1 -->
+   <!-- Ruta 1 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">1. BASE FRESNAL COL. FRANCISCO I . MADERO A BASE COL. CUAHTEMOC X PLAZA ATRIOS</h2>
+  <h2 class="map-title">1. AGUA HEDIONDA – GUADALUPE VICTORIA</h2>
   <div id="map1" class="map-container"></div>
 </section>
 
 <!-- Ruta 2 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">2. BASE FRESNAL COL. FRANCISCO I . MADERO A BASE WALMART COL. TIERRA LARGA X PORTONES</h2>
+  <h2 class="map-title">2. AGUA HEDIONDA – AMPLIACIÓN GUADALUPE VICTORIA</h2>
   <div id="map2" class="map-container"></div>
 </section>
+
+<!-- Ruta 3 -->
+<section class="text-center mb-5">
+  <h2 class="map-title">3. AGUA HEDIONDA – SANTA ROSA</h2>
+  <div id="map3" class="map-container"></div>
+</section>
+
     </main>
 
     <!-- PIE DE PÁGINA -->
@@ -179,12 +186,12 @@
 
 
     <script>
-               
-        const rutas = [
-    { id: 1, nombre: "RUTA 6 1.-BASE FRESNAL COL. FRANCISCO I . MADERO A BASE COL. CUAHTEMOC X PLAZA ATRIOS", color: "#f81e1e", carpeta: "Ruta6" },
-    { id: 2, nombre: "RUTA 6 2.-BASE FRESNAL COL. FRANCISCO I . MADERO A BASE WALMART COL. TIERRA LARGA X PORTONES", color: "#f8ac1e", carpeta: "Ruta6" },
+            
+const rutas = [
+  { id: 1, nombre: "RUTA_11A_1_AGUA_HEDIONDA_GUADALUPE_VICTORIA", color: "#2980b9", carpeta: "Ruta11A" },
+  { id: 2, nombre: "RUTA_11A_2_AGUA_HEDIONDA_GUADALUPE_VICTORIA_AMPL", color: "#9b59b6", carpeta: "Ruta11A" },
+  { id: 3, nombre: "RUTA_11A_3_AGUA_HEDIONDA_GUADALUPE_SANTA_ROSA", color: "#16a085", carpeta: "Ruta11A" }
 ];
-
 
         rutas.forEach(ruta => {
             const map = L.map(`map${ruta.id}`);
@@ -192,7 +199,7 @@
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-           fetch(`../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${ruta.nombre}.geojson`)
+        fetch(`../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${ruta.nombre}.geojson`)
 
                 .then(res => res.json())
                 .then(data => {

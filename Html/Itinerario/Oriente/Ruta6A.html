@@ -85,7 +85,7 @@
             <div class="position-relative z-1 container px-3">
                 <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
                     class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 10– ORIENTE</h2>
+                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 6A– ORIENTE</h2>
                 <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
                 </div>
             </div>
@@ -112,17 +112,34 @@
                 </select>
             </div>
         </section>
-     <!-- Ruta 1 -->
+      <!-- Ruta 1 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">1. RUTA 10 DE ABRIL 1.-UNIDAD HABITACIONAL 10 DE ABRIL (MUNICIPIO. DE AYALA)-CUAUTLA CENTRO</h2>
+  <h2 class="map-title">1. CIRCUNVALACIÓN COL. TORRES BURGOS – TETELCINGO</h2>
   <div id="map1" class="map-container"></div>
 </section>
-<!-- Línea divisoria -->
-<div style="height: 6px; background-color: #cd9a6c; width: 100%; margin: 2rem auto; border-radius: 3px;"></div>
+
 <!-- Ruta 2 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">2. RUTA 10 VENADOS 1.-IPRO-CUAUTLA-COL. EMILIANO ZAPATA</h2>
+  <h2 class="map-title">2. CIRCUNVALACIÓN – UNIDAD HABITACIONAL INFONAVIT</h2>
   <div id="map2" class="map-container"></div>
+</section>
+
+<!-- Ruta 3 -->
+<section class="text-center mb-5">
+  <h2 class="map-title">3. CIRCUNVALACIÓN (COL. PABLO TORRES BURGOS) – TIERRA LARGA</h2>
+  <div id="map3" class="map-container"></div>
+</section>
+
+<!-- Ruta 4 -->
+<section class="text-center mb-5">
+  <h2 class="map-title">4. CIRCUNVALACIÓN – TIERRA LARGA Y 12 DE OCTUBRE</h2>
+  <div id="map4" class="map-container"></div>
+</section>
+
+<!-- Ruta 5 -->
+<section class="text-center mb-5">
+  <h2 class="map-title">5. CIRCUNVALACIÓN – TIERRA LARGA Y 12 DE OCTUBRE (Alt. 2)</h2>
+  <div id="map5" class="map-container"></div>
 </section>
 
     </main>
@@ -182,12 +199,13 @@
 
     <script>
             
-const rutas = [
-{ id: 1, nombre: "RUTA 10 DE ABRIL 1.-UNIDAD HABITACIONAL 10 DE ABRIL (MUNICIPIO. DE AYALA)-CUAUTLA CENTRO", color: "#f81e1e", carpeta: "Ruta10_DEABRIL" },
-{ id: 2, nombre: "RUTA_10_2_IPRO_CUAUTLA_EMILIANOZAPATA", color: "#f8ac1e", carpeta: "Ruta10_VENADOS" },
+    const rutas = [
+{ id: 1, nombre: "RUTA_6A_1_TORRES_BURGOS_TETELCINGO", color: "#00b894", carpeta: "Ruta6A" },
+{ id: 2, nombre: "RUTA_6A_2_INFONAVIT", color: "#0984e3", carpeta: "Ruta6A" },
+{ id: 3, nombre: "RUTA_6A_3_TIERRA_LARGA_1", color: "#6c5ce7", carpeta: "Ruta6A" },
+{ id: 4, nombre: "RUTA_6A_4_TIERRA_LARGA_12_OCTUBRE_2", color: "#fd79a8", carpeta: "Ruta6A" },
+{ id: 5, nombre: "RUTA_6A_5_TIERRA_LARGA_12_OCTUBRE_3", color: "#fab1a0", carpeta: "Ruta6A" }
 ];
-
-
 
 
 

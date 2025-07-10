@@ -130,48 +130,6 @@
   <div id="map3" class="map-container"></div>
 </section>
 
-<!-- Línea divisora -->
-<div style="height: 6px; background-color: #cd9a6c; width: 100%; margin: 2rem auto; border-radius: 3px;"></div>
-
-<!-- Ruta 4 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">4. AGUA HEDIONDA-COL. GUADALUPE VICTORIA</h2>
-  <div id="map4" class="map-container"></div>
-</section>
-
-<!-- Ruta 5 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">5. AGUA HEDIONDA-COL. GUADALUPE VICTORIA-COL. AMPLIACIÓN GUADALUPE VICTORIA</h2>
-  <div id="map5" class="map-container"></div>
-</section>
-
-<!-- Ruta 6 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">6. AGUA HEDIONDA-COL. GUADALUPE VICTORIA-COL. SANTA ROSA</h2>
-  <div id="map6" class="map-container"></div>
-</section>
-
-<!-- Línea divisora -->
-<div style="height: 6px; background-color: #cd9a6c; width: 100%; margin: 2rem auto; border-radius: 3px;"></div>
-
-<!-- Ruta 7 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">7. AGUA HEDIONDA-COL. GUADALUPE VICTORIA</h2>
-  <div id="map7" class="map-container"></div>
-</section>
-
-<!-- Ruta 8 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">8. AGUA HEDIONDA-COL. GUADALUPE VICTORIA-COL. AMPL GUADALUPE VICTORIA</h2>
-  <div id="map8" class="map-container"></div>
-</section>
-
-<!-- Ruta 9 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">9. AGUA HEDIONDA-COL. GUADALUPE VICTORIA-COL. SANTA ROSA</h2>
-  <div id="map9" class="map-container"></div>
-</section>
-
     </main>
 
     <!-- PIE DE PÁGINA -->
@@ -230,26 +188,10 @@
     <script>
             
 const rutas = [
-  // RUTA11
-  { id: 1, nombre: "RUTA_11_1_AGUA_HEDIONDA_GUADALUPE_VICTORIA", color: "#f81e1e", carpeta: "Ruta11" },
-  { id: 2, nombre: "RUTA_11_2_AGUA_HEDIONDA_GUADALUPE_VICTORIA_ROUND", color: "#f8ac1e", carpeta: "Ruta11" },
-  { id: 3, nombre: "RUTA_11_3_AGUA_HEDIONDA_SANTA_ROSA", color: "#00ea60", carpeta: "Ruta11" },
-
-  // RUTA11A
-  { id: 4, nombre: "RUTA_11A_1_AGUA_HEDIONDA_GUADALUPE_VICTORIA", color: "#013880", carpeta: "Ruta11A" },
-  { id: 5, nombre: "RUTA_11A_2_AGUA_HEDIONDA_GUADALUPE_VICTORIA_AMPL", color: "#ae46d5", carpeta: "Ruta11A" },
-  { id: 6, nombre: "RUTA_11A_3_AGUA_HEDIONDA_GUADALUPE_SANTA_ROSA", color: "#00b894", carpeta: "Ruta11A" },
-
-  // RUTA11B
-  { id: 7, nombre: "RUTA_11B_1_AGUA_HEDIONDA_GUADALUPE_VICTORIA", color: "#ff8c00", carpeta: "Ruta11B" },
-  { id: 8, nombre: "RUTA_11B_2_AGUA_HEDIONDA_GUADALUPE_VICTORIA_AMPL", color: "#6a4c93", carpeta: "Ruta11B" },
-  { id: 9, nombre: "RUTA_11B_3_AGUA_HEDIONDA_GUADALUPE_SANTA_ROSA", color: "#ff6b6b", carpeta: "Ruta11B" }
+  { id: 1, nombre: "RUTA_11_1_AGUA_HEDIONDA_GUADALUPE_VICTORIA", color: "#e74c3c", carpeta: "Ruta11" },
+  { id: 2, nombre: "RUTA_11_2_AGUA_HEDIONDA_GUADALUPE_VICTORIA_ROUND", color: "#f39c12", carpeta: "Ruta11" },
+  { id: 3, nombre: "RUTA_11_3_AGUA_HEDIONDA_SANTA_ROSA", color: "#27ae60", carpeta: "Ruta11" }
 ];
-
-
-
-
-
 
         rutas.forEach(ruta => {
             const map = L.map(`map${ruta.id}`);
@@ -257,7 +199,7 @@ const rutas = [
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-           fetch(`../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${ruta.nombre}.geojson`)
+        fetch(`../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${ruta.nombre}.geojson`)
 
                 .then(res => res.json())
                 .then(data => {
