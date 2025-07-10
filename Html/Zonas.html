@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zonas de Morelos</title>
+
+  <!-- Ícono en la pestaña del navegador -->
+  <link rel="icon" type="image/png" href="../Activos/Imagenes/Logoprincipal.png" />
+
+  <!-- CSS y Bootstrap -->
+  <link rel="stylesheet" href="../Css/Estilos.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css" />
+  <style>
+    #map {
+      height: 90vh;
+      width: 100%;
+    }
+
+    .map-container {
+      border: 10px solid #cd9a6c;
+      /* amarillo institucional */
+      border-radius: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- ENCABEZADO -->
+  <header style="background-color: #283C2A;">
+    <nav class="navbar navbar-expand-lg navbar-dark px-3">
+      <div class="container-fluid">
+
+        <!-- Logo y botón hamburguesa compactos -->
+        <a class="navbar-brand mb-0" href="#">
+          <img src="../Activos/Imagenes/Logo_principal.png" alt="Morelos" class="img-fluid" style="max-height: 44px;">
+        </a>
+        <button class="navbar-toggler p-1 border-0 bg-transparent" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="bi bi-list fs-1" style="color: #C29A6D;"></i>
+        </button>
+
+
+        <!-- Menú colapsable -->
+        <div class="collapse navbar-collapse mt-2 mt-lg-0" id="navbarMenu">
+          <ul class="navbar-nav w-100 justify-content-evenly text-uppercase align-items-lg-center">
+            <li class="nav-item"><a href="Indice.html" class="nav-link  fw-bold" style="color: #C29A6D;">Inicio</a></li>
+            <li class="nav-item"><a href="./Html/Centro.html" class="nav-link text-white">Centro</a></li>
+            <li class="nav-item"><a href="./Html/Sur.html" class="nav-link text-white">Sur</a></li>
+            <li class="nav-item"><a href="./Html/Oriente.html" class="nav-link text-white">Oriente</a></li>
+            <li class="nav-item"><a href="./Html/RutaDeLaSalud.html" class="nav-link text-white">Ruta de la
+                Salud</a></li>
+            <li class="nav-item"><a href="Html/Zonas.html" class="nav-link text-white">Zonas</a></li>
+            <li class="nav-item"><a href="Html/PlanPopocatepetl.html" class="nav-link text-white">Plan
+                Popocatépetl</a></li>
+            <li class="nav-item"><a href="Html/MapaInteractivo.html" class="nav-link text-white">Mapa
+                interactivo</a></li>
+
+            <!-- Ícono búsqueda (solo móvil) -->
+            <li class="nav-item d-lg-none">
+              <a href="#" class="nav-link text-white" data-bs-toggle="collapse" data-bs-target="#searchForm">
+                <i class="bi bi-search"></i> Buscar
+              </a>
+            </li>
+          </ul>
+
+          <!-- Ícono búsqueda escritorio -->
+          <button class="btn d-none d-lg-block" id="toggleSearch" type="button">
+            <i class="bi bi-search fs-5" style="color: #C29A6D;"></i>
+          </button>
+
+          <!-- Formulario búsqueda móvil -->
+          <form id="searchForm" class="collapse w-100 mt-3 d-lg-none" role="search" style="background-color: #C29A6D;"
+            onsubmit="event.preventDefault(); window.location.href='https://www.morelos.gob.mx/search?query=' + encodeURIComponent(document.getElementById('searchInput').value);">
+            <div class="input-group">
+              <input type="search" class="form-control rounded-start px-3"
+                style="border: 3px solid white; box-shadow: none;" placeholder="Buscar en morelos.gob.mx"
+                aria-label="Buscar" id="searchInput" required>
+              <button class="btn  rounded-end" type="submit" style="background-color: #C29A6D;">
+                <i class="bi bi-arrow-right"></i>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Formulario búsqueda escritorio (desplegable) -->
+    <form id="desktopSearchForm" class="collapse  py-3 px-3" role="search" style="background-color: #C29A6D; "
+      onsubmit="event.preventDefault(); window.location.href='https://www.morelos.gob.mx/search?query=' + encodeURIComponent(document.getElementById('desktopSearchInput').value);">
+      <div class="container">
+        <div class="input-group">
+          <input type="search" class="form-control" placeholder="Buscar en morelos.gob.mx" aria-label="Buscar"
+            id="desktopSearchInput" required>
+          <button class="btn rounded-end" type="submit" style="background-color: #C29A6D; border: 2px solid white;">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+
+        </div>
+      </div>
+    </form>
+
+    <!-- Script para botón de búsqueda en escritorio -->
+    <script>
+      document.getElementById('toggleSearch').addEventListener('click', function () {
+        document.getElementById('desktopSearchForm').classList.toggle('show');
+      });
+    </script>
+
+    <!-- Fondo gráfico y título -->
+    <div class="text-center py-5 position-relative" style="background-color: #283C2A;">
+      <img src="../Activos/Imagenes/Vector.png" alt="Fondo gráfico"
+        class="position-absolute start-0 w-100 img-fluid opacity-25 opacity-25"
+        style="top: 10px; z-index: 0; opacity: 0.05;">
+      <div class="position-relative z-1 container text-center">
+
+        <img src="../Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
+          class="img-fluid mx-auto d-block w-75 w-md-50 w-lg-25 ">
+      </div>
+    </div>
+  </header>
+
+  <!-- Línea divisoria -->
+  <div style="height: 6px; background-color: #cd9a6c; width: 100%;"></div>
+
+  <!-- CONTENIDO -->
+  <main class="text-center">
+    <section class="mt-4">
+      <img src="../Activos/Imagenes/logito.png" alt="Movilidad Morelos" class="img-fluid" style="max-width: 100px;" />
+      <h2 class="mt-3" style="color: #cd9a6c;">Zonas de Morelos</h2>
+      <h5 class="mt-3" style="color: #6F7857;">Mapa de delegaciones y oficinas de Movilidad y Transporte en Morelos.
+      </h5>
+    </section>
+
+    <section class="container my-5">
+      <div class="map-container">
+        <div id="map" style="height: 90vh; width: 100%; border-radius: 6px;"></div>
+      </div>
+    </section>
+
+
+    </section>
+  </main>
+
+  <footer class="dt-footer text-white py-4" style="background-color: #71785B;">
+
+    <div class="container dt-footer-container">
+      <!-- Logo -->
+      <div class="dt-footer-logo mb-3">
+        <img src="../Activos/Imagenes/LogoMovilidadBlanco.png" alt="Logo" class="img-fluid" style="max-width: 150px;">
+      </div>
+
+      <!-- Vista acordeón para pantallas menores a lg -->
+      <div class="d-lg-none">
+        <div class="accordion" id="footerAccordion">
+          <!-- Horario -->
+          <div class="accordion-item  text-white border-0" style="background-color: #71785B;">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed  text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mobHorario" style="background-color: #71785B;">
+                Horario de Atención
+              </button>
+            </h2>
+            <div id="mobHorario" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+              <div class="accordion-body">8:00 - 15:00</div>
+            </div>
+          </div>
+
+          <!-- Contacto -->
+          <div class="accordion-item  text-white border-0" style="background-color: #71785B;">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed  text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mobContacto" style="background-color: #71785B;">
+                Contáctanos en
+              </button>
+            </h2>
+            <div id="mobContacto" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+              <div class="accordion-body">
+                <i class="bi bi-telephone-fill me-2"></i>777 329 65 00<br>
+                <i class="bi bi-envelope-fill me-2"></i>correspondencia.movilidad@morelos.gob.mx
+              </div>
+            </div>
+          </div>
+
+          <!-- Ubicación -->
+          <div class="accordion-item  text-white border-0" style="background-color: #71785B;">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed  text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mobUbicacion" style="background-color: #71785B;">
+                Ubicación
+              </button>
+            </h2>
+            <div id="mobUbicacion" class="accordion-collapse collapse" data-bs-parent="#footerAccordion">
+              <div class="accordion-body">
+                Corporativos Arcos Cristal, 'Plaza Cristal' Plan de Ayala número 825, Col. Teopanzolco,
+                Cuernavaca,
+                Morelos.
+              </div>
+            </div>
+          </div>
+
+          <!-- Contacto rápido -->
+          <div class="accordion-item  text-white border-0">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed  text-white" type="button" data-bs-toggle="collapse"
+                data-bs-target="#mobRapido" style="background-color: #71785B;">
+                Contacto Rápido
+              </button>
+            </h2>
+            <div id="mobRapido" class="accordion-collapse collapse" data-bs-parent="#footerAccordion"
+              style="background-color: #71785B;">
+              <div class="accordion-body">
+                Trámites<br>
+                Atención Ciudadana<br>
+                Gestión de Transporte<br>
+                Renovación de Licencia
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Vista expandida escritorio (≥lg) -->
+      <div class="row d-none d-lg-flex gx-3 mt-4">
+        <div class="col-lg-2">
+          <h6 class="fw-bold">Horario de Atención</h6>
+          <p>8:00 - 15:00</p>
+        </div>
+
+        <div class="col-lg-3">
+          <h6 class="fw-bold">Contáctanos en</h6>
+          <p class="mb-1">
+            <i class="bi bi-telephone-fill me-2"></i> 777 329 65 00
+          </p>
+          <div class="d-flex align-items-start">
+            <i class="bi bi-envelope-fill me-2 mt-1"></i>
+            <a href="mailto:correspondencia.movilidad@morelos.gob.mx"
+              class="text-white text-break text-decoration-none">
+              correspondencia.movilidad
+            </a>
+          </div>
+
+        </div>
+        <div class="col-lg-4">
+          <h6 class="fw-bold">Ubicación</h6>
+          <p class="text-break">
+            Corporativos Arcos Cristal, "Plaza Cristal" Plan de Ayala número 825,<br>
+            Col. Teopanzolco, Cuernavaca, Morelos.
+          </p>
+        </div>
+        <div class="col-lg-2">
+          <h6 class="fw-bold">Contacto Rápido</h6>
+          <p class="mb-0">Trámites</p>
+          <p class="mb-0">Atención Ciudadana</p>
+          <p class="mb-0">Gestión de Transporte</p>
+          <p class="mb-0">Renovación de Licencia</p>
+        </div>
+      </div>
+
+
+
+
+      <!-- Línea inferior -->
+      <div class="dt-footer-bottom d-flex justify-content-between align-items-center mt-4 flex-wrap">
+        <div class="dt-footer-links mb-2 mb-md-0 d-flex flex-wrap gap-3">
+          <a href="#" class="text-white text-decoration-none">Política Privacidad</a>
+          <a href="#" class="text-white text-decoration-none">Configuración cookies</a>
+        </div>
+        <div class="dt-footer-social d-flex gap-3">
+          <a href="#" class="text-white fs-5"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white fs-5"><i class="bi bi-twitter-x"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Leaflet + GeoJSON -->
+  <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"></script>
+  <script>
+    const map = L.map('map').setView([18.8, -99.15], 9);
+
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '© OpenStreetMap contributors'
+    }).addTo(map);
+
+    fetch('../Activos/Geojson/Zonas definitivo.geojson')
+      .then(res => res.json())
+      .then(data => {
+        L.geoJSON(data, {
+          style: function (feature) {
+            return {
+              color: feature.properties.stroke || '#cccccc',
+              weight: feature.properties['stroke-width'] || 2,
+              opacity: feature.properties['stroke-opacity'] || 1,
+              fillColor: feature.properties.fill || '#eeeeee',
+              fillOpacity: feature.properties['fill-opacity'] || 0.3
+            };
+          },
+          onEachFeature: function (feature, layer) {
+            const nombre = feature.properties.name || "Zona sin nombre";
+            const descripcion = feature.properties.description || "";
+            const popupContent = `<strong>${nombre}</strong><br>${descripcion}`;
+            layer.bindPopup(popupContent);
+          }
+        }).addTo(map);
+      })
+      .catch(err => console.error('Error cargando GeoJSON:', err));
+  </script>
+
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
