@@ -85,7 +85,7 @@
             <div class="position-relative z-1 container px-3">
                 <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
                     class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 31– ORIENTE</h2>
+                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 1B – ORIENTE</h2>
                 <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
                 </div>
             </div>
@@ -112,30 +112,18 @@
                 </select>
             </div>
         </section>
+        
+        <!-- Ruta 1 -->
+        <section class="text-center mb-5">
+            <h2 class="map-title">1. PIEDRA BLANCA-JUAN SARABIA-COL. P. TORRES BURGOS</h2>
+            <div id="map1" class="map-container"></div>
+        </section>
 
-<!-- Ruta 1 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">1. SAN ANDRÉS HUEYAPAN-CUAUTLA</h2>
-  <div id="map1" class="map-container"></div>
-</section>
-
-<!-- Ruta 2 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">2. SAN ANDRÉS HUEYAPAN-TETELA DEL VOLCÁN</h2>
-  <div id="map2" class="map-container"></div>
-</section>
-
-<!-- Ruta3 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">3. SAN ANDRÉS HUEYAPAN-RANCHO EL OLIVAR</h2>
-  <div id="map3" class="map-container"></div>
-</section>
-
-<!-- Ruta 4 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">4. SAN ANDRÉS HUEYAPAN-TLALCOMULCO</h2>
-  <div id="map4" class="map-container"></div>
-</section>
+        <!-- Ruta 2 -->
+        <section class="text-center mb-5">
+            <h2 class="map-title">2. PIEDRA BLANCA-CONSTITUYENTES-COL. P. TORRES BURGOS</h2>
+            <div id="map2" class="map-container"></div>
+        </section>
     </main>
 
     <!-- PIE DE PÁGINA -->
@@ -192,15 +180,11 @@
 
 
     <script>
-            
-const rutas = [
-  { id: 1, nombre: "RUTA 31 1.-SAN ANDRS HUEYAPAN-CUAUTLA", color: "#4caf50", carpeta: "Ruta31" },
-  { id: 2, nombre: "RUTA 31 2.-SAN ANDRS HUEYAPAN-TETELA DEL VOLCAN", color: "#ff9800", carpeta: "Ruta31" },
-  { id: 3, nombre: "RUTA 31 3.-SAN ANDRS HUEYAPAN-RANCHO EL OLIVAR", color: "#9c27b0", carpeta: "Ruta31" },
-  { id: 4, nombre: "RUTA 31 4.-SAN ANDRS HUEYAPAN-TLALCOMULCO", color: "#00bcd4", carpeta: "Ruta31" },
-];
-
-
+               
+        const rutas = [
+            { id: 1, nombre: "5.-PIEDRA BLANCA-JUAN SARABIA-COL. P. TORRES BURGOS", color: "#006768", carpeta: "Ruta1B" },
+            { id: 2, nombre: "6.-PIEDRA BLANCA-CONSTITUYENTES-COL. P. TORRES BURGOS", color: "#e07f56", carpeta: "Ruta1B" },
+        ];
 
         rutas.forEach(ruta => {
             const map = L.map(`map${ruta.id}`);
