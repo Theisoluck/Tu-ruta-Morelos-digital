@@ -85,7 +85,7 @@
             <div class="position-relative z-1 container px-3">
                 <img src="/Activos/Imagenes/LogoMovilidadBlancoAmarrillo.png" alt="Logo Movilidad"
                     class="img-fluid mx-auto d-block mb-4" style="max-width: 90%; height: auto;">
-                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 10– ORIENTE</h2>
+                <h2 class="fw-bold mb-2 text-wrap" style="color: #cd9a6c; font-size: 2.2rem;">RUTA 1 AHUEHUETZINGO – SUR</h2>
                 <div class="mx-auto" style="height: 5px; width: 80%; background-color: #cd9a6c; border-radius: 2px;">
                 </div>
             </div>
@@ -112,19 +112,12 @@
                 </select>
             </div>
         </section>
-     <!-- Ruta 1 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">1. RUTA 10 DE ABRIL 1.-UNIDAD HABITACIONAL 10 DE ABRIL (MUNICIPIO. DE AYALA)-CUAUTLA CENTRO</h2>
-  <div id="map1" class="map-container"></div>
-</section>
-<!-- Línea divisoria -->
-<div style="height: 6px; background-color: #cd9a6c; width: 100%; margin: 2rem auto; border-radius: 3px;"></div>
-<!-- Ruta 2 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">2. RUTA 10 VENADOS 1.-IPRO-CUAUTLA-COL. EMILIANO ZAPATA</h2>
-  <div id="map2" class="map-container"></div>
-</section>
-
+        
+        <!-- Ruta 1 -->
+        <section class="text-center mb-5">
+            <h2 class="map-title">1. AHUEHUETZINGO-PUENTE DE IXTLA-AHUEHUETZINGO</h2>
+            <div id="map1" class="map-container"></div>
+        </section>
     </main>
 
     <!-- PIE DE PÁGINA -->
@@ -181,15 +174,11 @@
 
 
     <script>
-            
-const rutas = [
-{ id: 1, nombre: "RUTA 10 DE ABRIL 1.-UNIDAD HABITACIONAL 10 DE ABRIL (MUNICIPIO. DE AYALA)-CUAUTLA CENTRO", color: "#f81e1e", carpeta: "Ruta10_DEABRIL" },
-{ id: 2, nombre: "RUTA_10_2_IPRO_CUAUTLA_EMILIANOZAPATA", color: "#f8ac1e", carpeta: "Ruta10_VENADOS" },
-];
+               
+        const rutas = [
+            { id: 1, nombre: "1. AHUEHUETZINGO-PUENTE DE IXTLA-AHUEHUETZINGO", color: "#03722c", carpeta: "Ruta 1 AHUEHUETZINGO"},
 
-
-
-
+        ];
 
         rutas.forEach(ruta => {
             const map = L.map(`map${ruta.id}`);
@@ -197,8 +186,7 @@ const rutas = [
                 attribution: '&copy; OpenStreetMap contributors'
             }).addTo(map);
 
-           fetch(`../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${ruta.nombre}.geojson`)
-
+            fetch(`../../../Activos/Geojson/Surjson/${ruta.carpeta}/${ruta.nombre}.geojson`)
                 .then(res => res.json())
                 .then(data => {
                     const layer = L.geoJSON(data, {

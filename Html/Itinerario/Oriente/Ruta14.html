@@ -114,60 +114,40 @@
         </section>
 <!-- Ruta 1 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">1. TLAYACAPAN-CUAUTLA</h2>
+  <h2 class="map-title">1. TLAYACAPAN – CUAUTLA</h2>
   <div id="map1" class="map-container"></div>
 </section>
 
 <!-- Ruta 2 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">2. TLALNEPANTLA-CUAUTLA</h2>
+  <h2 class="map-title">2. TLALNEPANTLA – CUAUTLA</h2>
   <div id="map2" class="map-container"></div>
 </section>
 
 <!-- Ruta 3 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">3. SAN ANDRÉS CUAUHTEMPAN-CUAUTLA-SAN ANDRÉS CUAUHTEMPAN</h2>
+  <h2 class="map-title">3. SAN ANDRÉS CUAUHTEMPAN – CUAUTLA – SAN ANDRÉS</h2>
   <div id="map3" class="map-container"></div>
 </section>
 
 <!-- Ruta 4 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">4. TLAYACAPAN-LAS VIVIANAS-TLAYACAPAN</h2>
+  <h2 class="map-title">4. TLAYACAPAN – LAS VIVIANAS – TLAYACAPAN</h2>
   <div id="map4" class="map-container"></div>
 </section>
 
 <!-- Ruta 5 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">5. TLAYACAPAN-AMATLIPAC-TLAYACAPAN</h2>
+  <h2 class="map-title">5. TLAYACAPAN – AMATLIPAC – TLAYACAPAN</h2>
   <div id="map5" class="map-container"></div>
 </section>
 
 <!-- Ruta 6 -->
 <section class="text-center mb-5">
-  <h2 class="map-title">6. TLAYACAPAN-LOS LAURELES-TLAYACAPAN</h2>
+  <h2 class="map-title">6. TLAYACAPAN – LOS LAURELES – TLAYACAPAN</h2>
   <div id="map6" class="map-container"></div>
 </section>
 
-<!-- Línea divisora -->
-<div style="height: 6px; background-color: #cd9a6c; width: 100%; margin: 2rem auto; border-radius: 3px;"></div>
-
-<!-- Ruta 7 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">7. CUAUTLA-COL. EL VIGÍA</h2>
-  <div id="map7" class="map-container"></div>
-</section>
-
-<!-- Ruta 8 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">8. CUAUTLA-COL. SAN FELIPE NERI</h2>
-  <div id="map8" class="map-container"></div>
-</section>
-
-<!-- Ruta 9 -->
-<section class="text-center mb-5">
-  <h2 class="map-title">9. CUAUTLA-TLALNEPANTLA</h2>
-  <div id="map9" class="map-container"></div>
-</section>
 
     </main>
 
@@ -232,11 +212,9 @@ const rutas = [
   { id: 3, nombre: "RUTA_14_3_SAN_ANDRES_CUAUHTEMPAN_CUAUTLA", color: "#00ea60", carpeta: "Ruta14" },
   { id: 4, nombre: "RUTA_14_4_TLAYACAPAN_LAS_VIVIANAS_TLAYACAPAN", color: "#013880", carpeta: "Ruta14" },
   { id: 5, nombre: "RUTA_14_5_TLAYACAPAN_AMATLIPAC_TLAYACAPAN", color: "#ae46d5", carpeta: "Ruta14" },
-  { id: 6, nombre: "RUTA_14_6_TLAYACAPAN_LOS_LAURELES_TLAYACAPAN", color: "#ff8c00", carpeta: "Ruta14" },
-  { id: 7, nombre: "RUTA_14B_1_CUAUTLA_COL_EL_VIGIA", color: "#bc5090", carpeta: "Ruta14B" },
-  { id: 8, nombre: "RUTA_14B_2_CUAUTLA_COL_SAN_FELIPE_NERI", color: "#00b894", carpeta: "Ruta14B" },
-  { id: 9, nombre: "RUTA_14B_3_CUAUTLA_TLALNEPANTLA", color: "#336699", carpeta: "Ruta14B" },
+  { id: 6, nombre: "RUTA_14_6_TLAYACAPAN_LOS_LAURELES_TLAYACAPAN", color: "#ff8c00", carpeta: "Ruta14" }
 ];
+
 
         rutas.forEach(ruta => {
             const map = L.map(`map${ruta.id}`);
