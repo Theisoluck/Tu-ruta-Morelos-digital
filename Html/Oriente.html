@@ -148,119 +148,374 @@
             </div>
         </div>
     </main>
-
     <script>
-    const rutas = [
-        "INTERESCOLAR", "1", "1B", "2", "2A", "2B", "3",
-        "4_ANO_DE_JUAREZ", "4_STA_INES", "4B_ESTRELLA", "4B_TECNOLOGICO",
-        "5", "6", "6A", "6B", "6C", "6D", "7", "8", "9", "9B",
-        "10_DE_ABRIL", "10_VENADOS", "11", "11A", "11B", "12", "13", "13B", "14", "14B", "15", "15B",
-        "16", "17", "18", "19", "20",
-        "21_AMACUITLAPILCO", "21_AMAYUCA", "21_CHALCATZINGO", "21_IXTLILCO_EL_GRANDE",
-        "21_LAS_AMARILLAS_DE_JONACATEPEC", "21_TECAJEC", "21_TELIXTAC", "21B",
-        "22", "22A", "23", "24", "25", "26", "28", "29",
-        "31", "33", "34", "HUEXCA_LIMONES"
-    ];
+const tarjetas = [
+  {
+    nombre: "INTERESCOLAR",
+    archivo: "Ruta_INTERESCOLAR",
+    imagen: "INTERESCOLAR_URVAN"
+  },
+  {
+    nombre: "RUTA 1",
+    archivo: "RUTA1",
+    imagen: "RUTA_1"
+  },
+  {
+    nombre: "RUTA 1B",
+    archivo: "RUTA1B",
+    imagen: "RUTA_1B"
+  },
+  {
+    nombre: "RUTA 2",
+    archivo: "RUTA2",
+    imagen: "RUTA_2"
+  },
+  {
+    nombre: "RUTA 2A",
+    archivo: "RUTA2A",
+    imagen: "RUTA_2A"
+  },
+  {
+    nombre: "RUTA 2B",
+    archivo: "RUTA2B",
+    imagen: "RUTA_2B"
+  }
+  ,
+  {
+    nombre: "RUTA 3",
+    archivo: "RUTA3",
+    imagen: "RUTA_3"
+  }
+  ,
+  {
+    nombre: "RUTA 4 AÑO DE JUAREZ",
+    archivo: "RUTA4_AÑODEJUAREZ",
+    imagen: "RUTA_4_ANO_DE_JUAREZ"
+  }
+  ,
+  {
+    nombre: "RUTA 4 SANTA INES",
+    archivo: "RUTA4_STAINES",
+    imagen: "RUTA_4_STA_INES"
+  }
+  ,
+  {
+    nombre: "RUTA 4B ESTRELLA",
+    archivo: "RUTA4B_ESTRELLA",
+    imagen: "RUTA_4B_ESTRELLA"
+  }
+  ,
+  {
+    nombre: "RUTA 4B TECNOLOGICO",
+    archivo: "RUTA4B_TECNOLOGICO",
+    imagen: "RUTA_4B_TECNOLOGICO"
+  }
+  ,
+  {
+    nombre: "RUTA 5",
+    archivo: "RUTA5",
+    imagen: "RUTA_5"
+  }
+  ,
+  {
+    nombre: "RUTA 6",
+    archivo: "RUTA6",
+    imagen: "RUTA_6"
+  }
+  ,
+  {
+    nombre: "RUTA 6A",
+    archivo: "RUTA6A",
+    imagen: "RUTA_6A"
+  }
+  ,
+  {
+    nombre: "RUTA 6B",
+    archivo: "RUTA6B",
+    imagen: "RUTA_6B"
+  }
+  ,
+  {
+    nombre: "RUTA 6C",
+    archivo: "RUTA6C",
+    imagen: "RUTA_6C"
+  }
+  ,
+  {
+    nombre: "RUTA 6D",
+    archivo: "RUTA6D",
+    imagen: "RUTA_6D"
+  }
+  ,
+  {
+    nombre: "RUTA 7",
+    archivo: "RUTA7",
+    imagen: "RUTA_7"
+  }
+  ,
+  {
+    nombre: "RUTA 8",
+    archivo: "RUTA8",
+    imagen: "RUTA_8"
+  }
+  ,
+  {
+    nombre: "RUTA 9",
+    archivo: "RUTA9",
+    imagen: "RUTA_9"
+  }
+  ,
+  {
+    nombre: "RUTA 9B",
+    archivo: "RUTA9B",
+    imagen: "RUTA_9B"
+  }
+  ,
+  {
+    nombre: "RUTA 10 DE ABRIL",
+    archivo: "RUTA10DEABRIL",
+    imagen: "RUTA_10_DE_ABRIL"
+  }
+  ,
+  {
+    nombre: "RUTA 10 VENADOS",
+    archivo: "RUTAVENADOS",
+    imagen: "RUTA_10_VENADOS"
+  }
+  ,
+  {
+    nombre: "RUTA 11",
+    archivo: "RUTA11",
+    imagen: "RUTA_11"
+  }
+  ,
+  {
+    nombre: "RUTA 11A",
+    archivo: "RUTA11A",
+    imagen: "RUTA_11A"
+  }
+  ,
+  {
+    nombre: "RUTA 11B",
+    archivo: "RUTA11B",
+    imagen: "RUTA_11B"
+  }
+  ,
+  {
+    nombre: "RUTA 12",
+    archivo: "RUTA12",
+    imagen: "RUTA_12"
+  }
+  ,
+  {
+    nombre: "RUTA 13",
+    archivo: "RUTA13",
+    imagen: "RUTA_13"
+  }
+  ,
+  {
+    nombre: "RUTA 13B",
+    archivo: "RUTA13B",
+    imagen: "RUTA_13B"
+  }
+  ,
+  {
+    nombre: "RUTA 14",
+    archivo: "RUTA14",
+    imagen: "RUTA_14"
+  }
+  ,
+  {
+    nombre: "RUTA 14B",
+    archivo: "RUTA14B",
+    imagen: "RUTA_14B"
+  }
+  ,
+  {
+    nombre: "RUTA 15",
+    archivo: "RUTA15",
+    imagen: "RUTA_15"
+  }
+  ,
+  {
+    nombre: "RUTA 15B",
+    archivo: "RUTA15B",
+    imagen: "RUTA_15B"
+  },
+  {
+    nombre: "RUTA 16",
+    archivo: "RUTA16",
+    imagen: "RUTA_16"
+  },
+  {
+    nombre: "RUTA 17",
+    archivo: "RUTA17",
+    imagen: "RUTA_17"
+  },
+  {
+    nombre: "RUTA 18",
+    archivo: "RUTA18",
+    imagen: "RUTA_18"
+  },
+  {
+    nombre: "RUTA 19",
+    archivo: "RUTA19",
+    imagen: "RUTA_19"
+  },
+  {
+    nombre: "RUTA 20",
+    archivo: "RUTA20",
+    imagen: "RUTA_20"
+  },
+  {
+    nombre: "RUTA 21 AMACUITLAPILCO",
+    archivo: "RUTA21AMACUITLAPILCO",
+    imagen: "RUTA_21_AMACUITLAPILCO"
+  },
+  {
+    nombre: "RUTA 21 AMAYUCA",
+    archivo: "RUTA21AMAYUCA",
+    imagen: "RUTA_21_AMAYUCA"
+  },
+  {
+    nombre: "RUTA 21 CHALCATZINGO",
+    archivo: "RUTA21CHALCATZINGO",
+    imagen: "RUTA_21_CHALCATZINGO"
+  },
+  {
+    nombre: "RUTA 21 IXTLILCO EL GRANDE",
+    archivo: "RUTA21IXTLILCOELGRANDE",
+    imagen: "RUTA_21_IXTLILCO_EL_GRANDE"
+  },
+  {
+    nombre: "RUTA 21 LAS AMARILLAS DE JONACATEPEC",
+    archivo: "RUTA21LASAMARILLASDEJONACATEPEC",
+    imagen: "RUTA_21_LAS_AMARILLAS_DE_JONACATEPEC"
+  },
+  {
+    nombre: "RUTA 21 TECAJEC",
+    archivo: "RUTA21TECAJEC",
+    imagen: "RUTA_21_TECAJEC"
+  },
+  {
+    nombre: "RUTA 21 TELIXTAC",
+    archivo: "RUTA21TELIXTAC",
+    imagen: "RUTA_21_TELIXTAC"
+  },
+  {
+    nombre: "RUTA 21B",
+    archivo: "RUTA21B",
+    imagen: "RUTA_21B"
+  },
+  {
+    nombre: "RUTA 22",
+    archivo: "RUTA22",
+    imagen: "RUTA_22"
+  },
+  {
+    nombre: "RUTA 22A",
+    archivo: "RUTA22A",
+    imagen: "RUTA_22A"
+  },
+  {
+    nombre: "RUTA 23",
+    archivo: "RUTA23",
+    imagen: "RUTA_23"
+  },
+  {
+    nombre: "RUTA 24",
+    archivo: "RUTA24",
+    imagen: "RUTA_24"
+  },
+  {
+    nombre: "RUTA 25",
+    archivo: "RUTA25",
+    imagen: "RUTA_25"
+  },
+  {
+    nombre: "RUTA 26",
+    archivo: "RUTA26",
+    imagen: "RUTA_26"
+  },
+  {
+    nombre: "RUTA 28",
+    archivo: "RUTA28",
+    imagen: "RUTA_28"
+  },
+  {
+    nombre: "RUTA 29",
+    archivo: "RUTA29",
+    imagen: "RUTA_29"
+  },
+  {
+    nombre: "RUTA 31",
+    archivo: "RUTA31",
+    imagen: "RUTA_31"
+  },
+  {
+    nombre: "RUTA 33",
+    archivo: "RUTA33",
+    imagen: "RUTA_33"
+  }
+  
+];
 
-    const nombresVisibles = {
-        "INTERESCOLAR": "INTERESCOLAR",
-        "1": "RUTA 1", "1B": "RUTA 1B", "2": "RUTA 2", "2A": "RUTA 2A", "2B": "RUTA 2B", "3": "RUTA 3",
-        "4_ANO_DE_JUAREZ": "RUTA 4 AÑO DE JUAREZ",
-        "4_STA_INES": "RUTA 4 SANTA INES",
-        "4B_ESTRELLA": "RUTA 4B ESTRELLA",
-        "4B_TECNOLOGICO": "RUTA 4B TECNOLOGICO",
-        "5": "RUTA 5", "6": "RUTA 6", "6A": "RUTA 6A", "6B": "RUTA 6B", "6C": "RUTA 6C", "6D": "RUTA 6D",
-        "7": "RUTA 7", "8": "RUTA 8", "9": "RUTA 9", "9B": "RUTA 9B",
-        "10_DE_ABRIL": "RUTA 10 DE ABRIL", "10_VENADOS": "RUTA 10 VENADOS",
-        "11": "RUTA 11", "11A": "RUTA 11A", "11B": "RUTA 11B", "12": "RUTA 12",
-        "13": "RUTA 13", "13B": "RUTA 13B", "14": "RUTA 14", "14B": "RUTA 14B",
-        "15": "RUTA 15", "15B": "RUTA 15B", "16": "RUTA 16", "17": "RUTA 17",
-        "18": "RUTA 18", "19": "RUTA 19", "20": "RUTA 20",
-        "21_AMACUITLAPILCO": "RUTA 21 AMACUITLAPILCO",
-        "21_AMAYUCA": "RUTA 21 AMAYUCA",
-        "21_CHALCATZINGO": "RUTA 21 CHALCATZINGO",
-        "21_IXTLILCO_EL_GRANDE": "RUTA 21 IXTLILCO EL GRANDE",
-        "21_LAS_AMARILLAS_DE_JONACATEPEC": "RUTA 21 \"LAS AMARILLAS DE JONACATEPEC\"",
-        "21_TECAJEC": "RUTA 21 TECAJEC",
-        "21_TELIXTAC": "RUTA 21 TELIXTAC",
-        "21B": "RUTA 21B",
-        "22": "RUTA 22", "22A": "RUTA 22A", "23": "RUTA 23", "24": "RUTA 24", "25": "RUTA 25",
-        "26": "RUTA 26", "28": "RUTA 28", "29": "RUTA 29",
-        "31": "RUTA 31", "33": "RUTA 33", "34": "RUTA 34",
-        "HUEXCA_LIMONES": "RUTA HUEXCA LIMONES"
-    };
+const porPagina = 4;
+let paginaActual = 0;
+let tarjetasFiltradas = [...tarjetas];
 
-    const nombresArchivos = {
-        "INTERESCOLAR": "INTERESCOLAR_URVAN",
-        "4_ANO_DE_JUAREZ": "RUTA_4_ANO_DE_JUAREZ",
-        "HUEXCA_LIMONES": "RUTA_HUEXCA_LIMONES",
-        "4B_ESTRELLA": "RUTA_4B_ESTRELLA",
-        "4B_TECNOLOGICO": "RUTA_4B_TECNOLOGICO",
-        "4_STA_INES": "RUTA_4_STA_INES"
-    };
+function mostrarTarjetas() {
+  const container = document.getElementById("rutaContainer");
+  container.innerHTML = "";
+  const inicio = paginaActual * porPagina;
+  const fin = inicio + porPagina;
+  const tarjetasPagina = tarjetasFiltradas.slice(inicio, fin);
 
-    const porPagina = 4;
-    let paginaActual = 0;
-    let rutasFiltradas = [...rutas];
+  tarjetasPagina.forEach(({ nombre, archivo, imagen }) => {
+    const col = document.createElement("div");
+    col.className = "col-12 col-sm-6 col-lg-6";
 
-    function mostrarRutas() {
-        const container = document.getElementById("rutaContainer");
-        container.innerHTML = "";
-        const inicio = paginaActual * porPagina;
-        const fin = inicio + porPagina;
-        const rutasPagina = rutasFiltradas.slice(inicio, fin);
+    col.innerHTML = `
+      <a href="./Itinerario/Oriente/${archivo}.html" class="text-decoration-none">
+        <div class="card border-0 rounded-5 shadow h-100">
+          <img src="../Activos/Imagenes/Oriente/${imagen}.png" class="card-img-top rounded-top-5" alt="${nombre}">
+          <div class="card-body text-center rounded-bottom-5" style="background-color: #cd9a6c;">
+            <h5 class="fw-bold text-white mb-0">${nombre}</h5>
+          </div>
+        </div>
+      </a>
+    `;
+    container.appendChild(col);
+  });
+}
 
-        rutasPagina.forEach(nombre => {
-            const col = document.createElement("div");
-            col.className = "col-12 col-sm-6 col-lg-6";
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (paginaActual > 0) {
+    paginaActual--;
+    mostrarTarjetas();
+  }
+});
 
-            let archivoBase = nombresArchivos[nombre];
-            if (!archivoBase) {
-                archivoBase = /^[0-9]+$/.test(nombre) ? `RUTA_${nombre}` : `RUTA_${nombre}`;
-            }
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if ((paginaActual + 1) * porPagina < tarjetasFiltradas.length) {
+    paginaActual++;
+    mostrarTarjetas();
+  }
+});
 
-            const visible = nombresVisibles[nombre] || nombre.replace(/_/g, ' ');
+document.getElementById("buscadorRutas").addEventListener("input", function () {
+  const filtro = this.value.toLowerCase();
+  tarjetasFiltradas = tarjetas.filter(({ nombre }) =>
+    nombre.toLowerCase().includes(filtro)
+  );
+  paginaActual = 0;
+  mostrarTarjetas();
+});
 
-            col.innerHTML = `
-                <a href="Itinerario/Oriente/${archivoBase}.html" class="text-decoration-none">
-                    <div class="card border-0 rounded-5 shadow h-100">
-                        <img src="../Activos/Imagenes/Oriente/${archivoBase}.png" class="card-img-top rounded-top-5" alt="${visible}">
-                        <div class="card-body text-center rounded-bottom-5" style="background-color: #cd9a6c;">
-                            <h5 class="fw-bold text-white mb-0">${visible}</h5>
-                        </div>
-                    </div>
-                </a>
-            `;
-            container.appendChild(col);
-        });
-    }
-
-    document.getElementById("prevBtn").addEventListener("click", () => {
-        if (paginaActual > 0) {
-            paginaActual--;
-            mostrarRutas();
-        }
-    });
-
-    document.getElementById("nextBtn").addEventListener("click", () => {
-        if ((paginaActual + 1) * porPagina < rutasFiltradas.length) {
-            paginaActual++;
-            mostrarRutas();
-        }
-    });
-
-    document.getElementById("buscadorRutas").addEventListener("input", function () {
-        const filtro = this.value.toLowerCase();
-        rutasFiltradas = rutas.filter(r => {
-            const visible = (nombresVisibles[r] || r).toLowerCase();
-            return visible.includes(filtro);
-        });
-        paginaActual = 0;
-        mostrarRutas();
-    });
-
-    mostrarRutas();
+mostrarTarjetas();
 </script>
+
+
 
 
     <footer class="dt-footer text-white py-4" style="background-color: #71785B;">
