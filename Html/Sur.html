@@ -149,106 +149,184 @@
         </div>
     </main>
 
-    <script>
-        const rutas = [
-            "1", "1_AHUEHUETZINGO", "2", "3", "4_INDEPENDIENTE", "4_29_DE_SEPTIEMBRE", "4_ATLACHOLOAYA",
-            "5", "5A", "6", "6A", "7_PEDRO_AMARO", "7_AQUILES_SERDAN", "8", "9", "10",
-            "GENERAL_EMILIANO_ZAPATA", "GENERAL_EMILIANO_ZAPATA_B_INDEPENDIENTE", "16", "CTM",
-            "INTERESCOLAR", "INDEPENDIENTE_SAN_MIGUEL_30", "AUTOBUSES_DORADOS_DEL_SUR", "AUTOBUSES_CIRCUNVALACION"
-        ];
+   <script>
+const tarjetas = [
+  {
+    nombre: "RUTA 1",
+    archivo: "RUTA1",
+    imagen: "RUTA_1"
+  },
+  {
+    nombre: "RUTA 1 AHUEHUETZINGO",
+    archivo: "RUTA1AHUEHUETZINGO",
+    imagen: "RUTA 1_AHUEHUETZINGO"
+  },
+  {
+    nombre: "RUTA 2",
+    archivo: "RUTA2",
+    imagen: "RUTA_2"
+  },
+  {
+    nombre: "RUTA 3",
+    archivo: "RUTA3",
+    imagen: "RUTA_3"
+  },
+  {
+    nombre: "RUTA 4 INDEPENDIENTE",
+    archivo: "RUTA4INDEPENDIENTE",
+    imagen: "RUTA_4_INDEPENDIENTE"
+  },
+  {
+    nombre: "RUTA 4 29 DE SEPTIEMBRE",
+    archivo: "RUTA4_29DESEPTIEMBRE",
+    imagen: "RUTA_4_29 DE SEPTIEMBRE"
+  },
+  {
+    nombre: "RUTA 4 ATLACHOLOAYA",
+    archivo: "RUTA4ATLACHOLOAYA",
+    imagen: "RUTA_4_ATLACHOLOAYA"
+  },
+  {
+    nombre: "RUTA 5",
+    archivo: "RUTA5",
+    imagen: "RUTA_5"
+  },
+  {
+    nombre: "RUTA 5A",
+    archivo: "RUTA5A",
+    imagen: "RUTA_5A"
+  },
+  {
+    nombre: "RUTA 6",
+    archivo: "RUTA6",
+    imagen: "RUTA_6"
+  },
+  {
+    nombre: "RUTA 6A",
+    archivo: "RUTA6A",
+    imagen: "RUTA_6A"
+  },
+  {
+    nombre: "RUTA 7 PEDRO AMARO",
+    archivo: "RUTA7PEDROAMARO",
+    imagen: "RUTA_7_PEDRO_AMARO"
+  },
+  {
+    nombre: "RUTA 7 AQUILES SERDAN",
+    archivo: "RUTA7AQUILES_SERDAN",
+    imagen: "RUTA_7_AQUILES_SERDAN"
+  },
+  {
+    nombre: "RUTA 8",
+    archivo: "RUTA8",
+    imagen: "RUTA_8"
+  },
+  {
+    nombre: "RUTA 9",
+    archivo: "RUTA9",
+    imagen: "RUTA_9"
+  },
+  {
+    nombre: "RUTA 10",
+    archivo: "RUTA10",
+    imagen: "RUTA_10"
+  },
+  {
+    nombre: "RUTA GENERAL EMILIANO ZAPATA",
+    archivo: "RUTAGEZ",
+    imagen: "RUTA_GENERAL_EMILIANO_ZAPATA"
+  },
+  {
+    nombre: "RUTA GENERAL EMILIANO ZAPATA B INDEPENDIENTE",
+    archivo: " ",
+    imagen: "RUTA_GENERAL_EMILIANO_ZAPATA_B_INDEPENDIENTE"
+  },
+  {
+    nombre: "RUTA 16",
+    archivo: "RUTA16",
+    imagen: "RUTA_16"
+  },
+  {
+    nombre: "RUTA C.T.M",
+    archivo: "RUTACTM",
+    imagen: "RUTA_CTM"
+  },
+  {
+    nombre: "RUTA INTERESCOLAR",
+    archivo: "RUTAinterescolar",
+    imagen: "RUTA_INTERESCOLAR"
+  },
+  {
+    nombre: "RUTA INDEPENDIENTE SAN MIGUEL 30",
+    archivo: "RUTAsanMiguel30",
+    imagen: "RUTA_INDEPENDIENTE_SAN_MIGUEL_30"
+  },
+  {
+    nombre: "AUTOBUSES DORADOS DEL SUR",
+    archivo: "AutobusesDorados",
+    imagen: "AUTOBUSES_DORADOS_DEL_SUR"
+  },
+  {
+    nombre: "AUTOBUSES CIRCUNVALACION",
+    archivo: "AutobusesCircunvalacion",
+    imagen: "AUTOBUSES_CIRCUNVALACION"
+  }
+];
 
-        const nombresVisibles = {
-            "1": "RUTA 1",
-            "1_AHUEHUETZINGO": "RUTA 1 AHUEHUETZINGO",
-            "2": "RUTA 2",
-            "3": "RUTA 3",
-            "4_INDEPENDIENTE": "RUTA 4 INDEPENDIENTE",
-            "4_29_DE_SEPTIEMBRE": "RUTA 4 \"29 DE SEPTIEMBRE\"",
-            "4_ATLACHOLOAYA": "RUTA 4 ATLACHOLOAYA",
-            "5": "RUTA 5",
-            "5A": "RUTA 5A",
-            "6": "RUTA 6",
-            "6A": "RUTA 6A",
-            "7_PEDRO_AMARO": "RUTA 7 PEDRO AMARO",
-            "7_AQUILES_SERDAN": "RUTA 7 AQUILES SERDÁN",
-            "8": "RUTA 8",
-            "9": "RUTA 9",
-            "10": "RUTA 10",
-            "GENERAL_EMILIANO_ZAPATA": "RUTA GENERAL EMILIANO ZAPATA",
-            "GENERAL_EMILIANO_ZAPATA_B_INDEPENDIENTE": "RUTA GENERAL EMILIANO ZAPATA B INDEPENDIENTE",
-            "16": "RUTA 16",
-            "CTM": "RUTA C.T.M",
-            "INTERESCOLAR": "RUTA INTERESCOLAR",
-            "INDEPENDIENTE_SAN_MIGUEL_30": "RUTA INDEPENDIENTE SAN MIGUEL 30",
-            "AUTOBUSES_DORADOS_DEL_SUR": "AUTOBUSES DORADOS DEL SUR",
-            "AUTOBUSES_CIRCUNVALACION": "AUTOBUSES CIRCUNVALACIÓN"
-        };
+const porPagina = 4;
+let paginaActual = 0;
+let tarjetasFiltradas = [...tarjetas];
 
-        const nombresArchivos = {
-            "1_AHUEHUETZINGO": "RUTA 1_AHUEHUETZINGO",
-            "4_29_DE_SEPTIEMBRE": "RUTA_4_29 DE SEPTIEMBRE",
-            "7_AQUILES_SERDAN": "RUTA_7_AQUILES_SERDÁN"
-        };
+function mostrarTarjetas() {
+  const container = document.getElementById("rutaContainer");
+  container.innerHTML = "";
+  const inicio = paginaActual * porPagina;
+  const fin = inicio + porPagina;
+  const tarjetasPagina = tarjetasFiltradas.slice(inicio, fin);
 
-        const porPagina = 4;
-        let paginaActual = 0;
-        let rutasFiltradas = [...rutas];
+  tarjetasPagina.forEach(({ nombre, archivo, imagen }) => {
+    const col = document.createElement("div");
+    col.className = "col-12 col-sm-6 col-lg-6";
 
-        function mostrarRutas() {
-            const container = document.getElementById("rutaContainer");
-            container.innerHTML = "";
-            const inicio = paginaActual * porPagina;
-            const fin = inicio + porPagina;
-            const rutasPagina = rutasFiltradas.slice(inicio, fin);
+    col.innerHTML = `
+      <a href="./Itinerario/Sur/${archivo}.html" class="text-decoration-none">
+        <div class="card border-0 rounded-5 shadow h-100">
+          <img src="../Activos/Imagenes/Sur/${imagen}.png" class="card-img-top rounded-top-5" alt="${nombre}">
+          <div class="card-body text-center rounded-bottom-5" style="background-color: #cd9a6c;">
+            <h5 class="fw-bold text-white mb-0">${nombre}</h5>
+          </div>
+        </div>
+      </a>
+    `;
+    container.appendChild(col);
+  });
+}
 
-            rutasPagina.forEach(nombre => {
-                const col = document.createElement("div");
-                col.className = "col-12 col-sm-6 col-lg-6";
-                const archivoBase = nombresArchivos[nombre] || (nombre.startsWith("AUTOBUSES") ? nombre : `RUTA_${nombre}`);
-                const visible = nombresVisibles[nombre] || nombre.replace(/_/g, ' ');
-                col.innerHTML = `
-                <a href="Itinerario/Sur/${archivoBase}.html" class="text-decoration-none">
-                    <div class="card border-0 rounded-5 shadow h-100">
-                        <img src="../Activos/Imagenes/Sur/${archivoBase}.png" class="card-img-top rounded-top-5" alt="${visible}">
-                        <div class="card-body text-center rounded-bottom-5" style="background-color: #cd9a6c;">
-                            <h5 class="fw-bold text-white mb-0">${visible}</h5>
-                        </div>
-                    </div>
-                </a>
-            `;
-                container.appendChild(col);
-            });
-        }
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (paginaActual > 0) {
+    paginaActual--;
+    mostrarTarjetas();
+  }
+});
 
-        // Navegación por flechas
-        document.getElementById("prevBtn").addEventListener("click", () => {
-            if (paginaActual > 0) {
-                paginaActual--;
-                mostrarRutas();
-            }
-        });
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if ((paginaActual + 1) * porPagina < tarjetasFiltradas.length) {
+    paginaActual++;
+    mostrarTarjetas();
+  }
+});
 
-        document.getElementById("nextBtn").addEventListener("click", () => {
-            if ((paginaActual + 1) * porPagina < rutasFiltradas.length) {
-                paginaActual++;
-                mostrarRutas();
-            }
-        });
+document.getElementById("buscadorRutas").addEventListener("input", function () {
+  const filtro = this.value.toLowerCase();
+  tarjetasFiltradas = tarjetas.filter(({ nombre }) =>
+    nombre.toLowerCase().includes(filtro)
+  );
+  paginaActual = 0;
+  mostrarTarjetas();
+});
 
-        // Buscador funcional
-        document.getElementById("buscadorRutas").addEventListener("input", function () {
-            const filtro = this.value.toLowerCase();
-            rutasFiltradas = rutas.filter(r => {
-                const visible = (nombresVisibles[r] || r).toLowerCase();
-                return visible.includes(filtro);
-            });
-            paginaActual = 0;
-            mostrarRutas();
-        });
-
-        // Mostrar rutas al cargar
-        mostrarRutas();
-    </script>
+mostrarTarjetas();
+</script>
 
 
     <footer class="dt-footer text-white py-4" style="background-color: #71785B;">
