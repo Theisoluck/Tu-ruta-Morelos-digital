@@ -175,6 +175,21 @@
             left: 10px;
             background: none;
             border: none;
+            z-index: 100;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0;
+            /* ⬅ SIN espacio entre ícono y texto */
+        }
+
+        #botonMenuAbierto {
+            visibility: hidden;
+            position: static;
+            top: 10px;
+            left: 10px;
+            background: none;
+            border: none;
             z-index: 1100;
             cursor: pointer;
             display: flex;
@@ -194,7 +209,24 @@
             color: #cd9a6c;
         }
 
+        #botonMenuAbierto i {
+            width: 50px;
+            height: auto;
+            color: #cd9a6c;
+        }
+
         #botonMenu span {
+            color: #cd9a6c;
+            font-weight: 700;
+            font-size: 1.1rem;
+            padding: 0 0.8rem;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            margin-left: 0;
+        }
+
+        #botonMenuAbierto span {
             color: #cd9a6c;
             font-weight: 700;
             font-size: 1.1rem;
@@ -220,7 +252,7 @@
                 padding-top: 70px;
             }
 
-            #botonMenu {
+            #botonMenuAbierto {
                 top: 5px;
                 left: 5px;
             }
@@ -300,12 +332,19 @@
             <i id="iconoMenu" class="material-icons">
                 arrow_back
             </i>
-            <!--<img id="iconoMenu" src="../Activos/Imagenes/menu1.png" alt="Menú" />-->
+            
             <span>Abrir menú</span>
         </button>
         
         <!--  MENÚ LATERAL CON 3 NIVELES  -->
         <div id="menuLateral" aria-label="Menú lateral rutas">
+            <button id="botonMenuAbierto" >
+            <i id="iconoMenuAbierto" class="material-icons">
+                arrow_forward
+            </i>
+            
+            <span>Cerrar menú</span>
+        </button>
             
             <div class="list-group">
                 <!-- ZONA CENTRO  -->
@@ -998,20 +1037,41 @@
         const botonMenu = document.getElementById('botonMenu');
         const iconoMenu = document.getElementById('iconoMenu');
         const menuLateral = document.getElementById('menuLateral');
+        const botonMenuAbierto =document.getElementById('botonMenuAbierto');
+        const iconMenuAbierto = document.getElementById('iconMenuAbierto');
         let menuAbierto = false;
 
         botonMenu.addEventListener('click', () => {
             menuAbierto = !menuAbierto;
             if (menuAbierto) {
                 menuLateral.classList.add('abierto');
-                botonMenu.classList.add('abierto');
-                iconoMenu.textContent = 'arrow_forward';
-                botonMenu.querySelector('span').textContent = 'Cerrar menú';
+                botonMenu.style.visibility = 'hidden';
+                botonMenuAbierto.style.visibility = 'visible';
+                //iconoMenu.textContent = 'arrow_forward';
+                //botonMenu.querySelector('span').textContent = 'Cerrar menú';
             } else {
                 menuLateral.classList.remove('abierto');
-                botonMenu.classList.remove('abierto');
-                iconoMenu.textContent = 'arrow_back'
-                botonMenu.querySelector('span').textContent = 'Abrir menú';
+                botonMenu.style.visibility = 'visible';
+                botonMenuAbierto.style = 'hidden';
+                //iconoMenu.textContent = 'arrow_back'
+                //botonMenu.querySelector('span').textContent = 'Abrir menú';
+            }
+        });
+
+        botonMenuAbierto.addEventListener('click', () => {
+            menuAbierto = !menuAbierto;
+            if (menuAbierto) {
+                menuLateral.classList.add('abierto');
+                botonMenu.style.visibility = 'hidden';
+                botonMenuAbierto.style.visibility = 'visible';
+                //iconoMenu.textContent = 'arrow_forward';
+                //botonMenu.querySelector('span').textContent = 'Cerrar menú';
+            } else {
+                menuLateral.classList.remove('abierto');
+                botonMenu.style.visibility = 'visible';
+                botonMenuAbierto.style = 'hidden';
+                //iconoMenu.textContent = 'arrow_back'
+                //botonMenu.querySelector('span').textContent = 'Abrir menú';
             }
         });
     </script>
