@@ -150,129 +150,226 @@
             </div>
         </div>
     </main>
+
     <script>
-        const rutas = [
-            "1", "2", "3", "4", "RUTA_5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17",
-            "RUTA_18_URBAN",
-            "RUTA_19",
-            "RUTA_20",
-            "ALIADOS DE MORELOS_URBAN",
-            "AUTOBUSES_OMSA_CHAPULTEPEC",
-            "BUENA_VISTA_DEL_MONTE_URBAN",
-            "CASPER_URBAN",
-            "CTM_URBAN",
-            "GENERACION_2000",
-            "INTERESCOLAR",
-            "INTERMUNICIPALES_URBAN",
-            "MARIANO_MATAMOROS_URBAN",
-            "OMETOCHTLI",
-            "RUTA_STA_URSULA_URBAN",
-            "TRANSPORTE_DE_PASAJEROS_SCL_MOR"
-        ];
+const tarjetas = [
+  {
+    nombre: "RUTA 1",
+    archivo: "RUTA 1",
+    imagen: "RUTA_1"
+  },
+  {
+    nombre: "RUTA 2",
+    archivo: "RUTA 2",
+    imagen: "RUTA_2"
+  },
+  {
+    nombre: "RUTA 3",
+    archivo: "RUTA 3",
+    imagen: "RUTA_3"
+  },
+  {
+    nombre: "RUTA 4",
+    archivo: "RUTA 4",
+    imagen: "RUTA_4"
+  },
+  {
+    nombre: "RUTA 5",
+    archivo: "RUTA 5",
+    imagen: "RUTA_5"
+  },
+  {
+    nombre: "RUTA 6",
+    archivo: "RUTA 6",
+    imagen: "RUTA_6"
+  },
+  {
+    nombre: "RUTA 7",
+    archivo: "RUTA 7",
+    imagen: "RUTA_7"
+  },
+  {
+    nombre: "RUTA 8",
+    archivo: "RUTA 8",
+    imagen: "RUTA_8"
+  },
+  {
+    nombre: "RUTA 9",
+    archivo: "RUTA 9",
+    imagen: "RUTA_9"
+  },
+  {
+    nombre: "RUTA 10",
+    archivo: "RUTA 10",
+    imagen: "RUTA_10"
+  },
+  {
+    nombre: "RUTA 11",
+    archivo: "RUTA 11",
+    imagen: "RUTA_11"
+  },
+  {
+    nombre: "RUTA 12",
+    archivo: "RUTA 12",
+    imagen: "RUTA_12"
+  },
+  {
+    nombre: "RUTA 13",
+    archivo: "RUTA 13",
+    imagen: "RUTA_13"
+  },
+  {
+    nombre: "RUTA 14",
+    archivo: "RUTA 14",
+    imagen: "RUTA_14"
+  },
+  {
+    nombre: "RUTA 15",
+    archivo: "RUTA 15",
+    imagen: "RUTA_15"
+  },
+  {
+    nombre: "RUTA 16",
+    archivo: "RUTA 16",
+    imagen: "RUTA_16"
+  },
+  {
+    nombre: "RUTA 17",
+    archivo: "RUTA 17",
+    imagen: "RUTA_17"
+  },
+  {
+    nombre: "RUTA 18",
+    archivo: "RUTA 18",
+    imagen: "RUTA_18_URBAN"
+  },
+  {
+    nombre: "RUTA 19",
+    archivo: "RUTA 19",
+    imagen: "RUTA_19"
+  },
+  {
+    nombre: "RUTA 20",
+    archivo: "RUTA 20",
+    imagen: "RUTA_20"
+  },
+  {
+    nombre: "RUTA SANTA URSULA",
+    archivo: "Santa Ursula",
+    imagen: "RUTA_STA_URSULA_URBAN"
+  },
+  {
+    nombre: "TRANSPORTE DE PASAJEROS SCL MOR",
+    archivo: "Transpote de Pasajeros SCL",
+    imagen: "TRANSPOTE_DE_PASAJEROS_SCL_MOR"
+  },
+  {
+    nombre: "ALIADOS DE MORELOS",
+    archivo: "Aliados de Morelos",
+    imagen: "ALIADOS DE MORELOS_URBAN"
+  },
+  {
+    nombre: "AUTOBUSES OMSA CHAPULTEPEC",
+    archivo: "Autobuses OMSA Chapultepec",
+    imagen: "AUTOBUSES_OMSA_CHAPULTEPEC"
+  },
+  {
+    nombre: "BUENA VISTA DEL MONTE",
+    archivo: "Buena Vista del Monte",
+    imagen: "BUENA_VISTA_DEL_MONTE_URBAN"
+  },
+  {
+    nombre: "CASPER",
+    archivo: "Casper",
+    imagen: "CASPER_URBAN"
+  },
+  {
+    nombre: "C.T.M",
+    archivo: "CTM",
+    imagen: "CTM_URBAN"
+  },
+  {
+    nombre: "GENERACION 2000",
+    archivo: "Generacion 2000",
+    imagen: "GENERACION_2000"
+  },
+  {
+    nombre: "INTERESCOLAR",
+    archivo: "Interescolar",
+    imagen: "INTERESCOLAR"
+  },
+  {
+    nombre: "INTERMUNICIPALES",
+    archivo: "Intermunicipales",
+    imagen: "INTERMUNICIPALES_URBAN"
+  },
+  {
+    nombre: "MARIANO MATAMOROS",
+    archivo: "Mariano Matamoros",
+    imagen: "MARIANO_MATAMOROS_URBAN"
+  },
+  {
+    nombre: "OMETOCHTLI",
+    archivo: "Ometochtli",
+    imagen: "OMETOCHTLI"
+  }
+];
 
-        const nombresVisibles = {
-            "1": "RUTA 1",
-            "2": "RUTA 2",
-            "3": "RUTA 3",
-            "4": "RUTA 4",
-            "6": "RUTA 6",
-            "RUTA_5": "RUTA 5",
-            "7": "RUTA 7",
-            "8": "RUTA 8",
-            "9": "RUTA 9",
-            "10": "RUTA 10",
-            "11": "RUTA 11",
-            "12": "RUTA 12",
-            "13": "RUTA 13",
-            "14": "RUTA 14",
-            "15": "RUTA 15",
-            "16": "RUTA 16",
-            "17": "RUTA 17",
-            "RUTA_18_URBAN": "RUTA 18 ",
-            "RUTA_19": "RUTA 19",
-            "RUTA_20": "RUTA 20",
-            "ALIADOS DE MORELOS_URBAN": "ALIADOS DE MORELOS ",
-            "AUTOBUSES_OMSA_CHAPULTEPEC": "AUTOBUSES OMSA CHAPULTEPEC",
-            "BUENA_VISTA_DEL_MONTE_URBAN": "BUENA VISTA DEL MONTE ",
-            "CASPER_URBAN": "CASPER ",
-            "CTM_URBAN": "C.T.M ",
-            "GENERACION_2000": "GENERACIÓN 2000",
-            "INTERESCOLAR": "INTERESCOLAR",
-            "INTERMUNICIPALES_URBAN": "INTERMUNICIPALES ",
-            "MARIANO_MATAMOROS_URBAN": "MARIANO MATAMOROS ",
-            "OMETOCHTLI": "OMETOCHTLI",
-            "RUTA_STA_URSULA_URBAN": "RUTA SANTA ÚRSULA ",
-            "TRANSPORTE_DE_PASAJEROS_SCL_MOR": "TRANSPORTE DE PASAJEROS SCL MOR"
-        };
+const porPagina = 4;
+let paginaActual = 0;
+let tarjetasFiltradas = [...tarjetas];
 
-        const nombresArchivos = {};
+function mostrarTarjetas() {
+  const container = document.getElementById("rutaContainer");
+  container.innerHTML = "";
+  const inicio = paginaActual * porPagina;
+  const fin = inicio + porPagina;
+  const tarjetasPagina = tarjetasFiltradas.slice(inicio, fin);
 
-        const porPagina = 4;
-        let paginaActual = 0;
-        let rutasFiltradas = [...rutas];
+  tarjetasPagina.forEach(({ nombre, archivo, imagen }) => {
+    const col = document.createElement("div");
+    col.className = "col-12 col-sm-6 col-lg-6";
 
-        function mostrarRutas() {
-            const container = document.getElementById("rutaContainer");
-            container.innerHTML = "";
-            const inicio = paginaActual * porPagina;
-            const fin = inicio + porPagina;
-            const rutasPagina = rutasFiltradas.slice(inicio, fin);
+    col.innerHTML = `
+      <a href="./Itinerario/Centro/${archivo}.html" class="text-decoration-none">
+        <div class="card border-0 rounded-5 shadow h-100">
+          <img src="../Activos/Imagenes/Centro/${imagen}.png" class="card-img-top rounded-top-5" alt="${nombre}">
+          <div class="card-body text-center rounded-bottom-5" style="background-color: #cd9a6c;">
+            <h5 class="fw-bold text-white mb-0">${nombre}</h5>
+          </div>
+        </div>
+      </a>
+    `;
+    container.appendChild(col);
+  });
+}
 
-            rutasPagina.forEach(nombre => {
-                const col = document.createElement("div");
-                col.className = "col-12 col-sm-6 col-lg-6";
+document.getElementById("prevBtn").addEventListener("click", () => {
+  if (paginaActual > 0) {
+    paginaActual--;
+    mostrarTarjetas();
+  }
+});
 
-                // Manejo correcto del nombre del archivo
-                let archivoBase = nombresArchivos[nombre];
-                if (!archivoBase) {
-                    archivoBase = /^[0-9]+$/.test(nombre) ? `RUTA_${nombre}` : nombre;
-                }
+document.getElementById("nextBtn").addEventListener("click", () => {
+  if ((paginaActual + 1) * porPagina < tarjetasFiltradas.length) {
+    paginaActual++;
+    mostrarTarjetas();
+  }
+});
 
-                const visible = nombresVisibles[nombre] || nombre.replace(/_/g, ' ');
+document.getElementById("buscadorRutas").addEventListener("input", function () {
+  const filtro = this.value.toLowerCase();
+  tarjetasFiltradas = tarjetas.filter(({ nombre }) =>
+    nombre.toLowerCase().includes(filtro)
+  );
+  paginaActual = 0;
+  mostrarTarjetas();
+});
 
-                col.innerHTML = `
-                <a href="Itinerario/Centro/${archivoBase}.html" class="text-decoration-none">
-                    <div class="card border-0 rounded-5 shadow h-100">
-                        <img src="../Activos/Imagenes/Centro/${archivoBase}.png" class="card-img-top rounded-top-5" alt="${visible}">
-                        <div class="card-body text-center rounded-bottom-5" style="background-color: #cd9a6c;">
-                            <h5 class="fw-bold text-white mb-0">${visible}</h5>
-                        </div>
-                    </div>
-                </a>
-            `;
-                container.appendChild(col);
-            });
-        }
+mostrarTarjetas();
+</script>
 
-        // Navegación por flechas
-        document.getElementById("prevBtn").addEventListener("click", () => {
-            if (paginaActual > 0) {
-                paginaActual--;
-                mostrarRutas();
-            }
-        });
-
-        document.getElementById("nextBtn").addEventListener("click", () => {
-            if ((paginaActual + 1) * porPagina < rutasFiltradas.length) {
-                paginaActual++;
-                mostrarRutas();
-            }
-        });
-
-        // Buscador funcional
-        document.getElementById("buscadorRutas").addEventListener("input", function () {
-            const filtro = this.value.toLowerCase();
-            rutasFiltradas = rutas.filter(r => {
-                const visible = (nombresVisibles[r] || r).toLowerCase();
-                return visible.includes(filtro);
-            });
-            paginaActual = 0;
-            mostrarRutas();
-        });
-
-        // Mostrar rutas al cargar
-        mostrarRutas();
-    </script>
 
     <footer class="dt-footer text-white py-4" style="background-color: #71785B;">
 
