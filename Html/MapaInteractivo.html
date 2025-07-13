@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mapa Interactivo </title>
-          <!-- Ícono en la pestaña del navegador -->
+    <!-- Ícono en la pestaña del navegador -->
     <link rel="icon" type="image/png" href="../Activos/Imagenes/Logoprincipal.png" />
 
     <!-- CSS propios 
@@ -378,13 +378,13 @@
             <i id="iconoMenu" class="material-icons">
                 arrow_back
             </i>
-            
+
             <span>Abrir menú</span>
         </button>
 
         <!--  MENÚ LATERAL CON 3 NIVELES  -->
         <div id="menuLateral" aria-label="Menú lateral rutas">
-            
+
             <div class="list-group">
                 <!-- ZONA CENTRO  -->
                 <a class="list-group-item nivel-1 mt-5" data-bs-toggle="collapse" href="#zonaCentro" role="button"
@@ -1024,6 +1024,29 @@
                 </a>
                 <div class="collapse" id="zonaOriente">
 
+                    <!-- Ruta Huexcalimones -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutasHuex" role="button"
+                        aria-expanded="false" aria-controls="rutasHuex">
+                        <i class="bi bi-caret-right-fill"></i> Ruta Huexcalimones
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutasHuex">
+                        <div id="rutasHuexCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta Interescolar -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutasInterescolarO"
+                        role="button" aria-expanded="false" aria-controls="rutasInterescolarO">
+                        <i class="bi bi-caret-right-fill"></i> Ruta Interescolar
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutasInterescolarO">
+                        <div id="rutasInterescolarOCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
                     <!-- Ruta 1 Oriente -->
                     <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta1O" role="button"
                         aria-controls="ruta1O" aria-expanded="false">
@@ -1034,6 +1057,17 @@
                             <!-- Checkboxes dinámicos se insertarán aquí -->
                         </div>
                     </div>
+                    <!-- Ruta 1B -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas1Bo" role="button"
+                        aria-expanded="false" aria-controls="rutas1Bo">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 1B
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas1Bo">
+                        <div id="rutas1BoCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
 
                     <!-- Ruta 2 Oriente -->
                     <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta2O" role="button"
@@ -1442,6 +1476,194 @@
                             <!-- Checkboxes dinámicos se insertarán aquí -->
                         </div>
                     </div>
+                    <!-- Ruta 21B Oriente -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta21BOriente" role="button"
+                        aria-expanded="false" aria-controls="ruta21BOriente">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 21B
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta21BOriente">
+                        <div id="ruta21BOrienteCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 21 Chalcatzingo -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#ruta21Chalcatzingo_o"
+                        role="button" aria-expanded="false" aria-controls="ruta21Chalcatzingo_o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 21 Chalcatzingo
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="ruta21Chalcatzingo_o">
+                        <div id="ruta21Chalcatzingo_oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 21 Ixtlilco El Grande -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas21Ixt" role="button"
+                        aria-expanded="false" aria-controls="rutas21Ixt">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 21 Ixtlilco El Grande
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas21Ixt">
+                        <div id="rutas21IxtCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 21 Las Amarillas de Jonacatepec -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas21Ama" role="button"
+                        aria-expanded="false" aria-controls="rutas21Ama">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 21 Las Amarillas de Jonacatepec
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas21Ama">
+                        <div id="rutas21AmaCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 21 Tecajec -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas21Tec" role="button"
+                        aria-expanded="false" aria-controls="rutas21Tec">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 21 Tecajec
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas21Tec">
+                        <div id="rutas21TecCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 21 Telixtac -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas21Tel" role="button"
+                        aria-expanded="false" aria-controls="rutas21Tel">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 21 Telixtac
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas21Tel">
+                        <div id="rutas21TelCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 22 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas22o" role="button"
+                        aria-expanded="false" aria-controls="rutas22o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 22
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas22o">
+                        <div id="rutas22oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 22A -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas22Ao" role="button"
+                        aria-expanded="false" aria-controls="rutas22Ao">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 22A
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas22Ao">
+                        <div id="rutas22AoCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 23 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas23o" role="button"
+                        aria-expanded="false" aria-controls="rutas23o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 23
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas23o">
+                        <div id="rutas23oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 24 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas24o" role="button"
+                        aria-expanded="false" aria-controls="rutas24o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 24
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas24o">
+                        <div id="rutas24oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 25 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas25o" role="button"
+                        aria-expanded="false" aria-controls="rutas25o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 25
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas25o">
+                        <div id="rutas25oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 26 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas26o" role="button"
+                        aria-expanded="false" aria-controls="rutas26o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 26
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas26o">
+                        <div id="rutas26oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 28 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas28o" role="button"
+                        aria-expanded="false" aria-controls="rutas28o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 28
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas28o">
+                        <div id="rutas28oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 29 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas29o" role="button"
+                        aria-expanded="false" aria-controls="rutas29o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 29
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas29o">
+                        <div id="rutas29oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 31 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas31o" role="button"
+                        aria-expanded="false" aria-controls="rutas31o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 31
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas31o">
+                        <div id="rutas31oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 33 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas33o" role="button"
+                        aria-expanded="false" aria-controls="rutas33o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 33
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas33o">
+                        <div id="rutas33oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+                    <!-- Ruta 34 -->
+                    <a class="list-group-item nivel-2" data-bs-toggle="collapse" href="#rutas34o" role="button"
+                        aria-expanded="false" aria-controls="rutas34o">
+                        <i class="bi bi-caret-right-fill"></i> Ruta 34
+                    </a>
+                    <div class="collapse ps-3 pt-2" id="rutas34o">
+                        <div id="rutas34oCheckboxes" class="nivel-3-container d-grid gap-2">
+                            <!-- Checkboxes dinámicos -->
+                        </div>
+                    </div>
+
+
 
 
 
@@ -1606,7 +1828,7 @@
         const botonMenu = document.getElementById('botonMenu');
         const iconoMenu = document.getElementById('iconoMenu');
         const menuLateral = document.getElementById('menuLateral');
-        const botonMenuAbierto =document.getElementById('botonMenuAbierto');
+        const botonMenuAbierto = document.getElementById('botonMenuAbierto');
         const iconMenuAbierto = document.getElementById('iconMenuAbierto');
         let menuAbierto = false;
 
@@ -1691,7 +1913,7 @@
 
 
     </script>
-
+<!--  Centro -->
     <script>
         /* Rutas Zona CENTRO – Ruta 1 */
         const rutasC1 = [
@@ -2443,7 +2665,7 @@
         const rutasC15 = [
             { id: 1, nombre: "1. COL. PORVENIR-CIUDAD CHAPULTEPEC-CHAMILPA-UNIVERSIDAD", etiqueta: "1. COL. PORVENIR-CIUDAD CHAPULTEPEC-CHAMILPA-UNIVERSIDAD", color: "#f81e1e" },
             { id: 2, nombre: "2. COL. PORVENIR-COL. MORELOS-STA. MARTHA-CHAMILPA-UNIVERSIDAD", etiqueta: "2. COL. PORVENIR-COL. MORELOS-STA. MARTHA-CHAMILPA-UNIVERSIDAD", color: "#f8ac1e" },
-            { id: 3, nombre: "3.- PORVENIR-COL. MORELOS-STA. MARIA-C.C.A.L.M.- CHAMILPA-UNIVERSIDAD", etiqueta: "3.- PORVENIR-COL. MORELOS-STA. MARIA-C.C.A.L.M.- CHAMILPA-UNIVERSIDAD", color: "#00ea60" }
+            { id: 3, nombre: "3.- PORVENIR-COL. MORELOS-STA. MARIA-C.C.A.L.M.- CHAMILPA-UNIVERSIDAD", etiqueta: "3. PORVENIR-COL. MORELOS-STA. MARIA-C.C.A.L.M.- CHAMILPA-UNIVERSIDAD", color: "#00ea60" }
         ];
 
         const contenedorC15 = document.getElementById("ruta15CCheckboxes");
@@ -2494,7 +2716,7 @@
 
         /* Rutas Zona CENTRO – Ruta 16 */
         const rutasC16 = [
-            { id: 1, nombre: "1.- SECCION LOS ROBLES EN CIVAC - LOMAS DEL CARRIL (TEMIXCO)", etiqueta: "1.- SECCION LOS ROBLES EN CIVAC - LOMAS DEL CARRIL (TEMIXCO)", color: "#f81e1e" },
+            { id: 1, nombre: "1.- SECCION LOS ROBLES EN CIVAC - LOMAS DEL CARRIL (TEMIXCO)", etiqueta: "1. SECCION LOS ROBLES EN CIVAC - LOMAS DEL CARRIL (TEMIXCO)", color: "#f81e1e" },
             { id: 2, nombre: "2. SECCION LOS ROBLES(CIVAC)-PUEBLO VIEJO(TEMIXCO)-SECCION LOS ROBLES(CIVAC)", etiqueta: "2. SECCION LOS ROBLES(CIVAC)-PUEBLO VIEJO(TEMIXCO)-SECCION LOS ROBLES(CIVAC)", color: "#f8ac1e" },
             { id: 3, nombre: "3. COL. JOSEFA ORTIZ DE DOMINGUEZ(JIUTEPEC)-LOMAS DEL CARRIL-COL. JOSEFA ORTIZ DE DOMINGUEZ(JIUTEPEC)", etiqueta: "3. COL. JOSEFA ORTIZ DE DOMINGUEZ(JIUTEPEC)-LOMAS DEL CARRIL-COL. JOSEFA ORTIZ DE DOMINGUEZ(JIUTEPEC)", color: "#00ea60" },
             { id: 4, nombre: "4.- COL. JOSEFA ORTIZ DE DOMINGUEZ (JIUTEPEC) - COL. MORELOS - PUEBLO VIEJO (TEMIXCO)", etiqueta: "4.- COL. JOSEFA ORTIZ DE DOMINGUEZ (JIUTEPEC) - COL. MORELOS - PUEBLO VIEJO (TEMIXCO)", color: "#013880" },
@@ -3385,7 +3607,7 @@
 
 
     </script>
-
+<!--  Sur -->
     <script>
         /* Rutas Zona SUR - Ruta 1 */
         const rutasS1 = [
@@ -3841,7 +4063,7 @@
         /* Rutas Zona SUR – Ruta 6 */
         const rutasS6 = [
             { id: 1, nombre: "1.- ALPUYECA-JOJUTLA-ALPUYECA", etiqueta: "1.- ALPUYECA-JOJUTLA-ALPUYECA", color: "#f81e1e" },
-            { id: 2, nombre: "2. JOJUTLA-PUENTE DE IXTLA-JOJUTLA (1)", etiqueta: "2. JOJUTLA-PUENTE DE IXTLA-JOJUTLA (1)", color: "#f8ac1e" },
+            { id: 2, nombre: "2. JOJUTLA-PUENTE DE IXTLA-JOJUTLA (1)", etiqueta: "2. JOJUTLA-PUENTE DE IXTLA-JOJUTLA ", color: "#f8ac1e" },
             { id: 3, nombre: "3.CIRCUITO ALPUYECA", etiqueta: "3.CIRCUITO ALPUYECA", color: "#00ea60" },
             { id: 4, nombre: "4. ALPUYECA-XOCHITEPEC-ALPUYECA", etiqueta: "4. ALPUYECA-XOCHITEPEC-ALPUYECA", color: "#013880" }
         ];
@@ -4573,19 +4795,112 @@
         });
     </script>
 
-    <!--  Script Oriente -->
+    <!--  Oriente -->
     <script>
         /* Rutas Zona oriente – Ruta HUEXCALIMONES */
-        
+        const rutasHuex = [
+            { id: 1, nombre: "RUTA HUEXCA LIMONES 1.-LOS LIMONES-HUEXCA-LOS LIMONES", etiqueta: "1. LOS LIMONES-HUEXCA-LOS LIMONES", color: "#8bc34a", carpeta: "Ruta_HUEXCALIMONES" },
+            { id: 2, nombre: "RUTA HUEXCA LIMONES 2.-CARRETERA OAXACA-M_XICO-SUFRAGIO EFECTIVO", etiqueta: "2. CARRETERA OAXACA-M_XICO-SUFRAGIO EFECTIVO", color: "#00a8e9", carpeta: "Ruta_HUEXCALIMONES" },
+        ];
+
+        const contenedorHuex = document.getElementById("rutasHuexCheckboxes");
+        const capasHuex = {};
+
+        rutasHuex.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutasHuex_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedorHuex.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasHuex[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capasHuex[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasHuex[ruta.id]) {
+                    map.removeLayer(capasHuex[ruta.id]);
+                    delete capasHuex[ruta.id];
+                }
+            });
+        });
         /* Rutas Zona oriente – Ruta INTERESCOLAR ORIENTE */
+        const rutasInterescolarO = [
+            { id: 1, nombre: "INTERESCOLAR 1.-Yautepec-Cuautla", etiqueta: "1. Yautepec-Cuautla", color: "#6f1a4b", carpeta: "Ruta_INTERESCOLAR" },
+        ];
+
+        const contenedorInterescolarO = document.getElementById("rutasInterescolarOCheckboxes");
+        const capasInterescolarO = {};
+
+        rutasInterescolarO.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutasInterescolarO_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedorInterescolarO.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capasInterescolarO[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capasInterescolarO[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capasInterescolarO[ruta.id]) {
+                    map.removeLayer(capasInterescolarO[ruta.id]);
+                    delete capasInterescolarO[ruta.id];
+                }
+            });
+        });
+
         /* Rutas Zona oriente – Ruta 1 */
         const rutasRuta1O = [
-            { id: 1, nombre: "1.-YECAPIXTECA-TORRES BURGOS-YECAPIXTECA", etiqueta: "1. YECAPIXTECA – TORRES BURGOS – YECAPIXTECA", color: "#f81e1e", carpeta: "Ruta 1" },
-            { id: 2, nombre: "2.-CRUCERO PAZULCO-COL. TORRES BURGOS-CRUCERO PAZULCO", etiqueta: "2. CRUCERO PAZULCO – TORRES BURGOS – CRUCERO PAZULCO", color: "#f8ac1e", carpeta: "Ruta 1" },
-            { id: 3, nombre: "3.-BRISAS-CASAS DEL RIO-BRISAS.", etiqueta: "3. BRISAS – CASAS DEL RÍO – BRISAS", color: "#00ea60", carpeta: "Ruta 1" },
-            { id: 4, nombre: "4.-PARAISO-PABLO TORRES BURGOS-PARAISO", etiqueta: "4. PARAÍSO – PABLO T. BURGOS – PARAÍSO", color: "#013880", carpeta: "Ruta 1" },
-            { id: 5, nombre: "5.-PIEDRA BLANCA-JUAN SARABIA-COL. P. TORRES BURGOS", etiqueta: "5. PIEDRA BLANCA – JUAN SARABIA – COL. T. BURGOS", color: "#ae46d5", carpeta: "Ruta1B" },
-            { id: 6, nombre: "6.-PIEDRA BLANCA-CONSTITUYENTES-COL. P. TORRES BURGOS", etiqueta: "6. PIEDRA BLANCA – CONSTITUYENTES – COL. T. BURGOS", color: "#ae46d5", carpeta: "Ruta1B" }
+            { id: 1, nombre: "1.-YECAPIXTECA-TORRES BURGOS-YECAPIXTECA", etiqueta: "1. YECAPIXTECA TORRES BURGOS YECAPIXTECA", color: "#f81e1e", carpeta: "Ruta 1" },
+            { id: 2, nombre: "2.-CRUCERO PAZULCO-COL. TORRES BURGOS-CRUCERO PAZULCO", etiqueta: "2. CRUCERO PAZULCO COL. TORRES BURGOS CRUCERO PAZULCO", color: "#f8ac1e", carpeta: "Ruta 1" },
+            { id: 3, nombre: "3.-BRISAS-CASAS DEL RIO-BRISAS.", etiqueta: "3. BRISAS CASAS DEL RIO BRISAS.", color: "#00ea60", carpeta: "Ruta 1" },
+            { id: 4, nombre: "4.-PARAISO-PABLO TORRES BURGOS-PARAISO", etiqueta: "4. PARAISO PABLO TORRES BURGOS PARAISO", color: "#013880", carpeta: "Ruta 1" },
+            { id: 5, nombre: "5.-PIEDRA BLANCA-JUAN SARABIA-COL. P. TORRES BURGOS", etiqueta: "5. PIEDRA BLANCA JUAN SARABIA COL. P. TORRES BURGOS", color: "#ae46d5", carpeta: "Ruta1B" },
+            { id: 6, nombre: "6.-PIEDRA BLANCA-CONSTITUYENTES-COL. P. TORRES BURGOS", etiqueta: "6. PIEDRA BLANCA CONSTITUYENTES COL. P. TORRES BURGOS", color: "#ae46d5", carpeta: "Ruta1B" }
         ];
 
         const contenedorRuta1O = document.getElementById("ruta1OCheckboxes");
@@ -4632,11 +4947,59 @@
                 }
             });
         });
+        const rutas1Bo = [
+            { id: 1, nombre: "5.-PIEDRA BLANCA-JUAN SARABIA-COL. P. TORRES BURGOS", etiqueta: "1. Piedra Blanca – Juan Sarabia – P. Torres Burgos", color: "#006768", carpeta: "Ruta1B" },
+            { id: 2, nombre: "6.-PIEDRA BLANCA-CONSTITUYENTES-COL. P. TORRES BURGOS", etiqueta: "2. Piedra Blanca – Constituyentes – P. Torres Burgos", color: "#e07f56", carpeta: "Ruta1B" },
+        ];
+        /* Rutas Zona oriente – Ruta 1B */
+        const contenedor1Bo = document.getElementById("rutas1BoCheckboxes");
+        const capas1Bo = {};
+
+        rutas1Bo.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas1Bo_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor1Bo.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas1Bo[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas1Bo[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas1Bo[ruta.id]) {
+                    map.removeLayer(capas1Bo[ruta.id]);
+                    delete capas1Bo[ruta.id];
+                }
+            });
+        });
+
         /* Rutas Zona oriente – Ruta 2 */
         const rutasOriente2 = [
             { id: 1, nombre: "RUTA 2 1.-RASTRO-BENITO QUEZADA-PATOS", etiqueta: "1. RASTRO - BENITO QUEZADA - PATOS", color: "#f81e1e" },
-            { id: 2, nombre: "RUTA 2 5.-RASTRO-REVOLUCIàN", etiqueta: "5. RASTRO - REVOLUCIÓN", color: "#f8ac1e" },
-            { id: 3, nombre: "RUTA 2 6.-RASTRO-LA VIRGEN", etiqueta: "6. RASTRO - LA VIRGEN", color: "#00ea60" }
+            { id: 2, nombre: "RUTA 2 5.-RASTRO-REVOLUCIàN", etiqueta: "2. RASTRO - REVOLUCIÓN", color: "#f8ac1e" },
+            { id: 3, nombre: "RUTA 2 6.-RASTRO-LA VIRGEN", etiqueta: "3. RASTRO - LA VIRGEN", color: "#00ea60" }
         ];
 
         const contenedorRuta2O = document.getElementById("ruta2OCheckboxes");
@@ -6584,6 +6947,882 @@
                 } else if (capas21Am[ruta.id]) {
                     map.removeLayer(capas21Am[ruta.id]);
                     delete capas21Am[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 21B */
+        const rutas21BOriente = [
+            { id: 1, nombre: "RUTA 21B 1.-TEPALCINGO-HUITCHILA-XALOSTOC-CUAUTLA", etiqueta: "1. Tepalcingo – Huitchila – Xalostoc – Cuautla", color: "#e6beff", carpeta: "Ruta21" },
+            { id: 2, nombre: "RUTA 21B 2.-HUITZILILLA-CUAUTLA", etiqueta: "2. Huitzililla – Cuautla", color: "#9a6324", carpeta: "Ruta21" }
+        ];
+
+        const contenedor21BOriente = document.getElementById("ruta21BOrienteCheckboxes");
+        const capas21BOriente = {};
+
+        rutas21BOriente.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `ruta21BOriente_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor21BOriente.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas21BOriente[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas21BOriente[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas21BOriente[ruta.id]) {
+                    map.removeLayer(capas21BOriente[ruta.id]);
+                    delete capas21BOriente[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 21 Chalcatzingo */
+        const rutas21Chalcatzingo_o = [
+            {
+                id: 1, nombre: "RUTA 21 CHALCATZINGO 1.-CHALCATZINGO-JONACATEPEC-CHALCATZINGO", etiqueta: "1. Chalcatzingo – Jonacatepec – Chalcatzingo", color: "#911eb4",
+                carpeta: "Ruta21"
+            }
+        ];
+
+        const contenedor21Chalcatzingo_o = document.getElementById("ruta21Chalcatzingo_oCheckboxes");
+        const capas21Chalcatzingo_o = {};
+
+        rutas21Chalcatzingo_o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `ruta21Chalcatzingo_o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor21Chalcatzingo_o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas21Chalcatzingo_o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas21Chalcatzingo_o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas21Chalcatzingo_o[ruta.id]) {
+                    map.removeLayer(capas21Chalcatzingo_o[ruta.id]);
+                    delete capas21Chalcatzingo_o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 21 Ixtlilco El Grande */
+        const rutas21Ixt = [
+            {
+                id: 1,
+                nombre: "1.-IXTLILCO EL GRANDE-AXOCHIAPAN",
+                etiqueta: "1. Ixtlilco El Grande – Axochiapan",
+                color: "#46f0f0",
+                carpeta: "Ruta21"
+            },
+            {
+                id: 2,
+                nombre: "2.-IXTLILCO EL GRANDE-TEPALCINGO",
+                etiqueta: "2. Ixtlilco El Grande – Tepalcingo",
+                color: "#f032e6",
+                carpeta: "Ruta21"
+            }
+        ];
+
+        const contenedor21Ixt = document.getElementById("rutas21IxtCheckboxes");
+        const capas21Ixt = {};
+
+        rutas21Ixt.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas21Ixt_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor21Ixt.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas21Ixt[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas21Ixt[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas21Ixt[ruta.id]) {
+                    map.removeLayer(capas21Ixt[ruta.id]);
+                    delete capas21Ixt[ruta.id];
+                }
+            });
+        });
+
+        /* Rutas Zona oriente – Ruta 21 Las amarillas de jonacatepec */
+        const rutas21Ama = [
+            {
+                id: 1,
+                nombre: "RUTA 21 AMARILLAS DE JONACATEPEC 1.-COL. LA CAPILLA-COL. SANTA CRUZ",
+                etiqueta: "1. Col. La Capilla – Col. Santa Cruz",
+                color: "#bcf60c",
+                carpeta: "Ruta21"
+            }
+        ];
+
+        const contenedor21Ama = document.getElementById("rutas21AmaCheckboxes");
+        const capas21Ama = {};
+
+        rutas21Ama.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas21Ama_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor21Ama.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas21Ama[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas21Ama[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas21Ama[ruta.id]) {
+                    map.removeLayer(capas21Ama[ruta.id]);
+                    delete capas21Ama[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 21 Tecajec */
+        const rutas21Tec = [
+            {
+                id: 1,
+                nombre: "RUTA 21 TECAJEC 1.-TECAJEC-CUAUTLA",
+                etiqueta: "1. Tecajec – Cuautla",
+                color: "#fabebe",
+                carpeta: "Ruta21"
+            }
+        ];
+
+        const contenedor21Tec = document.getElementById("rutas21TecCheckboxes");
+        const capas21Tec = {};
+
+        rutas21Tec.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas21Tec_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor21Tec.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas21Tec[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas21Tec[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas21Tec[ruta.id]) {
+                    map.removeLayer(capas21Tec[ruta.id]);
+                    delete capas21Tec[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 21 Telixtac */
+        const rutas21Tel = [
+            {
+                id: 1,
+                nombre: "RUTA 21 TELIXTAC 1.-TELIXTAC-QUEBRANTADERO-AXOCHIAPAN",
+                etiqueta: "1. Telixtac – Quebrantadero – Axochiapan",
+                color: "#008080",
+                carpeta: "Ruta21"
+            }
+        ];
+
+        const contenedor21Tel = document.getElementById("rutas21TelCheckboxes");
+        const capas21Tel = {};
+
+        rutas21Tel.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas21Tel_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor21Tel.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas21Tel[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas21Tel[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas21Tel[ruta.id]) {
+                    map.removeLayer(capas21Tel[ruta.id]);
+                    delete capas21Tel[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 22 */
+        const rutas22o = [
+            { id: 1, nombre: "RUTA 22 1.-OCUITUCO-CUAUTLA", etiqueta: "1. OCUITUCO-CUAUTLA ", color: "#e6194b", carpeta: "Ruta22" },
+            { id: 2, nombre: "RUTA 22 2.- OCOXALTEPEC - CUAUTLA", etiqueta: "2. OCOXALTEPEC - CUAUTLA ", color: "#3cb44b", carpeta: "Ruta22" },
+            { id: 3, nombre: "RUTA 22 3.-JUMILTEPEC-CUAUTLA", etiqueta: "3. JUMILTEPEC-CUAUTLA", color: "#ffe119", carpeta: "Ruta22" },
+            { id: 4, nombre: "RUTA 22 4.-CBTA 190-CUAUTLA-CBTA 190", etiqueta: "4. CBTA 190-CUAUTLA-CBTA 190 ", color: "#4363d8", carpeta: "Ruta22" },
+            { id: 5, nombre: "RUTA 22 5.-OCOXALTEPEC-TETELA-OCOXALTEPEC", etiqueta: "5. OCOXALTEPEC-TETELA-OCOXALTEPEC ", color: "#f58231", carpeta: "Ruta22" },
+            { id: 6, nombre: "RUTA 22 6.-OCUITUCO-TETELA-OCUITUCO", etiqueta: "6. OCUITUCO-TETELA-OCUITUCO ", color: "#911eb4", carpeta: "Ruta22" },
+            { id: 7, nombre: "RUTA 22 7.-TETELA-HUEPALCALCO-TETELA", etiqueta: "7. TETELA-HUEPALCALCO-TETELA ", color: "#46f0f0", carpeta: "Ruta22" },
+        ];
+
+        const contenedor22o = document.getElementById("rutas22oCheckboxes");
+        const capas22o = {};
+
+        rutas22o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas22o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor22o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas22o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas22o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas22o[ruta.id]) {
+                    map.removeLayer(capas22o[ruta.id]);
+                    delete capas22o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 22A */
+        const rutas22Ao = [
+            { id: 1, nombre: "RUTA 22A 1.-JUMILTEPEC-CENTRO DE JUMILTEPE", etiqueta: "1. JUMILTEPEC CENTRO DE JUMILTEPE", color: "#fabebe", carpeta: "Ruta22" },
+            { id: 2, nombre: "RUTA 22A 2. JUMILTEPEC-OCUITUCO-JUMILTEPEC", etiqueta: "2. JUMILTEPEC OCUITUCO JUMILTEPEC", color: "#ff5733", carpeta: "Ruta22" },
+            { id: 3, nombre: "RUTA 22A 3.-JUMILTEPEC-CRUCERO DE LA CONASUPO-JUMILTEPEC", etiqueta: "3. JUMILTEPEC CRUCERO DE LA CONASUPO JUMILTEPEC", color: "#2E86C1", carpeta: "Ruta22" },
+            { id: 4, nombre: "RUTA 22A 4.-JUMILTEPEC-CUAUTLA CENTRO", etiqueta: "4. JUMILTEPEC CUAUTLA CENTRO", color: "#28B463", carpeta: "Ruta22" }
+        ];
+
+        const contenedor22Ao = document.getElementById("rutas22AoCheckboxes");
+        const capas22Ao = {};
+
+        rutas22Ao.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas22Ao_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor22Ao.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas22Ao[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas22Ao[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas22Ao[ruta.id]) {
+                    map.removeLayer(capas22Ao[ruta.id]);
+                    delete capas22Ao[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 23 */
+        const rutas23o = [
+            { id: 1, nombre: "RUTA 23 1.-COL. OBRERA-YAUTEPEC", etiqueta: "1. COL. OBRERA YAUTEPEC", color: "#e6194b", carpeta: "Ruta23" },
+            { id: 2, nombre: "RUTA 23 2.-STA. CATARINA-YAUTEPEC", etiqueta: "2. STA. CATARINA YAUTEPEC", color: "#3cb44b", carpeta: "Ruta23" },
+            { id: 3, nombre: "RUTA 23 3.-LA NOPALERA-YAUTEPEC", etiqueta: "3. LA NOPALERA YAUTEPEC", color: "#ffe119", carpeta: "Ruta23" },
+            { id: 4, nombre: "RUTA 23 4.-ITZAMATITLAN-YAUTEPEC", etiqueta: "4. ITZAMATITLAN YAUTEPEC", color: "#4363d8", carpeta: "Ruta23" },
+            { id: 5, nombre: "RUTA 23 5.-YAUTEPEC-SAN JUANITO-YAUTEPEC", etiqueta: "5. YAUTEPEC SAN JUANITO YAUTEPEC", color: "#f58231", carpeta: "Ruta23" },
+            { id: 6, nombre: "RUTA 23 6.-BARRANCA HONDA-YAUTEPEC", etiqueta: "6. BARRANCA HONDA YAUTEPEC", color: "#911eb4", carpeta: "Ruta23" },
+            { id: 7, nombre: "RUTA 23 7.-YAUTEPEC-LOMAS DEL REAL-YAUTEPEC", etiqueta: "7. YAUTEPEC LOMAS DEL REAL YAUTEPEC", color: "#46f0f0", carpeta: "Ruta23" },
+            { id: 8, nombre: "RUTA 23 8.-ATLIHUAYAN-YAUTEPEC", etiqueta: "8. ATLIHUAYAN YAUTEPEC", color: "#f032e6", carpeta: "Ruta23" },
+            { id: 9, nombre: "RUTA 23 9.-LA HUIZACHERA-YAUTEPEC", etiqueta: "9. LA HUIZACHERA YAUTEPEC", color: "#bcf60c", carpeta: "Ruta23" },
+            { id: 10, nombre: "RUTA 23 10.-YAUTEPEC-COL.CUAUHTEMOC-YAUTEPEC", etiqueta: "10. YAUTEPEC COL.CUAUHTEMOC YAUTEPEC", color: "#fabebe", carpeta: "Ruta23" },
+            { id: 11, nombre: "RUTA 23 11.-YAUTEPEC-COL. ZARAGOZA-YAUTEPEC", etiqueta: "11. YAUTEPEC COL. ZARAGOZA YAUTEPEC", color: "#252440", carpeta: "Ruta23" },
+            { id: 12, nombre: "RUTA 23 12.-COL. APANQUETZALCO-YAUTEPEC", etiqueta: "12. COL. APANQUETZALCO YAUTEPEC", color: "#e6beff", carpeta: "Ruta23" },
+            { id: 13, nombre: "RUTA 23 13.-YAUTEPEC-COL. CAJIGAL-YAUTEPEC", etiqueta: "13. YAUTEPEC COL. CAJIGAL YAUTEPEC", color: "#9a6324", carpeta: "Ruta23" },
+            { id: 14, nombre: "RUTA 23 14.-YAUTEPEC-COL. EL CARACOL-YAUTEPEC", etiqueta: "14. YAUTEPEC COL. EL CARACOL YAUTEPEC", color: "#55dfd8", carpeta: "Ruta23" },
+            { id: 15, nombre: "RUTA 23 SAN CARLOS-YAUTEPEC", etiqueta: "15. SAN CARLOS YAUTEPEC", color: "#800000", carpeta: "Ruta23" }
+        ];
+
+        const contenedor23o = document.getElementById("rutas23oCheckboxes");
+        const capas23o = {};
+
+        rutas23o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas23o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor23o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas23o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas23o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas23o[ruta.id]) {
+                    map.removeLayer(capas23o[ruta.id]);
+                    delete capas23o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 24  */
+        const rutas24o = [
+            { id: 1, nombre: "RUTA 22A 1.-JUMILTEPEC-CENTRO DE JUMILTEPE", etiqueta: "1. JUMILTEPEC CENTRO DE JUMILTEPE", color: "#fabebe", carpeta: "Ruta22" },
+            { id: 2, nombre: "RUTA 22A 2. JUMILTEPEC-OCUITUCO-JUMILTEPEC", etiqueta: "2. JUMILTEPEC OCUITUCO JUMILTEPEC", color: "#ff5733", carpeta: "Ruta22" },  // Rojo-naranja
+            { id: 3, nombre: "RUTA 22A 3.-JUMILTEPEC-CRUCERO DE LA CONASUPO-JUMILTEPEC", etiqueta: "3. JUMILTEPEC CRUCERO DE LA CONASUPO JUMILTEPEC", color: "#2E86C1", carpeta: "Ruta22" }, // Azul fuerte
+            { id: 4, nombre: "RUTA 22A 4.-JUMILTEPEC-CUAUTLA CENTRO", etiqueta: "4. JUMILTEPEC CUAUTLA CENTRO", color: "#28B463", carpeta: "Ruta22" } // Verde vibrante
+        ];
+
+        const contenedor24o = document.getElementById("rutas24oCheckboxes");
+        const capas24o = {};
+
+        rutas24o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas24o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor24o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas24o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas24o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas24o[ruta.id]) {
+                    map.removeLayer(capas24o[ruta.id]);
+                    delete capas24o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 25  */
+        const rutas25o = [
+            { id: 1, nombre: "RUTA 25 1.-ACHICHIPICO-YECAPIXTLA", etiqueta: "1. ACHICHIPICO-YECAPIXTLA", color: "#f64f00", carpeta: "Ruta25" },
+        ];
+
+        const contenedor25o = document.getElementById("rutas25oCheckboxes");
+        const capas25o = {};
+
+        rutas25o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas25o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor25o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas25o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas25o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas25o[ruta.id]) {
+                    map.removeLayer(capas25o[ruta.id]);
+                    delete capas25o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 26  */
+        const rutas26o = [
+            { id: 1, nombre: "RUTA 26 1.-JOAQUIN CAMA¥OS-AXOCHIAPAN-JOAQUIN CAMA¥OS", etiqueta: "1. JOAQUIN CAMAÑOS AXOCHIAPAN JOAQUIN CAMAÑOS", color: "#f44336", carpeta: "Ruta26" },
+            { id: 2, nombre: "RUTA 26 2.-JOAQUIN CAMA¥OS-QUEBRANTADERO-AXOCHIAPAN", etiqueta: "2. JOAQUIN CAMAÑOS QUEBRANTADERO AXOCHIAPAN", color: "#3f51b5", carpeta: "Ruta26" }
+        ];
+
+        const contenedor26o = document.getElementById("rutas26oCheckboxes");
+        const capas26o = {};
+
+        rutas26o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas26o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor26o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas26o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas26o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas26o[ruta.id]) {
+                    map.removeLayer(capas26o[ruta.id]);
+                    delete capas26o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 28  */
+        const rutas28o = [
+            { id: 1, nombre: "RUTA 28 1.-TEXCALA-YECAPIXTLA-TEXCALA", etiqueta: "1. TEXCALA-YECAPIXTLA-TEXCALA", color: "#f06cbc", carpeta: "Ruta28" },
+        ];
+
+        const contenedor28o = document.getElementById("rutas28oCheckboxes");
+        const capas28o = {};
+
+        rutas28o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas28o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor28o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas28o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas28o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas28o[ruta.id]) {
+                    map.removeLayer(capas28o[ruta.id]);
+                    delete capas28o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 29  */
+        const rutas29o = [
+            { id: 1, nombre: "RUTA 29 1.-HUECAHUAXCO-CUAUTLA-HUACAHUAXCO", etiqueta: "1. HUECAHUAXCO-CUAUTLA-HUACAHUAXCO", color: "#123830", carpeta: "Ruta29" },
+        ];
+
+        const contenedor29o = document.getElementById("rutas29oCheckboxes");
+        const capas29o = {};
+
+        rutas29o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas29o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor29o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas29o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas29o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas29o[ruta.id]) {
+                    map.removeLayer(capas29o[ruta.id]);
+                    delete capas29o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 31  */
+        const rutas31o = [
+            { id: 1, nombre: "RUTA 31 1.-SAN ANDRS HUEYAPAN-CUAUTLA", etiqueta: "1. SAN ANDRS HUEYAPAN CUAUTLA", color: "#4caf50", carpeta: "Ruta31" },
+            { id: 2, nombre: "RUTA 31 2.-SAN ANDRS HUEYAPAN-TETELA DEL VOLCAN", etiqueta: "2. SAN ANDRS HUEYAPAN TETELA DEL VOLCAN", color: "#ff9800", carpeta: "Ruta31" },
+            { id: 3, nombre: "RUTA 31 3.-SAN ANDRS HUEYAPAN-RANCHO EL OLIVAR", etiqueta: "3. SAN ANDRS HUEYAPAN RANCHO EL OLIVAR", color: "#9c27b0", carpeta: "Ruta31" },
+            { id: 4, nombre: "RUTA 31 4.-SAN ANDRS HUEYAPAN-TLALCOMULCO", etiqueta: "4. SAN ANDRS HUEYAPAN TLALCOMULCO", color: "#00bcd4", carpeta: "Ruta31" }
+        ];
+
+        const contenedor31o = document.getElementById("rutas31oCheckboxes");
+        const capas31o = {};
+
+        rutas31o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas31o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor31o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas31o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas31o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas31o[ruta.id]) {
+                    map.removeLayer(capas31o[ruta.id]);
+                    delete capas31o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 33  */
+        const rutas33o = [
+            { id: 1, nombre: "RUTA 33 1.-YECAPIXTLA-BURLINGTON", etiqueta: "1. YECAPIXTLA BURLINGTON", color: "#e91e63", carpeta: "Ruta33" },
+            { id: 2, nombre: "RUTA 33 2.-BURLINGTON-CUAUTLA", etiqueta: "2. BURLINGTON CUAUTLA", color: "#009688", carpeta: "Ruta33" },
+            { id: 3, nombre: "RUTA 33 CUAUTLA - YECAPIXTLA-COL. LOS AMATES-CAMINO DEL POLLO-CUAUTLA", etiqueta: "3. CUAUTLA  YECAPIXTLA COL. LOS AMATES CAMINO DEL POLLO CUAUTLA", color: "#9c27b0", carpeta: "Ruta33" },
+            { id: 4, nombre: "RUTA 33 YECAPIXTLA-BURLINGTON-AMPLIACIàN LOMA BONITA-CUAUTLA", etiqueta: "4. YECAPIXTLA BURLINGTON AMPLIACIàN LOMA BONITA CUAUTLA", color: "#4caf50", carpeta: "Ruta33" },
+            { id: 5, nombre: "RUTA 33 YECAPIXTLA-BURLINGTON-HUEXCA", etiqueta: "5. YECAPIXTLA BURLINGTON HUEXCA", color: "#ff9800", carpeta: "Ruta33" },
+        ];
+
+        const contenedor33o = document.getElementById("rutas33oCheckboxes");
+        const capas33o = {};
+
+        rutas33o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas33o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor33o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas33o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas33o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas33o[ruta.id]) {
+                    map.removeLayer(capas33o[ruta.id]);
+                    delete capas33o[ruta.id];
+                }
+            });
+        });
+        /* Rutas Zona oriente – Ruta 34  */
+        const rutas34o = [
+            { id: 1, nombre: "RUTA 34 1.-COL. EMILIANO ZAPATA-PANTEàN-VOLCANES-LA CONCEPCIàN-HOSPITAL", etiqueta: "1. COL. EMILIANO ZAPATA PANTEÓN VOLCANES LA CONCEPCIÓN HOSPITAL", color: "#e91e63", carpeta: "Ruta34" },
+            { id: 2, nombre: "RUTA 34 2.-COL. EMILIANO ZANATA-16 DE SEPTIEMBRE-CENTRO-VOLCANES-LA JUµREZ", etiqueta: "2. COL. EMILIANO ZANATA 16 DE SEPTIEMBRE CENTRO VOLCANES LA JUÁREZ", color: "#009688", carpeta: "Ruta34" },
+            { id: 3, nombre: "RUTA 34 3.-COL. EMILIANO ZAPATA-VOLCANES", etiqueta: "3. COL. EMILIANO ZAPATA VOLCANES", color: "#9c27b0", carpeta: "Ruta34" },
+            { id: 4, nombre: "RUTA 34 4.-COL. EMILIANO ZAPATA-GUADALUPE-LIBRAMIENTO-16 DE SEPTIEMBRE", etiqueta: "4. COL. EMILIANO ZAPATA GUADALUPE LIBRAMIENTO 16 DE SEPTIEMBRE", color: "#4caf50", carpeta: "Ruta34" },
+            { id: 5, nombre: "RUTA 34 5.-COL. EMILIANO ZAPATA-VOLCANES-PALO REVUELTO", etiqueta: "5. COL. EMILIANO ZAPATA VOLCANES PALO REVUELTO", color: "#ff9800", carpeta: "Ruta34" },
+            { id: 6, nombre: "RUTA 34 6.-COL. EMILIANO ZAPATA-CENTRO DE SALUD-MARIANO MATAMOROS", etiqueta: "6. COL. EMILIANO ZAPATA CENTRO DE SALUD MARIANO MATAMOROS", color: "#3f51b5", carpeta: "Ruta34" },
+            { id: 7, nombre: "RUTA 34 7.-COL. EMILIANO ZAPATA-MIRADOR-VOLCANES", etiqueta: "7. COL. EMILIANO ZAPATA MIRADOR VOLCANES", color: "#795548", carpeta: "Ruta34" },
+            { id: 8, nombre: "RUTA 34 8.-COL. EMILIANO ZAPATA-CERRO CHINO-AGUA FRIA-ARROZAL SUR", etiqueta: "8. COL. EMILIANO ZAPATA CERRO CHINO AGUA FRIA ARROZAL SUR", color: "#607d8b", carpeta: "Ruta34" },
+        ];
+
+        const contenedor34o = document.getElementById("rutas34oCheckboxes");
+        const capas34o = {};
+
+        rutas34o.forEach(ruta => {
+            const cb = document.createElement("input");
+            cb.type = "checkbox";
+            cb.id = `rutas34o_${ruta.id}`;
+            cb.className = "form-check-input me-2";
+
+            const label = document.createElement("label");
+            label.className = "form-check-label";
+            label.htmlFor = cb.id;
+            label.textContent = ruta.etiqueta;
+
+            const fila = document.createElement("div");
+            fila.className = "form-check";
+            fila.append(cb, label);
+            contenedor34o.appendChild(fila);
+
+            cb.addEventListener("change", () => {
+                const archivo = encodeURIComponent(ruta.nombre) + ".geojson";
+                const url = `../../../Activos/Geojson/Orientejson/${ruta.carpeta}/${archivo}`;
+
+                if (cb.checked) {
+                    fetch(url)
+                        .then(res => {
+                            if (!res.ok) throw new Error("No se pudo cargar el archivo.");
+                            return res.json();
+                        })
+                        .then(data => {
+                            capas34o[ruta.id] = L.geoJSON(data, {
+                                style: { color: ruta.color, weight: 4 }
+                            }).addTo(map);
+                            map.fitBounds(capas34o[ruta.id].getBounds());
+                        })
+                        .catch(err => alert(`Error al cargar ${ruta.nombre}: ${err}`));
+                } else if (capas34o[ruta.id]) {
+                    map.removeLayer(capas34o[ruta.id]);
+                    delete capas34o[ruta.id];
                 }
             });
         });
