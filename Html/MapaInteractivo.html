@@ -240,7 +240,7 @@
 
 
         /* Responsive: en pantallas pequeñas, el menú ocupa toda la pantalla */
-        @media (max-width: 768px) {
+        /* @media (max-width: 768px) {
             #menuLateral {
                 width: 100%;
                 height: 100vh;
@@ -260,7 +260,7 @@
                 border: #283C2A;
                 width: 98%;
             }
-        }
+        } */
     </style>
 </head>
 
@@ -337,6 +337,14 @@
 
         <!--  MENÚ LATERAL CON 3 NIVELES  -->
         <div id="menuLateral" aria-label="Menú lateral rutas">
+
+            <button id="botonMenuAbierto">
+            <i id="iconoMenuAbierto" class="material-icons">
+                arrow_forward
+            </i>
+            
+            <span>Cerrar menú</span>
+        </button>
             
             <div class="list-group">
                 <!-- ZONA CENTRO  -->
@@ -1478,12 +1486,14 @@
                 menuLateral.classList.add('abierto');
                 botonMenu.style.visibility = 'hidden';
                 botonMenuAbierto.style.visibility = 'visible';
+
                 //iconoMenu.textContent = 'arrow_forward';
                 //botonMenu.querySelector('span').textContent = 'Cerrar menú';
             } else {
                 menuLateral.classList.remove('abierto');
                 botonMenu.style.visibility = 'visible';
                 botonMenuAbierto.style = 'hidden';
+
                 //iconoMenu.textContent = 'arrow_back'
                 //botonMenu.querySelector('span').textContent = 'Abrir menú';
             }
@@ -1495,12 +1505,14 @@
                 menuLateral.classList.add('abierto');
                 botonMenu.style.visibility = 'hidden';
                 botonMenuAbierto.style.visibility = 'visible';
+
                 //iconoMenu.textContent = 'arrow_forward';
                 //botonMenu.querySelector('span').textContent = 'Cerrar menú';
             } else {
                 menuLateral.classList.remove('abierto');
                 botonMenu.style.visibility = 'visible';
                 botonMenuAbierto.style = 'hidden';
+
                 //iconoMenu.textContent = 'arrow_back'
                 //botonMenu.querySelector('span').textContent = 'Abrir menú';
             }
