@@ -363,7 +363,7 @@
         <!--  MENÚ LATERAL CON 3 NIVELES  -->
         <div id="menuLateral" aria-label="Menú lateral rutas">
 
-<<<<<<< HEAD
+
             <button id="botonMenuAbierto">
             <i id="iconoMenuAbierto" class="material-icons">
                 arrow_forward
@@ -371,9 +371,7 @@
             
             <span>Cerrar menú</span>
         </button>
-            
-=======
->>>>>>> 8394ab8872e1dc4dbf51bcc94033c69523481d78
+
             <div class="list-group">
                 <!-- ZONA CENTRO  -->
                 <a class="list-group-item nivel-1 mt-5" data-bs-toggle="collapse" href="#zonaCentro" role="button"
@@ -7819,6 +7817,20 @@
                 }
             });
         });
+
+
+
+
+     
+    // Verificar cantidad de rutas al mostrar o actualizar
+    function verificarCantidadDeRutas() {
+        const rutas = document.querySelectorAll('.ruta-casilla');
+        if (rutas.length > 10) {
+            alert("¡Atención! Solo se permite mostrar un máximo de 10 rutas.");
+        }
+    }
+    verificarCantidadDeRutas();
+</script>
 
     </script>
 
