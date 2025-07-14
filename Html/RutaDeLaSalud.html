@@ -92,17 +92,19 @@
             </div>
         </nav>
 
-        <!-- Formulario búsqueda escritorio (desplegable) -->
-        <form id="desktopSearchForm" class="collapse  py-3 px-3" role="search" style="background-color: #C29A6D; "
-            onsubmit="event.preventDefault(); window.location.href='https://www.morelos.gob.mx/search?query=' + encodeURIComponent(document.getElementById('desktopSearchInput').value);">
-            <div class="container">
-                <div class="input-group">
-                    <input type="search" class="form-control" placeholder="Buscar en morelos.gob.mx" aria-label="Buscar"
-                        id="desktopSearchInput" required>
-                    <button class="btn btn-warning" type="submit"><i class="bi bi-arrow-right"></i></button>
-                </div>
-            </div>
-        </form>
+<!-- Formulario búsqueda escritorio (desplegable) -->
+    <form id="desktopSearchForm" class="collapse  py-3 px-3" role="search" style="background-color: #C29A6D; "
+      onsubmit="event.preventDefault(); window.location.href='https://www.morelos.gob.mx/search?query=' + encodeURIComponent(document.getElementById('desktopSearchInput').value);">
+      <div class="container">
+        <div class="input-group">
+          <input type="search" class="form-control" placeholder="Buscar en morelos.gob.mx" aria-label="Buscar"
+            id="desktopSearchInput" required>
+          <button class="btn rounded-end" type="submit" style="background-color: #C29A6D; border: 2px solid white;">
+            <i class="bi bi-arrow-right"></i>
+          </button>
+        </div>
+      </div>
+    </form>
 
         <!-- Script para botón de búsqueda en escritorio -->
         <script>
